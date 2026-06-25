@@ -1,0 +1,58 @@
+<!--@layout(/layout/basic/layout.html)-->
+<!--@css(/customhtml/qc/qc.css)-->
+<!--@js(/customhtml/qc/qc.js)-->
+
+<!-- =====================================================
+     QC STANDARD — 카페24 게시판 API 직접 렌더링 버전
+     iframe 제거 → fetch() + 카페24 REST API 사용
+===================================================== -->
+
+<div module="board_title_5">
+    <div class="titleArea">
+        <div class="title">
+            <h2>QC STANDARD</h2>
+            <p>각 제품 QC와 관련된 내용을 안내해드립니다.</p>
+        </div>
+        <div class="pagination-wrapper">
+            <div class="swiper-pagination faq-pagination"></div>
+        </div>
+    </div>
+</div>
+
+<div id="faq" class="swiper">
+    <div class="swiper-wrapper">
+
+        <!-- 슬라이드는 JS가 동적으로 채움 -->
+        <!-- category_no 1~5 각각 하나의 슬라이드 -->
+        <div class="swiper-slide" data-category="1">
+            <div class="board-container">
+                <div class="board-loading">불러오는 중…</div>
+            </div>
+        </div>
+
+        <div class="swiper-slide" data-category="2">
+            <div class="board-container">
+                <div class="board-loading">불러오는 중…</div>
+            </div>
+        </div>
+
+        <div class="swiper-slide" data-category="3">
+            <div class="board-container">
+                <div class="board-loading">불러오는 중…</div>
+            </div>
+        </div>
+
+        <div class="swiper-slide" data-category="4">
+            <div class="board-container">
+                <div class="board-loading">불러오는 중…</div>
+            </div>
+        </div>
+
+        <div class="swiper-slide" data-category="5">
+            <div class="board-container">
+                <div class="board-loading">불러오는 중…</div>
+            </div>
+        </div>
+
+    </div>
+</div>

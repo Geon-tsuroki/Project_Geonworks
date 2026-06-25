@@ -1,0 +1,171 @@
+<!-- 개선된 헤더 HTML 명세 (W3C 웹 접근성 준수: aria-haspopup, aria-expanded 적용) -->
+<header id="header" class="layout3" data-ez-layout="layout3" data-ez="contents-1nbwjdk-1" style="margin-bottom: 0px;border-bottom: solid 1px #000 !important;">
+	<div class="main_top_banner ez-align-center" data-ez-module="top-banner" data-ez-align="center" data-ez-role="style.color" data-ez-display="visible" data-ez="contents-1v1beuy-1" style="background-color:rgb(#000000); ">
+		<div class="top_banner_box_inner">
+			<div class="top_banner_text">
+				<a data-ez-role="a" href="http://smartstore.naver.com/geonlab" data-href="http://smartstore.naver.com/geonlab" target="_blank" style="color: rgb(#ffffff); font-weight: 300;">네이버 GEONWORKS 지온웍스 한국 공식 스마트 스토어를 이용 바랍니다.</a>
+			</div>
+			<div class="top_banner_close" data-ez-role="close" style="display: block;">
+				<i aria-hidden="true" class="icon icoClose" style="display:flex; fill:#ffffff;"></i>
+			</div>
+		</div>
+	</div>
+	<ez-prop data-version="1.0.0" type="layout">
+		<ez-var data-prop="layout" data-namespace="ez.layout.header.layout" data-type="array">
+			<ez-item data-id="layout3" data-name="1단 기본형"></ez-item>
+			<ez-item data-id="layout2" data-name="2단 좌측형"></ez-item>
+			<ez-item data-id="layout4" data-name="2단 혼합형"></ez-item>
+			<ez-item data-id="layout1" data-name="2단 중앙형 (아이콘 하단)"></ez-item>
+			<ez-item data-id="layout5" data-name="2단 중앙형 (아이콘 상단)"></ez-item>
+		</ez-var>
+	</ez-prop>
+	<div class="inner">
+		<div class="toparea display_pc_only">
+			<div class="toparea_shoppinginfo">
+				<div module="Layout_multishopList">
+					<button type="button" class="toggle">{$current_language} <i aria-hidden="true" class="icon icoArrowBottom"></i></button>
+					<ul module="Layout_multishopListitem">
+						<li class="{$selected_class}">
+							<a href="//{$shop_domain}/">{$locale_language}</a>
+						</li>
+						<li class="{$selected_class}">
+							<a href="//{$shop_domain}/">{$locale_language}</a>
+						</li>
+					</ul>
+				</div>
+				<div data-ez-group="shopping-info" data-ez-role="list">
+					<ul module="Layout_shoppingInfo">
+						<li class="{$use_mileage|display}"><a href="/myshop/mileage/historyList.html">{$mileage_name} <strong>{$mileage}</strong></a></li>
+						<li class="{$use_deposit|display}"><a href="/myshop/deposits/historyList.html">{$deposit_name} <strong>{$deposit}</strong></a></li>
+						<li class="{$use_interest_prd|display}"><a href="/myshop/wish_list.html">관심상품 <strong>{$interest_prd_cnt}</strong></a></li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="toparea_state" data-ez-group="top-util-menu" data-ez-role="list">
+				<a data-ez-item="join" module="Layout_statelogoff" href="/member/agreement.html" style="color: rgb(#222); font-weight: 400;">회원가입</a>
+				<a data-ez-item="login" module="Layout_statelogoff" href="/member/login.html" style="color: rgb(#222); font-weight: 400;">로그인</a>
+				<a data-ez-item="modify" module="Layout_stateLogon" href="/member/modify.html">내정보수정</a>
+				<a data-ez-item="logout" module="Layout_stateLogon" href="{$action_logout}" style="color: rgb(#222);">로그아웃</a>
+				<a data-ez-item="order" href="/myshop/order/list.html">주문조회</a>
+				<a data-ez-item="mypage" module="Layout_stateLogon" href="/myshop/index.html">마이페이지</a>
+				<div class="toparea_state_board">
+					<ul module="Layout_BoardInfo">
+						<li><a href="{$link_board_list}">{$board_name}</a></li>
+						<li><a href="{$link_board_list}">{$board_name}</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<div class="top_nav_box" id="top_nav_box">
+			<div class="top_logo" module="Layout_LogoTop"><a href="/"><img src="{$logo}" alt="{$mall_name}"></a></div>
+			<div class="top_nav"><a href="javascript:;" class="eNavFold"><i aria-hidden="true" class="icon icoNav"></i></a></div>
+
+			<div data-ez-module="menu-main/1" data-ez-mode="manual">
+				<div class="xans-element- xans-layout xans-layout-category top_category">
+					<ul>
+						<!-- 1뎁스: SHOP (하위 메뉴 있음 -> ARIA 속성 추가) -->
+						<li>
+							<a href="#" aria-haspopup="true" aria-expanded="false">SHOP</a>
+							<ul class="sub_cate01">
+								<!-- 2뎁스: Collections (하위 메뉴 있음 -> ARIA 속성 추가) -->
+								<li>
+									<a href="#" aria-haspopup="true" aria-expanded="false">Collections</a>
+									<ul class="sub_cate02">
+										<li><a href="/category/Keyboards/24/">Barebones</a></li>
+										<li><a href="/category/PCBs/25/">PCBs</a></li>
+										<li><a href="/category/Plates/26/">Plates</a></li>
+										<li><a href="https://geonworks.cafe24.com/skin-skin4/category/Keyboards/94/">Weights</a></li>
+										<li><a href="https://geonworks.cafe24.com/skin-skin4/category/Keyboards/93/">Foams</a></li>
+										<li><a href="https://geonworks.cafe24.com/skin-skin4/category/Keyboards/92/">Feets</a></li>
+									</ul>
+								</li>
+								<!-- 2뎁스: Parts (하위 메뉴 있음 -> ARIA 속성 추가) -->
+								<li>
+									<a href="#" aria-haspopup="true" aria-expanded="false">Parts</a>
+									<ul class="sub_cate02">
+										<li><a href="https://geonworks.cafe24.com/skin-skin4/category/Keyboards/89/">Switches</a></li>
+										<li><a href="/category/Keycaps/27/">Keycaps</a></li>
+										<li><a href="https://geonworks.cafe24.com/skin-skin4/category/Keyboards/91/">Palm · Wrist rests</a></li>
+									</ul>
+								</li>
+								<li><a href="/category/%EC%98%88%EC%95%BD%ED%8C%90%EB%A7%A4/75/">Group Buy</a></li>
+							</ul>
+						</li>
+						<!-- 1뎁스: INFORMATION (하위 메뉴 있음 -> ARIA 속성 추가) -->
+						<li>
+							<a href="#" aria-haspopup="true" aria-expanded="false">INFORMATION</a>
+							<ul class="sub_cate01">
+								<!-- 2뎁스: Portfolio (하위 메뉴 있음 -> ARIA 속성 추가) -->
+								<li>
+									<a href="https://geonworks.cafe24.com/skin-skin4/customhtml/product-portfolio/wholeproduct.html" aria-haspopup="true" aria-expanded="false">Portfolio</a>
+									<ul class="sub_cate02">
+										<li><a href="https://geonworks.cafe24.com/skin-skin4/customhtml/product-portfolio/geonworks.html">GEONWORKS Original</a></li>
+										<li><a href="https://geonworks.cafe24.com/skin-skin4/customhtml/other/other.html">Collaborations</a></li>
+									</ul>
+								</li>
+								<!-- 2뎁스: Schedule (하위 메뉴 있음 -> ARIA 속성 추가) -->
+								<li>
+									<a href="#" aria-haspopup="true" aria-expanded="false">Schedule</a>
+									<ul class="sub_cate02">
+										<li><a href="/customhtml/instock.html">To be released</a></li>
+										<li><a href="/customhtml/GB_schedule.html">Group buy</a></li>
+									</ul>
+								</li>
+							</ul>
+						</li>
+						<!-- 1뎁스: SUPPORT (하위 메뉴 있음 -> ARIA 속성 추가) -->
+						<li>
+							<a href="#" aria-haspopup="true" aria-expanded="false">SUPPORT</a>
+							<ul class="sub_cate01">
+								<!-- 2뎁스: Build Guide (하위 메뉴 있음 -> ARIA 속성 추가) -->
+								<li>
+									<a href="#" aria-haspopup="true" aria-expanded="false">Build Guide</a>
+									<ul class="sub_cate02">
+										<li><a href="/customhtml/beginnerGuide/beginnerguide.html">키보드 입문 가이드</a></li>
+										<li><a href="/customhtml/assembleguide/assembleguide.html">커스텀 키보드 조립 가이드</a></li>
+									</ul>
+								</li>
+								<!-- 2뎁스: Production Manual (하위 메뉴 있음 -> ARIA 속성 추가) -->
+								<li>
+									<a href="#" aria-haspopup="true" aria-expanded="false">Production Manual</a>
+									<ul class="sub_cate02">
+										<li><a href="https://geonworks.cafe24.com/skin-skin4/customhtml/Portfolio/geonworks-original-manual.html">자사 제품 매뉴얼</a></li>
+										<li><a href="https://geonworks.cafe24.com/skin-skin4/customhtml/collaboration/Other-Brands-Manual.html">타사 제품 매뉴얼</a></li>
+										<li><a href="/customhtml/venomguide.html">VENOM PCB 매뉴얼</a></li>
+									</ul>
+								</li>
+								<!-- 2뎁스: Download (하위 메뉴 있음 -> ARIA 속성 추가) -->
+								<li>
+									<a href="#" aria-haspopup="true" aria-expanded="false">Download</a>
+									<ul class="sub_cate02">
+										<li><a href="https://geonworks.cafe24.com/skin-skin4/customhtml/firmware/firmware.html?board_no=7&amp;cate_no=2&amp;category_no=1">자사 제품 PCB 펌웨어</a></li>
+										<li><a href="https://geonworks.cafe24.com/skin-skin4/customhtml/firmware/firmware.html?board_no=7&amp;category_no=2">타사 제품 PCB 펌웨어</a></li>
+									</ul>
+								</li>
+							</ul>
+						</li>
+						<!-- 1뎁스: SERVICE (하위 메뉴 있지만 3뎁스는 없음 -> 1뎁스에만 ARIA 추가) -->
+						<li>
+							<a href="#" aria-haspopup="true" aria-expanded="false">SERVICE</a>
+							<ul class="sub_cate01">
+								<li><a href="/board/%EA%B3%B5%EC%A7%80%EC%82%AC%ED%95%AD/1/">Notice</a></li>
+								<li><a href="https://geonworks.cafe24.com/skin-skin4/customhtml/qc/qcstandard.html">QC</a></li>
+								<li><a href="https://geonworks.cafe24.com/skin-skin4/customhtml/faq/faq.html">FAQ</a></li>
+								<li><a href="https://geonworks.cafe24.com/skin-skin4/customhtml/business/businessinquiry.html">Business Inquiry</a></li>
+								<li><a href="/customhtml/Compatibility-checker.html">호환성 체크</a></li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="top_mypage">
+				<a href="javascript:;" class="eSearch"><!--@import(/svg/icon-search.html)--></a>
+				<a href="/myshop/index.html"><!--@import(/svg/icon-user.html)--></a>
+				<a href="/order/basket.html" module="Layout_orderBasketcount"><!--@import(/svg/icon-cart.html)--><span class="count {$basket_count_display|display} {$basket_count_display_class}"><span class="{$basket_count_class}">{$basket_count}</span></span></a>
+			</div>
+		</div>
+	</div>
+</header>

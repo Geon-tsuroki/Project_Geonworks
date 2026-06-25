@@ -1,0 +1,89 @@
+<!--@layout(/layout/basic/layout.html)-->
+<!--@css(/customhtml/test.css)-->
+<!--@js(/customhtml/test.js)-->
+<div module="board_title_5">
+    <div class="titleArea">
+        <div class="title">
+            <h2>QC STANDARD</h2>
+            <p>각 제품 QC와 관련된 내용을 안내해드립니다.</p>
+        </div>
+        <div class="pagination-wrapper">
+            <div class="swiper-pagination faq-pagination"></div>
+        </div>
+    </div>
+</div>
+
+<div id="boardDataBridge" style="display:none;">
+    <table module="board_list_1002">
+        <tr class="data-row" data-category="{$category_name}">
+            <td class="chk no">{$checkbox}<span class="RW">{$no}</span></td>
+            <td class="subject left txtBreak">
+                {$icon_re}{$icon_lock}<a href="{$link_board_detail}" style="{$link_color}">{$subject}</a>{$icon_file}<span class="comment">{$comment_count}</span>{$icon_mobile}{$icon_new}{$icon_hit}
+            </td>
+            <td class="category-field">{$category_name}</td>
+            <td>{$writer}</td>
+            <td>{$write_date}</td>
+            <td>{$hit_count}</td>
+        </tr>
+    </table>
+</div>
+
+<div id="faq" class="swiper">
+    <div class="swiper-wrapper">
+        
+        <div class="swiper-slide slide1">
+            <div class="ec-base-table typeList">
+                <table border="1">
+                    <caption>카테고리 1 목록</caption>
+                    <colgroup>
+                        <col style="width:80px;"><col style="width:auto;"><col style="width:100px;"><col style="width:90px;"><col style="width:120px;"><col style="width:74px;">
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th scope="col">번호</th><th scope="col">제목</th><th scope="col">카테고리</th><th scope="col">작성자</th><th scope="col">작성일</th><th scope="col">조회</th>
+                        </tr>
+                    </thead>
+                    <tbody class="category-target-1">
+                        </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="swiper-slide slide2">
+            <div class="ec-base-table typeList">
+                <table border="1">
+                    <caption>카테고리 2 목록</caption>
+                    <colgroup>
+                        <col style="width:80px;"><col style="width:auto;"><col style="width:100px;"><col style="width:90px;"><col style="width:120px;"><col style="width:74px;">
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th scope="col">번호</th><th scope="col">제목</th><th scope="col">카테고리</th><th scope="col">작성자</th><th scope="col">작성일</th><th scope="col">조회</th>
+                        </tr>
+                    </thead>
+                    <tbody class="category-target-2">
+                        </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div module="board_ButtonList_1002" class="ec-base-button gBottom {$write_display|display}">
+    <span class="gRight">
+        <a href="/board/free/write.html{$param_write}" class="btnSubmitFix sizeM">글쓰기</a>
+    </span>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+<script src="main.js"></script>
+<script>
+    const faqswiper = new Swiper(`.swiper`, {
+      slidesPerView: 1,
+      spaceBetween: 0,
+      pagination: {
+      	el: `.faq-pagination`,
+        clickable: true,
+      }
+    });
+</script>

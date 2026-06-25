@@ -1,0 +1,148 @@
+<!--@layout(/layout/basic/layout.html)-->
+<div class="section" module="Board_ListPackage_5" data-ez="contents-1n3bxcq-1">
+    <!--@css(/css/module/board/listPackage.css)-->
+    <!--@css(/css/custom/venomguide.css)-->
+    <!--@css(/css/custom/venomcategory.css)-->
+    <!--@css(/css/custom/commonmanual.css)-->
+    <div module="board_title_5">
+            <div class="titleArea">
+                <div class="title">
+                    <h2>{$board_title}</h2>
+                    <p>{$board_info}</p>  
+                </div>
+        </div>
+    </div>
+
+    
+
+    <div class="ec-base-table typeList">
+        <table border="1">
+            <caption>게시판 목록</caption>
+            <div module="board_ButtonList_5" class="ec-base-button gBottom {$write_display|display}">
+                <span class="gRight">
+                    <a href="/board/free/write.html{$param_write}" class="btnSubmitFix sizeM {$write_display|display}">글쓰기</a>
+                </span>
+            </div>
+            <colgroup module="board_listheader_5">
+                <col style="width:80px;">
+                <col style="width:auto;">
+                <col style="width:100px;" class="{$config.is_category|display}">
+                <col style="width:90px;">
+                <col style="width:120px;" class="{$config.use_date|display}">
+                <col style="width:74px;" class="{$config.use_cnt|display}">
+                <col style="width:94px;" class="{$config.is_use_point|display}">
+            </colgroup>
+            <tbody module="board_notice_5" class="center">
+                <!--
+                    $count = 10
+                    $login_page_url = /member/login.html
+                    $deny_access_url = /index.html
+                -->
+                <tr style="{$list_bg_color} {$list_char_color}" class="{$block_target_class}" {$block_data_attr}>
+                    <td class="chk">{$checkbox}<span class="RW">{$notice_icon}</span></td>
+                    <td class="subject left txtBreak">
+                        <span class="badge">{$notice_icon}</span> <strong>{$icon_re}{$icon_lock}<a href="{$link_board_detail}" style="{$link_color}" class="{$block_content_class}">{$subject}</a>{$icon_file}<span class="comment">{$comment_count}</span>{$icon_mobile}{$icon_new}{$icon_hit}</strong>
+                    </td>
+                    <td class="{$category_display|display}">{$category_name}</td>
+                    <td>{$member_icon}{$writer}</td>
+                    <td class="{$date_display|display}">{$write_date}</td>
+                    <td class="{$hit_display|display}"><span class="RTMI">조회</span> {$hit_count}</td>
+                    <td class="{$point_display|display}"><img src="//img.echosting.cafe24.com/skin/skin/board/icon-star-rating{$point_count}.svg" alt="{$point_count}점" loading="lazy" ez-prevent="img"></td>
+                </tr>
+                <tr style="{$list_bg_color} {$list_char_color}" class="{$block_target_class}" {$block_data_attr}>
+                    <td class="chk">{$checkbox}<span class="RW">{$notice_icon}</span></td>
+                    <td class="subject left txtBreak">
+                        <span class="badge">{$notice_icon}</span> <strong>{$icon_re}{$icon_lock}<a href="{$link_board_detail}" style="{$link_color}" class="{$block_content_class}">{$subject}</a>{$icon_file}<span class="comment">{$comment_count}</span>{$icon_mobile}{$icon_new}{$icon_hit}</strong>
+                    </td>
+                    <td class="{$category_display|display}">{$category_name}</td>
+                    <td>{$member_icon}{$writer}</td>
+                    <td class="{$date_display|display}">{$write_date}</td>
+                    <td class="{$hit_display|display}"><span class="RTMI">조회</span> {$hit_count}</td>
+                    <td class="{$point_display|display}"><img src="//img.echosting.cafe24.com/skin/skin/board/icon-star-rating{$point_count}.svg" alt="{$point_count}점" loading="lazy" ez-prevent="img"></td>
+                </tr>
+            </tbody>
+            <tbody module="board_fixed_5" class="center">
+                <!--
+                    $count = 10
+                    $login_page_url = /member/login.html
+                    $deny_access_url = /index.html
+                -->
+                <tr style="{$list_bg_color} {$list_char_color}" class="{$block_target_class}" {$block_data_attr}>
+                    <td class="chk">{$checkbox}<span class="RW">{$fixed_icon}</span></td>
+                    <td class="subject left txtBreak">
+                        <span class="badge">{$fixed_icon}</span> <strong>{$icon_re}{$icon_lock}<a href="{$link_board_detail}" style="{$link_color}" class="{$block_content_class}">{$subject}</a>{$icon_file}<span class="comment">{$comment_count}</span>{$icon_new}{$icon_hit}</strong>
+                    </td>
+                    <td class="{$category_display|display}">{$category_name}</td>
+                    <td>{$member_icon}{$writer}</td>
+                    <td class="{$date_display|display}">{$write_date}</td>
+                    <td class="{$hit_display|display}"><span class="RTMI">조회</span> {$hit_count}</td>
+                    <td class="{$point_display|display}"><img src="//img.echosting.cafe24.com/skin/skin/board/icon-star-rating{$point_count}.svg" alt="{$point_count}점" loading="lazy" ez-prevent="img"></td>
+                </tr>
+                <tr style="{$list_bg_color} {$list_char_color}" class="{$block_target_class}" {$block_data_attr}>
+                    <td class="chk">{$checkbox}<span class="RW">{$fixed_icon}</span></td>
+                    <td class="subject left txtBreak">
+                        <span class="badge">{$fixed_icon}</span> <strong>{$icon_re}{$icon_lock}<a href="{$link_board_detail}" style="{$link_color}" class="{$block_content_class}">{$subject}</a>{$icon_file}<span class="comment">{$comment_count}</span>{$icon_new}{$icon_hit}</strong>
+                    </td>
+                    <td class="{$category_display|display}">{$category_name}</td>
+                    <td>{$member_icon}{$writer}</td>
+                    <td class="{$date_display|display}">{$write_date}</td>
+                    <td class="{$hit_display|display}"><span class="RTMI">조회</span> {$hit_count}</td>
+                    <td class="{$point_display|display}"><img src="//img.echosting.cafe24.com/skin/skin/board/icon-star-rating{$point_count}.svg" alt="{$point_count}점" loading="lazy" ez-prevent="img"></td>
+                </tr>
+            </tbody>
+            <tbody module="board_list_5" class="center">
+                <!--
+                    $login_page_url = /member/login.html
+                    $deny_access_url = /index.html
+                -->
+                <tr style="{$list_bg_color} {$list_char_color}" class="{$block_target_class}" {$block_data_attr}>
+                    <td class="chk no">{$checkbox}<span class="RW">{$no}</span></td>
+                    <td class="subject left txtBreak">
+                        {$icon_re}{$icon_lock}<a href="{$link_board_detail}" style="{$link_color}" class="{$block_content_class}">{$subject}</a>{$icon_file}<span class="comment">{$comment_count}</span>{$icon_mobile}{$icon_new}{$icon_hit}
+                    </td>
+                    <td class="{$category_display|display}">{$category_name}</td>
+                    <td>{$member_icon}{$writer}</td>
+                    <td class="{$date_display|display}">{$write_date}</td>
+                    <td class="{$hit_display|display}"><span class="RTMI">조회</span> {$hit_count}</td>
+                    <td class="{$point_display|display}"><img src="//img.echosting.cafe24.com/skin/skin/board/icon-star-rating{$point_count}.svg" alt="{$point_count}점" loading="lazy" ez-prevent="img"></td>
+                </tr>
+                <tr style="{$list_bg_color} {$list_char_color}" class="{$block_target_class}" {$block_data_attr}>
+                    <td class="chk no">{$checkbox}<span class="RW">{$no}</span></td>
+                    <td class="subject left txtBreak">
+                        {$icon_re}{$icon_lock}<a href="{$link_board_detail}" style="{$link_color}" class="{$block_content_class}">{$subject}</a>{$icon_file}<span class="comment">{$comment_count}</span>{$icon_mobile}{$icon_new}{$icon_hit}
+                    </td>
+                    <td class="{$category_display|display}">{$category_name}</td>
+                    <td>{$member_icon}{$writer}</td>
+                    <td class="{$date_display|display}">{$write_date}</td>
+                    <td class="{$hit_display|display}"><span class="RTMI">조회</span> {$hit_count}</td>
+                    <td class="{$point_display|display}"><img src="//img.echosting.cafe24.com/skin/skin/board/icon-star-rating{$point_count}.svg" alt="{$point_count}점" loading="lazy" ez-prevent="img"></td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="message {$empty_display|display}" module="board_empty_5">{$empty_message}</p>
+    </div>
+    
+</div>
+<div module="board_paging_5" class="section ec-base-paginate typeList" data-ez="contents-0kut3ft-1">
+    <a href="{$param_prev}">이전 페이지</a>
+    <ol>
+        <li><a href="{$param_num}" class="{$param_class}">{$page_num}</a></li>
+        <li><a href="{$param_num}" class="{$param_class}">{$page_num}</a></li>
+    </ol>
+    <a href="{$param_next}">다음 페이지</a>
+</div>
+<div class="section" module="board_catemove_5" data-ez="contents-082he44-1">
+    <!--@css(/css/module/board/catemove.css)-->
+    <span class="gColumn">{$board_catemove_selectbox}</span>
+    <span class="gColumn"><a href="#none" class="btnNormal sizeS" onclick="{$action_category_move}">{$category_move}</a></span>
+</div>
+<div class="section" module="board_function_5" data-ez="contents-1iekt79-1">
+    <!--@css(/css/module/board/function.css)-->
+    <span class="gColumn">{$board_function_selectbox}</span>
+    <span class="gColumn">
+        <a href="#none" class="btnNormal sizeS" onclick="{$action_article_move}">{$article_move}</a>
+        <a href="#none" class="btnNormal sizeS" onclick="{$action_article_copy}">{$article_copy}</a>
+    </span>
+    <span class="ec-base-help">{$board_function_help|replace:*,}</span>
+</div>
+<!--#ez="1/1"-->

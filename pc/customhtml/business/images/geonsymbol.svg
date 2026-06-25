@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="uuid-6c4a3a5f-7be1-40d7-94eb-f5df03ac4bc6" data-name="레이어 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 29 46.9">
+  <defs>
+    <style>
+      .uuid-66a36138-0e8a-45ad-8ae3-9453e43f477e {
+        fill: #040000;
+      }
+    </style>
+  </defs>
+  <g id="uuid-f93f757c-8c80-43e4-bd97-aebb8bf16927" data-name="图层 1">
+    <g>
+      <polygon class="uuid-66a36138-0e8a-45ad-8ae3-9453e43f477e" points="28.9 23.1 28.9 28.9 23.3 29.1 28.9 34.8 17.9 46.9 0 29 29 0 28.9 6.5 6.5 28.9 17.9 40.4 23 35.4 23 29 28.9 23.1"/>
+      <polygon class="uuid-66a36138-0e8a-45ad-8ae3-9453e43f477e" points="18.1 28.9 17.9 35.4 11.5 29 28.9 11.6 28.9 18 18.1 28.9"/>
+    </g>
+  </g>
+</svg>

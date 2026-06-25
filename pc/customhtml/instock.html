@@ -1,0 +1,86 @@
+<!--@layout(/layout/basic/layout.html)-->
+<!--@css(/css/custom/instock.css)-->
+<!--@js(/js/customjs/instock.js)-->
+
+  <!-- MAIN -->
+  
+<!--
+  GEONWORKS 재고 현황 위젯
+  =========================
+  - Cafe24 / Shopify 커스텀 스킨에 삽입할 HTML 블록입니다.
+  - <head> 안에 geonworks-stock.css 를 <link> 로 연결하세요.
+  - </body> 직전에 geonworks-stock.js 를 <script> 로 연결하세요.
+  - 데이터는 Google Apps Script 웹앱(GAS_URL)에서 실시간으로 가져옵니다.
+  - 이 페이지는 "표시 전용"입니다. 데이터 수정은 관리자가 구글 시트에서만 합니다.
+-->
+
+<section class="gw-stock" id="gwStock">
+
+  <!-- 헤더 영역 -->
+  <header class="gw-stock__header">
+    <p class="gw-eyebrow">TO BE RELEASED</p>
+    <h2 class="gw-title">출시 예정</h2>
+    <p class="gw-desc">
+      GEONWORKS 부품 및 액세서리의 실시간 재고 현황입니다.
+      분류와 재고 상태를 선택해 원하는 품목을 확인하세요.
+    </p>
+  </header>
+
+  <!-- 본문: 좌측 콘텐츠 + 우측 사이드바 -->
+  <div class="gw-stock__main">
+
+    <div class="gw-stock__content">
+
+      <!-- 분류 탭 -->
+      <div class="gw-tabs" id="gwCategoryTabs" role="tablist" aria-label="분류 선택">
+        <!-- JS에서 동적으로 채워집니다 -->
+      </div>
+
+      <!-- 재고상태 필터 + 검색 -->
+      <div class="gw-toolbar">
+        <div class="gw-pills" id="gwStockPills" role="group" aria-label="재고 상태 필터">
+          <!-- JS에서 동적으로 채워집니다 -->
+        </div>
+        <input
+          type="text"
+          id="gwSearchInput"
+          class="gw-search"
+          placeholder="제품명 검색"
+          aria-label="제품명 검색"
+        />
+      </div>
+
+      <!-- 제품 카드 그리드 -->
+      <div class="gw-grid" id="gwGrid" aria-live="polite">
+        <!-- 로딩/데이터/빈 상태가 JS에서 렌더링됩니다 -->
+        <p class="gw-state gw-state--loading">재고 정보를 불러오는 중입니다…</p>
+      </div>
+
+    </div>
+
+    <!-- 사이드바 -->
+    <aside class="gw-sidebar">
+      <p class="gw-sidebar__label">재고 안내</p>
+
+      <ul class="gw-legend">
+        <li><span class="gw-dot gw-dot--in"></span>재고있음 — 정상 주문 가능</li>
+        <li><span class="gw-dot gw-dot--low"></span>재고부족 — 소량 남음</li>
+        <li><span class="gw-dot gw-dot--out"></span>재고없음 — 입고 대기</li>
+      </ul>
+
+      <div class="gw-sidebar__meta">
+        <p class="gw-sidebar__sub">마지막 업데이트</p>
+        <p class="gw-updated" id="gwUpdated">불러오는 중…</p>
+        <button type="button" class="gw-refresh" id="gwRefreshBtn">
+          새로고침
+        </button>
+      </div>
+
+      <p class="gw-sidebar__note">
+        재고 데이터는 약 1분마다 자동으로 갱신됩니다.
+        실제 주문 가능 여부는 결제 단계에서 다시 확인됩니다.
+      </p>
+    </aside>
+
+  </div>
+</section>

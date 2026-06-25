@@ -1,0 +1,496 @@
+
+:root {
+    --font-main: "GMarketSans", "Pretendard", sans-serif;
+    --color-black: #222;
+    --color-border: #e5e5e5;
+    --color-muted: #999;
+    --breakpoint: 1024px;
+}
+
+@font-face {
+    font-family: 'GMarketSans';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansLight.woff') format('woff');
+    font-weight: 300;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'GMarketSans';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+    font-weight: 500;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'GMarketSans';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansBold.woff') format('woff');
+    font-weight: 700;
+    font-display: swap;
+}
+
+
+
+.btn-wrapper {
+    gap: 10px;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding-bottom:30px;
+    border-bottom:1px solid #000;
+}
+
+.btn-group {
+    gap: 10px;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.btn-wrapper .btn-contents > a {
+    font-size: 12px;
+    font-weight: 300;
+    font-family: "GMarketSans";
+    padding: 10px 15px;
+    border: 1px solid #000;
+    border-radius: 25px;
+    line-height: 50px;
+    height: 50px;
+}
+
+/* ===========================
+   리셋 / 공통
+=========================== */
+
+.firmware-wrapper *,
+.firmware-wrapper *::before,
+.firmware-wrapper *::after {
+    box-sizing: border-box;
+}
+
+/* ===========================
+   WRAPPER — 좌우 분할 (데스크톱)
+=========================== */
+
+.firmware-wrapper {
+    position: relative;
+    display: flex;               /* ← flex 명시 (기존에 누락됨) */
+    flex-flow: row nowrap;
+    align-items: flex-start;
+    width: 100%;
+    min-height: 100vh;
+}
+
+/* ===========================
+   좌측 : 영상 섹션 (데스크톱)
+   sticky는 .video-section에 적용
+=========================== */
+
+.video-section {
+    width: 35%;
+    flex-shrink: 0;
+    border-right: 1px solid #000;
+    position: sticky;
+    top: 0;
+    height: 100vh;              /* sticky 고정 높이 */
+    overflow-y: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.video-section::-webkit-scrollbar {
+    display: none;
+}
+
+/* sticky 내부 컨테이너 — 높이/스크롤 제거 (부모가 담당) */
+.video-sticky {
+    padding: 60px 40px;
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 40px;
+}
+
+/* 타이틀 */
+.video-title h2 {
+    margin: 0 0 12px 0;
+    font-family: var(--font-main);
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 1.0;
+    color: var(--color-black);
+}
+
+.video-title p {
+    margin: 0;
+    font-family: var(--font-main);
+    font-size: 16px;
+    font-weight: 300;
+    color: var(--color-black);
+}
+
+/* 데스크톱 영상 목록 */
+.video-list {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 30px;
+}
+
+.video-item {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 10px;
+}
+
+.video-label {
+    font-family: var(--font-main);
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--color-black);
+    border-left: 3px solid #000;
+    padding-left: 10px;
+}
+
+/* 16:9 비율 iframe 래퍼 */
+.video-frame {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%;
+    background: #f0f0f0;
+    overflow: hidden;
+}
+
+.video-frame iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+/* ===========================
+   우측 : 게시판 섹션
+=========================== */
+
+.board-section {
+    width: 65%;
+    min-height: 100vh;
+    padding: 60px 50px;
+    flex-shrink: 0;
+}
+
+/* ===========================
+   게시판 테이블 스타일
+=========================== */
+
+.firmware-wrapper table {
+    width: 100% !important;
+    border: 0;
+    border-spacing: 0;
+    border-collapse: collapse;
+    margin: 0 auto;
+    font-family: var(--font-main);
+}
+
+.firmware-wrapper .ec-base-table .message {
+    width: 100% !important;
+    border-bottom: 1px solid var(--color-border);
+    text-align: center;
+    color: #6d6d6d;
+    margin: 0 auto;
+}
+
+.firmware-wrapper .ec-base-table th {
+    padding: 12px 10px;
+    text-align: left;
+    font-family: var(--font-main);
+    font-weight: 500;
+    font-size: 13px;
+    color: #555;
+    white-space: nowrap;
+}
+
+.firmware-wrapper .ec-base-table td {
+    padding: 0;
+    line-height: 1.5 !important;
+    vertical-align: middle;
+    border-bottom: 1px solid var(--color-border);
+    font-family: var(--font-main);
+    font-weight: 300;
+    font-size: 14px;
+    color: var(--color-black);
+}
+
+.firmware-wrapper .ec-base-table td.chk {
+}
+
+.firmware-wrapper .chk .RW {
+    display: inline-block;
+    height: 24px;
+    line-height: 22px;
+}
+
+.firmware-wrapper input[type="checkbox"] {
+    margin-right: 5px;
+    transform: translateY(-2px);
+}
+
+.firmware-wrapper .ec-common-rwd-image {
+    margin-left: 10px;
+    transform: translateY(3px);
+}
+
+/* 글쓰기 버튼 */
+
+.ec-base-button.gBottom {
+    margin : 0px !important;
+}
+
+
+.firmware-wrapper .ec-base-button .btnSubmitFix {
+    display: inline-block;
+    background: #000;
+    color: #fff;
+    font-family: var(--font-main);
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* 페이지네이션 */
+.firmware-wrapper .ec-base-paginate {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    margin-top: 30px;
+    font-family: var(--font-main);
+    font-size: 14px;
+}
+
+.firmware-wrapper .ec-base-paginate ol {
+    display: flex;
+    gap: 4px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.firmware-wrapper .ec-base-paginate a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border: 1px solid var(--color-border);
+    color: var(--color-black);
+    text-decoration: none;
+    transition: background 0.15s;
+}
+
+.firmware-wrapper .ec-base-paginate a:hover,
+.firmware-wrapper .ec-base-paginate a.active {
+    background: #000;
+    color: #fff;
+    border-color: #000;
+}
+
+/* ===========================
+   반응형 표시 제어
+=========================== */
+
+.desktop-only { display: flex; }
+.mobile-only  { display: none; }
+
+/* ===========================
+   모바일 Swiper 페이지네이션
+=========================== */
+
+.video-swiper-wrapper {
+    width: 100%;
+}
+
+.video-pagination {
+    margin-top: 12px;
+    text-align: center;
+}
+
+.video-pagination .swiper-pagination-bullet {
+    width: 8px;
+    height: 8px;
+    background: #000;
+    opacity: 0.3;
+    border-radius: 50%;
+    margin: 0 4px !important;
+}
+
+.video-pagination .swiper-pagination-bullet-active {
+    opacity: 1;
+}
+
+.swiper-btn {
+	position:relative;
+}
+
+.swiper-btn .swiper-button-next,
+.swiper-btn .swiper-button-prev {
+    position: absolute;
+    top: 0;
+    width: 27px;
+    height: 44px;
+    margin-top: 0px;
+    z-index: 10;
+    cursor: pointer;
+    background-size: 27px 44px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-image: none !important;
+}
+
+.ec-base-table.typeList td {
+    white-space:nowrap;
+}
+
+/* ===========================
+   Desktop ( 1025px ~ )
+=========================== */
+
+@media (min-width: 1025px) {
+    .ec-base-table.typeList th, .ec-base-table.typeList td {
+        white-space:nowrap;
+        vertical-align:middle;
+        text-align:left;
+        line-height:24px !important;
+    }
+    .section .ec-base-table{
+        border-top: 0px solid #000 !important;
+    }
+}
+
+
+/* ===========================
+   MOBILE ( ~ 1024px )
+=========================== */
+
+@media all and (max-width: 1024px) {
+
+    /* wrapper 세로 배치 */
+    .firmware-wrapper {
+        flex-flow: column nowrap;
+        min-height: unset;
+    }
+
+    /* 영상 섹션: sticky 완전 해제, 전체 너비 */
+    .video-section {
+        width: 100%;
+        height: auto !important;        /* 데스크톱 100vh 해제 */
+        position: static !important;    /* sticky 완전 해제 */
+        top: auto !important;
+        overflow-y: visible !important;
+        border-right: 0;
+        border-bottom: 0;
+    }
+
+    .video-sticky {
+        padding: 30px 0 50px;
+        gap: 20px;
+    }
+
+    .video-title h2 {
+        font-size: 24px;
+        margin-bottom: 8px;
+    }
+
+    .video-title p {
+        font-size: 14px;
+    }
+
+    /* 데스크톱 목록 숨김 / 모바일 Swiper 표시 */
+    .desktop-only { display: none !important; }
+    .mobile-only  { display: block !important; }
+
+    /* 게시판 섹션: 전체 너비 */
+    .board-section {
+        width: 100%;
+        padding: 0 0 40px;
+        min-height: unset;
+    }
+
+    /* 모바일 테이블: 불필요한 열 숨김 */
+    .firmware-wrapper .ec-base-table th:nth-child(3),
+    .firmware-wrapper .ec-base-table td:nth-child(3),
+    .firmware-wrapper .ec-base-table th:nth-child(5),
+    .firmware-wrapper .ec-base-table td:nth-child(5) {
+        display: none;
+    }
+
+    #contents > .section {
+        width: 92%;
+        margin: 0 auto;
+    }
+
+    .titleArea .title h2 { font-size: 24px; }
+    .titleArea .title p  { font-size: 16px; }
+
+    .video-label {
+        margin-bottom: 10px;
+    }
+
+    .ec-base-button.gBottom .gRight [class^='btn']:first-child {
+        height: fit-content;
+        line-height: 1;
+        font-size: 12px;
+        font-weight: 300;
+        font-family: "GMarketSans";
+        padding: 10px 15px;
+        border: 1px solid #000;
+        border-radius: 25px;
+    }
+
+    .btn-wrapper {
+        gap: 10px;
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 0;
+    }
+
+    .firmware-wrapper .ec-base-paginate a {
+        width: 32px;
+        height: 32px;
+    }
+    
+    
+    
+    .ec-base-table.typeList tr {
+        padding: 20px 0 19px;
+        display:flex !important;
+        flex-flow:row nowrap;
+        justify-content:flex-start;
+        align-items:center;
+    }
+    
+    .ec-base-table.typeList td:nth-child(4) {
+        width:100%;
+    }
+}
+
+/* ===========================
+   iframe 슬라이드 이벤트 충돌 방지 오버레이
+=========================== */
+
+.video-frame::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    pointer-events: none;
+}
+
+#video-swiper.is-swiping .video-frame::after {
+    pointer-events: all;
+}

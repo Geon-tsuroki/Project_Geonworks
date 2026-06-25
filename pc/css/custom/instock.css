@@ -1,0 +1,464 @@
+/* ==========================================================
+   GEONWORKS 재고 현황 위젯 — Stylesheet
+   레퍼런스 디자인(호환성 체크 페이지)과 동일한 톤으로 제작
+   - 색: 블랙 / 화이트 / 그레이 베이스 + 재고상태 3색 포인트
+   - 타이포: sentence case, 라벨은 letter-spacing 으로 구분
+   ========================================================== */
+
+.gw-stock {
+  --gw-black: #111111;
+  --gw-white: #ffffff;
+  --gw-gray-50: #fafafa;
+  --gw-gray-100: #f4f4f4;
+  --gw-gray-200: #e5e5e5;
+  --gw-gray-400: #9b9b9b;
+  --gw-gray-600: #6e6e6e;
+
+  --gw-in: #2e8b57;     /* 재고있음 */
+  --gw-in-bg: #eaf5ef;
+  --gw-low: #c98a1c;    /* 재고부족 */
+  --gw-low-bg: #fbf2e3;
+  --gw-out: #c0504d;    /* 재고없음 */
+  --gw-out-bg: #faecec;
+
+  box-sizing: border-box;
+  max-width: 1760px;
+  margin: 0 auto;
+  padding: 50px 0;
+  font-family: -apple-system, "Pretendard", "Apple SD Gothic Neo", "Noto Sans KR",
+    "Segoe UI", Roboto, sans-serif;
+  color: var(--gw-black);
+  -webkit-font-smoothing: antialiased;
+}
+
+.gw-stock *,
+.gw-stock *::before,
+.gw-stock *::after {
+  box-sizing: inherit;
+}
+
+/* ---------- 헤더 ---------- */
+
+.gw-stock__header {
+  margin-bottom: 40px;
+}
+
+.gw-eyebrow {
+  margin: 0 0 10px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  color: var(--gw-gray-600);
+  text-transform: uppercase;
+}
+
+.gw-title {
+  margin: 0 0 14px;
+  font-size: 32px;
+  line-height: 1.3;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.gw-desc {
+  margin: 0;
+  max-width: 640px;
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--gw-gray-600);
+}
+
+/* ---------- 메인 레이아웃 ---------- */
+
+.gw-stock__main {
+  display: flex;
+  align-items: flex-start;
+  gap: 32px;
+}
+
+.gw-stock__content {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+/* ---------- 분류 탭 ---------- */
+
+.gw-tabs {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1px;
+  border: 1px solid var(--gw-gray-200);
+  margin-bottom: 24px;
+  overflow: hidden;
+}
+
+.gw-tab {
+  appearance: none;
+  border: none;
+  border-right: 1px solid var(--gw-gray-200);
+  background: var(--gw-white);
+  color: var(--gw-black);
+  text-align: left;
+  padding: 16px 18px;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.gw-tab:last-child {
+  border-right: none;
+}
+
+.gw-tab:hover {
+  background: var(--gw-gray-50);
+}
+
+.gw-tab__label {
+  display: block;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gw-gray-400);
+  margin-bottom: 6px;
+}
+
+.gw-tab__value {
+  display: block;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.gw-tab__count {
+  display: block;
+  margin-top: 4px;
+  font-size: 12px;
+  color: var(--gw-gray-600);
+}
+
+.gw-tab.is-active {
+  background: var(--gw-black);
+  color: var(--gw-white);
+}
+
+.gw-tab.is-active .gw-tab__label,
+.gw-tab.is-active .gw-tab__count {
+  color: var(--gw-gray-200);
+}
+
+/* ---------- 툴바: 재고상태 필터 + 검색 ---------- */
+
+.gw-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.gw-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+
+.gw-pill {
+  appearance: none;
+  border: 1px solid var(--gw-gray-200);
+  background: var(--gw-white);
+  color: var(--gw-gray-600);
+  border-radius: 999px;
+  padding: 7px 16px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.15s ease;
+}
+
+.gw-pill:hover {
+  border-color: var(--gw-gray-400);
+  color: var(--gw-black);
+}
+
+.gw-pill.is-active {
+  background: var(--gw-black);
+  border-color: var(--gw-black);
+  color: var(--gw-white);
+}
+
+.gw-search {
+  appearance: none;
+  border: 1px solid var(--gw-gray-200);
+  border-radius: 999px;
+  padding: 7px 16px;
+  font-size: 13px;
+  font-family: inherit;
+  color: var(--gw-black);
+  width: 220px;
+  max-width: 100%;
+}
+
+.gw-search:focus {
+  outline: none;
+  border-color: var(--gw-black);
+}
+
+.gw-search::placeholder {
+  color: var(--gw-gray-400);
+}
+
+/* ---------- 카드 그리드 ---------- */
+
+.gw-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+  gap: 12px;
+}
+
+.gw-card {
+  border: 1px solid var(--gw-gray-200);
+  border-radius: 4px;
+  padding: 16px;
+  background: var(--gw-white);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-height: 96px;
+}
+
+.gw-card__category {
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gw-gray-400);
+}
+
+.gw-card__name {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.45;
+  flex: 1 1 auto;
+}
+
+.gw-card__footer {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: auto;
+}
+
+.gw-card__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 999px;
+}
+
+.gw-card__badge--in {
+  background: var(--gw-in-bg);
+  color: var(--gw-in);
+}
+
+.gw-card__badge--low {
+  background: var(--gw-low-bg);
+  color: var(--gw-low);
+}
+
+.gw-card__badge--out {
+  background: var(--gw-out-bg);
+  color: var(--gw-out);
+}
+
+.gw-card.is-out {
+  opacity: 0.55;
+}
+
+/* 상태 점 (배지 안 + 사이드바 범례 공용) */
+
+.gw-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.gw-dot--in {
+  background: var(--gw-in);
+}
+
+.gw-dot--low {
+  background: var(--gw-low);
+}
+
+.gw-dot--out {
+  background: var(--gw-out);
+}
+
+/* ---------- 상태 메시지 (로딩/빈/에러) ---------- */
+
+.gw-state {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 48px 16px;
+  font-size: 13px;
+  color: var(--gw-gray-600);
+}
+
+.gw-state--error {
+  color: var(--gw-out);
+}
+
+.gw-state__retry {
+  display: inline-block;
+  margin-top: 12px;
+  border: 1px solid var(--gw-gray-200);
+  background: var(--gw-white);
+  border-radius: 999px;
+  padding: 7px 18px;
+  font-size: 13px;
+  cursor: pointer;
+  font-family: inherit;
+  color: var(--gw-black);
+}
+
+.gw-state__retry:hover {
+  border-color: var(--gw-black);
+}
+
+/* ---------- 사이드바 ---------- */
+
+.gw-sidebar {
+  width: 240px;
+  border-left: 1px solid var(--gw-gray-200);
+  padding-left: 32px;
+  height:100%;
+}
+
+.gw-sidebar__label {
+  margin: 0 0 16px;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gw-gray-400);
+}
+
+.gw-legend {
+  list-style: none;
+  margin: 0 0 28px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 13px;
+  color: var(--gw-gray-600);
+}
+
+.gw-legend li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.gw-sidebar__meta {
+  padding-top: 20px;
+  border-top: 1px solid var(--gw-gray-200);
+  margin-bottom: 24px;
+}
+
+.gw-sidebar__sub {
+  margin: 0 0 6px;
+  font-size: 12px;
+  color: var(--gw-gray-600);
+}
+
+.gw-updated {
+  margin: 0 0 14px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.gw-refresh {
+  appearance: none;
+  border: 1px solid var(--gw-gray-200);
+  background: var(--gw-white);
+  color: var(--gw-black);
+  border-radius: 999px;
+  padding: 8px 18px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.15s ease;
+}
+
+.gw-refresh:hover {
+  border-color: var(--gw-black);
+}
+
+.gw-refresh:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.gw-sidebar__note {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.7;
+  color: var(--gw-gray-400);
+}
+
+/* ---------- 반응형 ---------- */
+
+@media (max-width: 880px) {
+  .gw-stock {
+    padding: 40px 16px;
+  }
+
+  .gw-title {
+    font-size: 26px;
+  }
+
+  .gw-stock__main {
+    flex-direction: column;
+  }
+
+  .gw-sidebar {
+    flex: 1 1 auto;
+    width: 100%;
+    border-left: none;
+    border-top: 1px solid var(--gw-gray-200);
+    padding-left: 0;
+    padding-top: 24px;
+  }
+
+  .gw-sidebar__meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+  }
+}
+
+@media (max-width: 520px) {
+  .gw-tabs {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .gw-tab {
+    border-bottom: 1px solid var(--gw-gray-200);
+  }
+
+  .gw-search {
+    width: 100%;
+  }
+
+  .gw-grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
+}

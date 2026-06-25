@@ -1,0 +1,283 @@
+/* font */
+@font-face {
+    font-family: 'GMarketSans';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansLight.woff') format('woff');
+    font-weight: 300;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'GMarketSans';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+    font-weight: 500;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'GMarketSans';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansBold.woff') format('woff');
+    font-weight: 700;
+    font-display: swap;
+}
+
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css");
+
+.xans-product-additional.section {
+    margin: 0px !important;
+   
+}
+
+.xans-product-detail .detailArea {
+    border-left : 1px solid #000;
+    border-right : 1px solid #000;
+    padding : 0 100px;
+    max-width: 1760px;
+    display : flex;
+    flex-flow : row nowrap;
+    justify-content : space-between;
+    align-items: flex-start;
+    gap : 100px;
+}
+
+/* imaArea */
+.xans-product-detail .detailArea .imgArea {
+    width : 100%;
+}
+
+.xans-product-detail .detailArea .imgArea .RW {
+	display: flex;
+    flex-flow : column nowrap;
+    justify-content : space-between;
+    align-items : flex-start;
+    margin-bottom:50px;
+    height:max-content;
+}
+
+/* Detail Area */
+.xans-product-detail .detailArea .imgArea .RW {
+    
+}
+.xans-product-detail .detailArea .imgArea .RW .prdImg {}
+.xans-product-detail .detailArea .imgArea .RW .prdImg .thumbnail {}
+.xans-product-detail .detailArea .imgArea .RW .prdImg .thumbnail > a {width : fit-content; height: fit-content;}
+.xans-product-detail .detailArea .imgArea .RW .prdImg .thumbnail > a > img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;}
+.xans-product-detail .detailArea .imgArea .RTMB {}
+
+.xans-product-detail .detailArea .imgArea .RW .listImg .inner .list {
+	display:flex;
+    flex-flow:row nowrap;
+    height:100px;
+}
+
+.xans-product-detail .detailArea .infoArea {
+    width : 100%;
+    height : max-content;
+    margin: 0 0 50px 0;
+}
+
+
+.xans-product-detail .infoArea th > span {
+    color : #000;
+    font-weight : 400;
+    font-size : 18px;
+}
+
+/* 하단 list custom */
+
+#modal {
+  width: 50%;
+  height: 100vh;
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+  border: 1px solid #000;
+  background-color: #fff;
+}
+ #modal .modal-header {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 20px;
+  border-bottom: 1px solid #000;
+}
+ #modal .modal-header h1 {
+  font-family: "GMarketSans", sans-serif;
+  font-weight: 300;
+  font-size: 32px;
+}
+#modal .modal-content {
+  padding : 20px 20px;
+    height: calc(100vh - 83px);
+    overflow-y : auto;
+}
+
+#modal .modal-content .productDetail_con{
+  display : none;
+  overflow-y: auto;
+    
+}
+
+#modal .modal-content .prdReview{
+  display : none;
+  overflow-y: auto;
+}
+
+#modal .modal-content #prdQnA {
+  display : none;
+  overflow-y: auto;
+}
+
+#modal .modal-content .detail_guide {
+  display : none;
+    
+}
+
+
+ #productDetail {
+  width: 100%;
+}
+
+ #productDetail .detail_tab {
+  height:fit-content !important;
+}
+
+ #productDetail .detail_tab .title_detail {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  border-top: 1px solid #aaa;
+}
+
+ #productDetail .detail_tab .title_detail > li {
+  width: 100%;
+  height: 100%;
+  padding: 20px 20px;
+  border-bottom: 1px solid #aaa;
+}
+
+ #productDetail .detail_tab .title_detail > li > a {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  font-family: "GmarketSans", sans-serif;
+  font-weight: 300;
+  font-size: 18px;
+  color: #000;
+}
+
+ #productDetail .detail_tab .title_detail > li > a > div > span {
+  font-family: "GmarketSans", sans-serif;
+  font-weight: 300;
+  font-size: 18px;
+}
+
+.se-viewer .se-component-content {
+	margin : 0 0px !important;
+}
+
+.se-viewer .se-component-content.se-component-content-fit {
+    max-width: 100% !important;
+}
+
+.se-viewer .se-image-resource {
+	overflow-y:auto;
+}
+
+.xans-product-detail .detailArea .imgArea .RW .listImg .inner{
+    position:relative;
+}
+
+.listImg .swiper .swiper-wrapper {
+	width:100%;
+    height:100%;
+}
+
+.listImg .swiper .swiper-wrapper .swiper-slide img {
+    width:100%;
+    height:100%;
+    flex-shrink:0;
+}
+
+.inner .prev{
+    display:none !important;
+    width:0;
+    height:0;
+}
+
+.inner .next{
+	display:none !important;
+    width:0px ;
+    height:0px;
+}
+
+.swiper-btn-wrapper {
+	position:absolute;
+    width:100%;
+    height:100%;
+    top: 50%;
+    left : 0px;
+    transform:translateY(calc(-50% + 5px));
+}
+
+.swiper-btn-wrapper .thumb-prev.swiper-button-prev {
+	background-image: url(``) !important;
+    width:fit-content;
+    height:fit-content;
+    position:absolute;
+    left:-30px;
+}
+
+.thumb-prev.swiper-button-prev > svg {
+}
+
+.swiper-btn-wrapper .thumb-next.swiper-button-next {
+	background-image: url(``) !important;
+    width:fit-content;
+    height:fit-content;
+    position:absolute;
+    right:-30px;
+}
+
+.thumb-right.swiper-button-right > svg {
+}
+
+@media all and (max-width:1024px) {
+	#container #contents .titleArea {
+        display:none !important;
+    }
+    .xans-product-detail .detailArea {
+    	padding : 0 20px;
+        flex-flow: column nowrap;
+    }
+    #productDetail {
+    	width: 100%;
+        height: 0px;
+	}
+    .xans-product-detail .imgArea .listImg {
+        height: 100px;
+        padding: 0;
+    }
+    .xans-product-detail .detailArea {
+        border-left : 0px;
+        border-right : 0px;
+        display : flex;
+        flex-flow : column nowrap;
+        justify-content : flex-start;
+        align-items: flex-start;
+        gap : 0px;
+        padding:0px;
+    }
+    .xans-product-detail .imgArea .prdImg .thumbnail {
+        height:100%;
+    }
+}

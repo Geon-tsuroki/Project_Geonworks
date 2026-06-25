@@ -1,0 +1,133 @@
+<!--@layout(/layout/basic/layout.html)-->
+ <!--@css(/css/module/board/readPackage.css)-->
+<!--@js(/js/module/board/readPackage.js)-->
+<!--@css(/css/custom/venomcategory.css)-->
+<!--@css(/css/custom/commonmanual.css)-->
+<div class="section" module="board_ReadPackage_1002">
+   
+    <div module="board_title_1002">
+        
+        <div class="titleArea">
+            <h2 style="margin-bottom:20px">{$board_title} {$board_adult_icon}</h2>
+
+            <p class="explain">{$board_info}</p>
+            <p class="another_page">
+                <a href="https://geonworks.cafe24.com/skin-skin3/article/venom-pcb-manual/3001/1601/">
+                    <span>HE  유저는 HE 가이드로 이동해주시기 바랍니다.</span>
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <mask id="mask0_477_7" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="16" height="16">
+                            <rect y="16" width="16" height="16" transform="rotate(-90 0 16)" fill="#D9D9D9"/>
+                        </mask>
+                        <g mask="url(#mask0_477_7)">
+                            <path d="M11.6667 8.1665L5.59524 14.1665L5 13.5783L10.4762 8.1665L5 2.75474L5.59524 2.1665L11.6667 8.1665Z" fill="#1C1B1F"/>
+                        </g>
+                    </svg>
+                </a>
+            </p>
+            <div id="manual_category">
+                <ul class="manual_category_list menu">
+                    <li module="board_category_1002"><a href="https://geonworks.cafe24.com/skin-skin4/article/venom-pcb-manual/1002/1594/categoryno/1/"><span>입력 테스트</span></a></li>
+                    <li module="board_category_1002"><a href="https://geonworks.cafe24.com/skin-skin4/article/venom-pcb-manual/1002/1597/categoryno/1/"><span>펌웨어 업데이트 및 키 맵핑</span></a></li>
+                    <li module="board_category_1002"><a href="https://geonworks.cafe24.com/skin-skin4/article/venom-pcb-manual/1002/1598/categoryno/1/"><span>추가 기능</span></a></li>
+                    <li module="board_category_1002"><a href="https://geonworks.cafe24.com/skin-skin4/article/venom-pcb-manual/1002/1599/categoryno/1/"><span>60MX 기본 키맵 레이어 안내</span></a></li>
+                    <li module="board_category_1002"><a href="https://geonworks.cafe24.com/skin-skin4/article/venom-pcb-manual/1002/1600/categoryno/1/"><span>PCB 키맵 초기화</span></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div module="board_read_1002" class="{$block_target_class}" {$block_data_attr}>
+        <!--
+            $login_page_url = /member/login.html
+            $deny_access_url = /board/free/list.html
+        -->
+        <div class="ec-base-table typeWrite">
+            <div class="{$delete_button_auth|display} {$config.use_password|display}">{$form.password}
+                <span class="ec-base-help txtInfo">삭제하려면 비밀번호를 입력하세요.</span>
+            </div>
+            <div class="attach {$config.use_attach|display}">{$attach_file}</div>
+			<div class="detail {$block_content_class}">{$content_image}{$content}</div>
+			<div class="ec-base-button report-button">
+				<span class="gRight">
+					<a href="#none" class="btnNormalFix sizeS {$is_report_display|display}" onclick="{$board_report_display}">신고</a>
+					<a href="#none" class="btnNormalFix sizeS {$block_request_btn}" onclick="{$block_action}">차단</a>
+					<a href="#none" class="btnNormalFix sizeS {$unblock_request_btn}" onclick="{$unblock_action}">차단해제</a>
+				</span>
+			</div>
+			<!--@import(/board/report_popup.html)-->
+        </div>
+
+        <div class="ec-base-button gBottom gBreak">
+            <span class="gLeft">
+                
+                <a href="#none" onclick="{$action_delete}" class="btnNormalFix sizeM {$delete_button_auth|display}">삭제</a>
+                <a href="/board/product/modify.html{$param_modify}" class="btnNormalFix sizeM {$modify_button_auth|display}">수정</a>
+            </span>
+        </div>
+    </div>
+</div>
+
+<div class="section" module="board_CommentPackage_1002">
+    <!--@css(/css/module/board/commentPackage.css)-->
+    <div module="board_commentlist_1002">
+        <!--
+            $delete_page_url = /board/free/comment_del.html
+			$delete_success_url = /board/free/read.html
+        -->
+        <div class="ec-base-button spam {$config.is_admin|display}">
+            <span class="gLeft">
+                <a href="#none" onclick="{$action_spam}" class="btnNormalFix sizeS {$is_global_display|display}">스팸신고</a>
+                <a href="#none" onclick="{$action_spam_cancle}" class="btnNormalFix sizeS {$is_global_display|display}">스팸해제</a>
+            </span>
+        </div>
+    </div>
+
+    <div module="board_commentpaging_1002" class="ec-base-paginate typeList">
+        <a href="{$param_prev}">이전 페이지</a>
+        <ol>
+            <li><a href="{$param_num}" class="{$param_class}">{$page_num}</a></li>
+            <li><a href="{$param_num}" class="{$param_class}">{$page_num}</a></li>
+        </ol>
+        <a href="{$param_next}">다음 페이지</a>
+    </div>
+
+    <div module="board_commentform_1002">
+        <fieldset>
+            <legend>댓글 수정</legend>
+            <div class="view">
+                {$form.comment_modify}
+                <div class="input">
+                    <span class="inside">
+                        <span>
+                            <label for="comment_password">비밀번호</label>
+                            {$form.comment_password}
+                        </span>
+                    </span>
+                    <span class="outside">
+                        <span class="secret {$comment_secret_display|display}">
+                            <label>{$form.secure}비밀댓글</label>
+                        </span>
+                        <span class="submit">
+                            <a href="#none" class="btnNormal sizeM" onclick="{$action_comment_cancel}">취소</a>
+                            <a href="#none" class="btnSubmit sizeM" onclick="{$action_comment_update}">수정</a>
+                        </span>
+                    </span>
+                </div>
+            </div>
+        </fieldset>
+    </div>
+
+    <div module="board_commentformsecret_1002">
+        <p>{$form.secure_password}
+            <span>
+                <a href="#none" class="btnNormal" onclick="{$action_secret_submit}">확인</a>
+                <a href="#none" class="btnNormal" onclick="{$action_secret_cancel}">취소</a>
+            </span>
+        </p>
+    </div>
+
+    
+</div>
+
+
+<!--@define(cmc_log)-->

@@ -1,0 +1,134 @@
+<!--@layout(/layout/basic/layout.html)-->
+<!--@css(/css/module/board/readPackage.css)-->
+<!--@js(/customhtml/Portfolio/read.js)-->
+<!--@css(/css/custom/venomcategory.css)-->
+<!--@css(/css/custom/commonmanual.css)-->
+
+<div class="section" module="board_ReadPackage_5">
+
+    <!-- ── 게시판 타이틀 ── -->
+    <div module="board_title_5">
+        <div class="titleArea">
+            <h2>{$board_title} {$board_adult_icon}</h2>
+            <p class="explain">{$board_info}</p>
+        </div>
+    </div>
+
+    <!-- ── 카테고리 select (숨김 — JS가 읽어서 리스트로 변환) ── -->
+    <div class="boardSort" style="display:none">
+        <span module="board_category_5">{$form.board_category}</span>
+    </div>
+
+    <!-- ── 커스텀 카테고리 리스트 (JS가 동적으로 채움) ── -->
+    <div id="manual_category">
+        <ul class="manual_category_list menu" id="categoryList">
+            <!-- JS로 동적 생성 -->
+        </ul>
+    </div>
+
+    <!-- ── 게시글 본문 ── -->
+    <div module="board_read_5" class="{$block_target_class}" {$block_data_attr}>
+        <!--
+            $login_page_url = /member/login.html
+            $deny_access_url = /board/free/list.html
+        -->
+        <div class="ec-base-table typeWrite">
+            <div class="{$delete_button_auth|display} {$config.use_password|display}">
+                {$form.password}
+                <span class="ec-base-help txtInfo">삭제하려면 비밀번호를 입력하세요.</span>
+            </div>
+            <div class="attach {$config.use_attach|display}">{$attach_file}</div>
+            <div class="detail {$block_content_class}">{$content_image}{$content}</div>
+            <div class="ec-base-button report-button">
+                <span class="gRight">
+                    <a href="#none" class="btnNormalFix sizeS {$is_report_display|display}" onclick="{$board_report_display}">신고</a>
+                    <a href="#none" class="btnNormalFix sizeS {$block_request_btn}" onclick="{$block_action}">차단</a>
+                    <a href="#none" class="btnNormalFix sizeS {$unblock_request_btn}" onclick="{$unblock_action}">차단해제</a>
+                </span>
+            </div>
+            <!--@import(/board/report_popup.html)-->
+        </div>
+
+        <div class="ec-base-button gBottom gBreak">
+            <span class="gLeft">
+                <a href="#none" onclick="{$action_delete}" class="btnNormalFix sizeM {$delete_button_auth|display}">삭제</a>
+                <a href="/board/product/modify.html{$param_modify}" class="btnNormalFix sizeM {$modify_button_auth|display}">수정</a>
+            </span>
+        </div>
+    </div>
+
+</div>
+
+<!-- ── 댓글 영역 ── -->
+<div class="section" module="board_CommentPackage_5">
+    <!--@css(/css/module/board/commentPackage.css)-->
+    <div module="board_commentlist_5">
+        <!--
+            $delete_page_url = /board/free/comment_del.html
+            $delete_success_url = /board/free/read.html
+        -->
+        <div class="ec-base-button spam {$config.is_admin|display}">
+            <span class="gLeft">
+                <a href="#none" onclick="{$action_spam}" class="btnNormalFix sizeS {$is_global_display|display}">스팸신고</a>
+                <a href="#none" onclick="{$action_spam_cancle}" class="btnNormalFix sizeS {$is_global_display|display}">스팸해제</a>
+            </span>
+        </div>
+    </div>
+
+    <div module="board_commentpaging_5" class="ec-base-paginate typeList">
+        <a href="{$param_prev}">이전 페이지</a>
+        <ol>
+            <li><a href="{$param_num}" class="{$param_class}">{$page_num}</a></li>
+            <li><a href="{$param_num}" class="{$param_class}">{$page_num}</a></li>
+        </ol>
+        <a href="{$param_next}">다음 페이지</a>
+    </div>
+
+    <div module="board_commentform_5">
+        <fieldset>
+            <legend>댓글 수정</legend>
+            <div class="view">
+                {$form.comment_modify}
+                <div class="input">
+                    <span class="inside">
+                        <span>
+                            <label for="comment_password">비밀번호</label>
+                            {$form.comment_password}
+                        </span>
+                    </span>
+                    <span class="outside">
+                        <span class="secret {$comment_secret_display|display}">
+                            <label>{$form.secure}비밀댓글</label>
+                        </span>
+                        <span class="submit">
+                            <a href="#none" class="btnNormal sizeM" onclick="{$action_comment_cancel}">취소</a>
+                            <a href="#none" class="btnSubmit sizeM" onclick="{$action_comment_update}">수정</a>
+                        </span>
+                    </span>
+                </div>
+            </div>
+        </fieldset>
+    </div>
+
+    <div module="board_commentformsecret_5">
+        <p>{$form.secure_password}
+            <span>
+                <a href="#none" class="btnNormal" onclick="{$action_secret_submit}">확인</a>
+                <a href="#none" class="btnNormal" onclick="{$action_secret_cancel}">취소</a>
+            </span>
+        </p>
+    </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════════
+     카테고리 Select → List 동적 변환 스크립트
+     - .boardSort 안의 <select>를 읽어 #categoryList에 <li> 생성
+     - 게시판 번호(모듈 번호)를 바꿔도 이 JS는 수정 불필요
+     - 어드민에서 카테고리를 추가/삭제하면 자동 반영
+════════════════════════════════════════════════════════════════ -->
+<script>
+
+</script>
+
+
+<!--@define(cmc_log)-->

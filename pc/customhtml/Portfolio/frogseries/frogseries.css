@@ -1,0 +1,211 @@
+:root{
+        @font-face {
+        font-family: 'GMarketSans';
+        src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansLight.woff') format('woff');
+        font-weight: 300;
+        font-display: swap;
+    }
+
+    @font-face {
+        font-family: 'GMarketSans';
+        src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+        font-weight: 500;
+        font-display: swap;
+    }
+
+    @font-face {
+        font-family: 'GMarketSans';
+        src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansBold.woff') format('woff');
+        font-weight: 700;
+        font-display: swap;
+    }
+
+    @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css");
+    }
+
+#container {
+	margin: 0 auto;
+    max-width:1760px;
+    width:100%
+}
+.contents-wrapper {
+    position:relative;
+}
+
+.contents-wrapper .col-swiper-pagination .swiper-pagination-bullet {
+    width: 50px;
+    height: 1.5px;
+    margin: 0 0 !important;
+    border-radius:0px;
+    background-color:#000;
+}
+
+.col-swiper-pagination.swiper-pagination.swiper-pagination-clickable.swiper-pagination-bullets {
+    position:absolute;
+    bottom:0px;
+}
+
+#container #contents .portfolio-header {
+	margin: 0 0 50px 0;
+    border-bottom:1.5px solid #000;
+}
+
+.morenvy-banner-area {
+	display:flex;
+    flex-flow:row nowrap;
+    justify-content:space-between;
+    align-items:flex-start;
+    gap :30px;
+    margin-bottom:50px;
+	width :100%;
+    height:100%;
+}
+.swiper-wrapper {
+    gap :0px;
+}
+
+.morenvy-banner-area .morenvy-banner {
+    width:100%;
+    height:100%;
+	display:flex;
+    flex-flow:column nowrap;
+    justify-content:flex-start;
+    align-items:flex-start;
+    gap :20px;
+    margin-bottom:50px;
+}
+
+.morenvy-banner-area .morenvy-banner > a {
+    width:100%;
+    height:100%;
+}
+.morenvy-banner-area .morenvy-banner > a > img {
+	border-radius :20px;
+    border :1px solid #aaa;
+    width:100%;
+    height:100%;
+}
+
+.morenvy-banner-area .morenvy-banner > span {
+	font-size:18px;
+    font-family:"GMarketSans";
+    font-weight:300;
+}
+
+.titleArea {
+    border-bottom: 0px !important;
+}
+
+.titleArea .title {
+    display:flex;
+    flex-flow : column nowrap;
+    justify-content : flex-start;
+    align-content: flex-start;
+    gap: 20px;
+}
+.titleArea .title h2 {
+	margin:0 0;
+	line-height: 1.0;
+    font-family: "GMarketSans";
+    color:#222 !important;
+    text-transform: uppercase;
+}
+.titleArea .title h2 > font {
+	line-height: 1.0;
+    color:#222;
+}
+.titleArea .title p {
+    max-width:fit-content !important;
+    margin: 0 0;
+    font-size:24px;
+    font-family: "GMarketSans";
+    color:#222;
+}
+
+.titleArea .explain {
+    width:100%;
+    text-align:left;
+    font-family:"GmarketSans";
+    font-size:24px;
+    margin-bottom:20px;
+}
+.titleArea .another_page {
+    width:100%;
+    text-align:left;
+    font-family:"GmarketSans";
+    margin-bottom:50px;
+}
+.titleArea .another_page > a {
+   	display:flex;
+   	flex-flow:row nowrap;
+    justify-content:flex-start;
+    align-items:center;
+    gap:10px;
+    font-size:18px;
+    font-weight:300;
+}
+
+.swiper-pagination {
+    bottom: 50px !important;
+}
+
+@media all and (max-width:1024px) {
+    .contents-wrapper .col-swiper-pagination .swiper-pagination-bullet {
+        width: 24px;
+        height: 1.5px;
+        margin: 0 0 !important;
+        border-radius:0px;
+        background-color:#000;
+    }
+
+    .col-swiper-pagination.swiper-pagination.swiper-pagination-clickable.swiper-pagination-bullets {
+        position:absolute;
+        bottom:0px;
+    }
+    
+    #venomguide_list #venomManualList {
+    display:flex;
+    flex-flow: column nowrap;
+    margin: 20px 0px;
+    gap:0;
+	}
+    
+	#venomguide_list #title_wrapper{
+    	gap: 10px;
+        margin: 0 0px;
+        padding: 20px 0;
+    }
+    
+    #venomguide_list #title_wrapper .venom_title {
+    	font-size: 24px;
+    }
+    
+    #venomguide_list #title_wrapper .venom_sub {
+    	font-size: 14px;
+    }
+    
+    #venomguide_list #venomManualList .list_wrapper {
+    	margin: 20px 0px;
+    }
+    
+    .contents-wrapper .col-swiper-pagination .swiper-pagination-bullet {
+        width: 24px;
+        height: 1.5px;
+        margin: 0 0 !important;
+        border-radius:0px;
+        background-color:#000;
+    }
+    
+    .titleArea .title h2 {
+        font-size:24px;
+    }
+
+    .titleArea .title p {
+        max-width:fit-content !important;
+        margin: 0 0 20px 0;
+        font-size:18px;
+        font-family: "GMarketSans";
+        color:#222;
+    }
+}
+

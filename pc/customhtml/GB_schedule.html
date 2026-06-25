@@ -1,0 +1,156 @@
+<!--@layout(/layout/basic/layout.html)-->
+<!--@css(/css/custom/gbschedule.css)-->
+<!--@js(/js/customjs/gbschedule.js)-->
+
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GEONWORKS — GB Schedule</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Noto+Sans+KR:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- TOP HEADER -->
+
+  <main class="main-content">
+
+    <!-- PAGE TITLE -->
+    <p class="page-eyebrow">SERVICE</p>
+    <h1 class="page-title">GB Schedule</h1>
+    <p class="page-desc">진행 중인 공동구매 일정을 확인하세요. 상태 및 분류로 필터링할 수 있습니다.</p>
+
+    <!-- CONTROLS -->
+    <section class="controls-bar">
+      <div class="search-wrap">
+        <svg class="search-icon" viewBox="0 0 20 20" fill="none">
+          <circle cx="9" cy="9" r="6" stroke="currentColor" stroke-width="1.5"/>
+          <path d="M13.5 13.5L17 17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+        <input type="text" id="searchInput" class="search-input" placeholder="제품명, 제조사 검색..." oninput="filterTable()" />
+      </div>
+      <div class="filter-group">
+        <select id="statusFilter" class="filter-select" onchange="filterTable()">
+          <option value="">전체 상태</option>
+          <option value="DONE">DONE</option>
+          <option value="In progress">In progress</option>
+          <option value="GB on sale">GB on sale</option>
+          <option value="Preparing to ship">Preparing to ship</option>
+        </select>
+        <select id="categoryFilter" class="filter-select" onchange="filterTable()">
+          <option value="">전체 분류</option>
+          <option value="Keyboard">Keyboard</option>
+          <option value="Keycap">Keycap</option>
+          <option value="Desk mat">Desk mat</option>
+          <option value="Switch">Switch</option>
+        </select>
+      </div>
+      
+    </section>
+
+    <!-- STAT CARDS -->
+    <section class="stats-row">
+      <div class="stat-card" data-filter="">
+        <span class="stat-num" id="statShowing">—</span>
+        <span class="stat-label">SHOWING</span>
+      </div>
+      <div class="stat-card done" data-filter="DONE">
+        <span class="stat-num" id="statDone">—</span>
+        <span class="stat-label">DONE</span>
+      </div>
+      <div class="stat-card progress" data-filter="In progress">
+        <span class="stat-num" id="statProgress">—</span>
+        <span class="stat-label">IN PROGRESS</span>
+      </div>
+      <div class="stat-card gb" data-filter="GB on sale">
+        <span class="stat-num" id="statGB">—</span>
+        <span class="stat-label">GB ON SALE</span>
+      </div>
+      <div class="stat-card ship" data-filter="Preparing to ship">
+        <span class="stat-num" id="statShip">—</span>
+        <span class="stat-label">PREPARING</span>
+      </div>
+    </section>
+
+    <!-- TABLE -->
+    <section class="table-wrap">
+      <div class="table-scroll">
+        <table class="product-table" id="productTable">
+          <thead>
+            <tr>
+              <th>제품명</th>
+                <th>예상발송일</th>
+              <th>판매시작일</th>
+              <th>분류</th>
+              <th>제조사</th>
+              <th>상태</th>
+              <th>비고</th>
+            </tr>
+          </thead>
+          <tbody id="tableBody">
+            <tr class="loading-row">
+              <td colspan="8">
+                <div class="loading-anim"><span></span><span></span><span></span></div>
+                <p>데이터 불러오는 중...</p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="table-footer">
+        <div class="live-indicator">
+          <span class="live-dot"></span>
+          <span class="live-text">LIVE</span>
+          <span id="lastUpdated" class="last-updated">—</span>
+        </div>
+        <button class="refresh-btn" onclick="fetchData()">
+          <svg viewBox="0 0 20 20" fill="none">
+            <path d="M17 10A7 7 0 1 1 10 3M10 3l3 3M10 3L7 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          새로고침
+        </button>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ADMIN MODAL -->
+  <div class="modal-overlay" id="adminModal" onclick="closeAdminModal(event)">
+    <div class="modal-box">
+      <button class="modal-close" onclick="closeAdminModal()">✕</button>
+
+      <div id="adminLoginView">
+        <h2 class="modal-title">관리자 로그인</h2>
+        <p class="modal-sub">관리자 비밀번호를 입력하세요</p>
+        <input type="password" id="adminPassword" class="modal-input" placeholder="비밀번호"
+          onkeydown="if(event.key==='Enter') checkAdminLogin()" />
+        <div class="modal-error" id="loginError"></div>
+        <button class="modal-btn" onclick="checkAdminLogin()">로그인</button>
+      </div>
+
+      <div id="adminPanelView" style="display:none">
+        <div class="admin-panel-header">
+          <h2 class="modal-title">관리자 패널</h2>
+          <button class="logout-btn" onclick="adminLogout()">로그아웃</button>
+        </div>
+        <p class="modal-sub">스프레드시트에서 직접 데이터를 수정하세요</p>
+        <a class="sheet-link-btn"
+          href="https://script.google.com/macros/s/AKfycbzo6YSBwxkgyK-SM8hAZk9Eogy5kfHOhrmbYLKS3cUxzhXzHQ3TGykhBXO40i0xNjGGBA/exec"
+          target="_blank">
+          <svg viewBox="0 0 20 20" fill="none">
+            <path d="M4 4h7l4 4v8H4V4z" stroke="currentColor" stroke-width="1.4"/>
+            <path d="M11 4v4h4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+          </svg>
+          Google 스프레드시트 열기
+        </a>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,72 @@
+:root{
+        @font-face {
+        font-family: 'GMarketSans';
+        src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansLight.woff') format('woff');
+        font-weight: 300;
+        font-display: swap;
+    }
+
+    @font-face {
+        font-family: 'GMarketSans';
+        src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+        font-weight: 500;
+        font-display: swap;
+    }
+
+    @font-face {
+        font-family: 'GMarketSans';
+        src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansBold.woff') format('woff');
+        font-weight: 700;
+        font-display: swap;
+    }
+
+    @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css");
+    }
+
+#container {
+	margin: 0 auto;
+    max-width:1760px;
+    width:100%
+}
+
+#container #contents .portfolio-header {
+	margin: 0 0 50px 0;
+    border-bottom:1px solid #000;
+}
+
+.morenvy-banner-area {
+	display:flex;
+    flex-flow:row nowrap;
+    justify-content:flex-start;
+    align-items:flex-start;
+    gap :30px;
+    margin-bottom:50px;
+	width :50%;
+}
+
+.morenvy-banner-area .morenvy-banner {
+    width:fit-content;
+    height:fit-content;
+	display:flex;
+    flex-flow:column nowrap;
+    justify-content:flex-start;
+    align-items:flex-start;
+    gap :20px;
+}
+
+.morenvy-banner-area .morenvy-banner > a {
+    width:fit-content;
+    height:fit-content;
+}
+.morenvy-banner-area .morenvy-banner > a > img {
+	border-radius :20px;
+    border :1px solid #aaa;
+    width:100%;
+    height:100%;
+}
+
+.morenvy-banner-area .morenvy-banner > span {
+	font-size:18px;
+    font-family:"GMarketSans";
+    font-weight:300;
+}

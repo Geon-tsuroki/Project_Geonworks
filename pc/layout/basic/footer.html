@@ -1,0 +1,102 @@
+<div class="bottom-nav RMB RTB" ez-module="bottom-navigation" data-ez="contents-0ccj5ed-1">
+    <ul class="bottom-nav__tabBar">
+        <li><button type="button" class="btnNav eNavFold"><i aria-hidden="true" class="icon icoNav"></i>네비게이션</button></li>
+        <li><button type="button" class="btnSearch eSearch"><!--@import(/svg/icon-search.html)-->검색</button></li>
+        <li><a href="/"><!--@import(/svg/icon-home.html)-->홈</a></li>
+        <li module="Layout_stateLogon"><a href="/order/basket.html"><!--@import(/svg/icon-cart.html)-->Cart <span class="count {$basket_count_display|display} {$basket_count_display_class}"><span class="{$basket_count_class}">{$basket_count}</span></span></a></li>
+        <li module="Layout_stateLogoff"><a href="/order/basket.html"><!--@import(/svg/icon-cart.html)-->Cart <span class="count {$basket_count_display|display} {$basket_count_display_class}"><span class="{$basket_count_class}">{$basket_count}</span></span></a></li>
+        <li><a href="/myshop/index.html"><!--@import(/svg/icon-user.html)-->마이쇼핑</a></li>
+    </ul>
+    <div class="bottom-nav__top">
+        <a href="#wrap" title="화면 최상단으로 이동하기"><!--@import(/svg/icon-quick-arrow.html)--></a>
+    </div>
+</div>
+<footer id="footer" class="layout1" data-ez-layout="layout1" data-ez="contents-1qtu19u-1">
+    <div class="inner">
+        <div class="footer_wrapper bt_util" data-ez-group="shortcut">
+            <ul class="footer_gnb" data-ez-role="list">
+                <li data-ez-item="company"><a href="https://geonworks.cafe24.com/skin-skin4/front/php/b/board_list.php?board_no=1&is_pcver=T">Notice</a></li>
+                <li data-ez-item="agreement"><a href="https://geonworks.cafe24.com/skin-skin4/customhtml/faq/faq.html">FAQ</a></li>
+                <li data-ez-item="privacy"><a href="https://geonworks.cafe24.com/skin-skin4/customhtml/qc/qcstandard.html">QC 정책</a></li>
+                <li data-ez-item="guide"><a href="/customhtml/history/history.html">About us</a></li>
+            </ul>
+            <!-- //bt_logo -->
+            <h1 class="bt_logo" module="Layout_LogoBottom"><a href="/index.html"><img src="/css/images/Sitelogo.png" alt="{$mall_name}"></a></h1>
+            <!-- //bt_logo -->
+            <!-- company_info -->
+            <div class="company_information bt_info" data-ez-group="info">
+                <h2>고객센터 정보</h2>
+                <div data-ez-item="email" class="bt_txt02">
+                    <span><strong>상담/주문 이메일</strong></span>
+                    <span>채널톡 혹은 네이버 톡톡 문의</span>
+                </div>
+                <div module="Layout_Info" data-ez-group="cs" class="timeAndInfo" data-ez-role="list">
+                    <div data-ez-item="runtime" class="bt_txt02">
+                        <span data-ez-item="runtime"><strong>CS 운영시간</strong></span>
+                        <span data-ez-role="value">{$runtime}</span>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="footer_company_info bt_cscenter" module="Layout_Info" data-ez-group="cs">
+            <div class="right_wrapper" data-ez-role="list">
+                <div class="social_networking">
+                    <h2>Social Networking Service</h2>
+                    <ul class="snsicon" data-ez-role="title">
+                        <li><a data-ez-item="instagram" href="https://instagram.com/geonworks" target="_blank"><img src="/css/images/Icons/Rectangle 21.png" alt="Instagram"></a></li>
+                        <li><a data-ez-item="youtube" href="https://www.youtube.com/@geonkr" target="_blank"><img src="/css/images/Icons/Rectangle 19.png" alt="youtube"></a></li>
+                        <li><a data-ez-item="twitch" href="https://www.twitch.tv/geonworks" target="_blank"><img src="/css/images/Icons/Rectangle 20.png" alt="twitch"></a></li>
+                        <li><a data-ez-item="discord" href="https://discord.gg/4NTq9cdu" target="_blank"><img src="/css/images/Icons/Rectangle 22.png" alt="discord"></a></li>
+                    </ul>
+                </div>
+                <div class="company_president_information">
+                    <div class="company_name" data-ez-item="company_name"><!-- displa -->
+                        <span data-ez-role="field"><strong>상호명</strong></span>
+                        <span data-ez-role="value">{$company_name}</span>
+                    </div>
+                    <div class="president_name" data-ez-item="president_name">
+                        <span data-ez-role="field"><strong>대표자명</strong></span>
+                        <span data-ez-role="value">{$president_name}</span>
+                    </div>
+                </div>
+                <div data-ez-item="address">
+                    <span data-ez-role="field"><strong>사업장 주소</strong></span>
+                    <span data-ez-role="value">{$mall_zipcode} {$mall_addr1} {$mall_addr2}</span>
+                </div>
+            </div>
+            <div class="cscenter_info">
+                <div data-ez-item="phone">
+                    <span data-ez-role="field"><strong>대표 전화</strong></span>
+                    <span data-ez-role="value">{$phone}</span>
+                </div>
+                <div data-ez-item="company_regno">
+                    <span data-ez-role="field"><strong>사업자 등록번호</strong></span>
+                    <span data-ez-role="value">{$company_regno}</span>
+                </div>
+                <div data-ez-item="network_regno">
+                    <span data-ez-role="field"><strong>통신판매업 신고번호</strong></span>
+                    <span data-ez-role="value">{$network_regno} {$biz_no_link}</span>
+                </div>
+                <div data-ez-item="cpo_name">
+                    <span data-ez-role="field"><strong>개인정보보호책임자</strong></span>
+                    <span data-ez-role="value">{$cpo_name}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<div module="Layout_SearchHeader" data-ez="contents-1mvh1hp-1">
+    <!--
+$product_page=/product/detail.html
+$category_page=/product/list.html
+-->
+    <div class="title">SEARCH</div>
+    <fieldset>
+        <legend>검색</legend>
+        {$form.keyword}<button type="button" class="btnDelete">삭제</button><button type="button" class="btnSearch" onclick="{$action_search_submit}"><!--@import(/svg/icon-search.html)--> 검색</button>
+        <ul class="autoDrop" id="{$search_auto_id}"></ul>
+    </fieldset>
+    <button type="button" class="btnClose"><i aria-hidden="true" class="icon icoClose"></i>닫기</button>
+</div>
+<!--#ez="1/2"-->

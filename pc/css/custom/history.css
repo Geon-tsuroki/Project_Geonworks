@@ -1,0 +1,222 @@
+@font-face {
+  font-family: "GMarketSans";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansLight.woff") format("woff");
+  font-weight: 300;
+  font-display: swap;
+}
+@font-face {
+  font-family: "GMarketSans";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff") format("woff");
+  font-weight: 500;
+  font-display: swap;
+}
+@font-face {
+  font-family: "GMarketSans";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansBold.woff") format("woff");
+  font-weight: 700;
+  font-display: swap;
+}
+:root {
+  @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css");
+}
+
+/* main */
+body {
+  width: 100vw;
+  max-height: max-content;
+}
+
+#about-us-main {
+  font-family: "GMarketSans";
+  margin: 50px 0;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+}
+#about-us-main .about-us-title .maintitle {
+  font-size: 40px;
+  font-weight: 600;
+  margin-bottom: 50px;
+  font-family: "GmarketSans";
+}
+#about-us-main .about-us-title .about-us-sub {
+  padding: 50px 0;
+  border-top: 1px solid #000;
+  border-bottom: 1px solid #000;
+  margin: 0 auto;
+  width: fit-content;
+}
+#about-us-main .about-us-title .about-us-sub .subtitle {
+  text-transform: uppercase;
+  font-size: 32px;
+  font-weight: 400;
+  margin-bottom: 20px;
+  font-family: "GmarketSans";
+  font-weight: 300;
+}
+#about-us-main .about-us-title .about-us-sub .comment {
+  text-transform: uppercase;
+  font-size: 16px;
+  font-weight: 300;
+  font-family: "GmarketSans";
+  font-weight: 300;
+}
+#about-us-main .about-us-content {
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  width: 100%;
+  height: 100%;
+  position : relative;
+}
+#about-us-main .about-us-content > article {
+  position: relative;
+  height: 100%;
+  margin: 50px 0;
+}
+#about-us-main .about-us-content > article h1 {
+  font-family: "GmarketSans";
+  text-transform: uppercase;
+  font-size: 48px;
+  font-weight: 300;
+  line-height: 1;
+  margin-bottom: 50px;
+}
+
+#about-us-main .about-us-content > article .background-line {
+  position: absolute;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  left: 50%;
+  transform: translateX(-50%);
+  height: calc(100% - 100px);
+  width: 100%;
+}
+#about-us-main .about-us-content > article .background-line .back-circle {
+  width: 70px;
+  height: 70px !important;
+  border: 1px solid #000;
+  border-radius: 35px;
+  flex-shrink: 0;
+}
+#about-us-main .about-us-content > article .background-line .back-line {
+  width: 1px;
+  height: 100%;
+  background-color: #000;
+}
+#about-us-main .about-us-content > article .contents-wrapper {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 50px;
+  padding-top: 100px;
+}
+#about-us-main .about-us-content > article .contents-wrapper .year {
+  display: flex;
+  flex-flow: column nowrap;
+}
+#about-us-main .about-us-content > article .contents-wrapper .year > h2 {
+  font-size: 40px;
+  font-family: "GmarketSans";
+  font-weight: 300;
+  margin-bottom: 10px;
+}
+#about-us-main .about-us-content > article .contents-wrapper .year > p {
+  font-size: 24px;
+  font-weight: 300;
+  margin-bottom: 10px;
+}
+#about-us-main .about-us-content > article .contents-wrapper .left {
+  justify-content: flex-start;
+  align-items: flex-end;
+  width: fit-content;
+  transform: translateX(-50%);
+  margin-right: 100px;
+}
+#about-us-main .about-us-content > article .contents-wrapper .right {
+  justify-content: center;
+  align-items: flex-start;
+  width: fit-content;
+  transform: translateX(50%);
+  margin-left: 100px;
+}
+
+.about-us-content .left-top {
+	position:absolute;
+    left:250px;
+    scale:1.5;
+    object-position:left;
+}
+.about-us-content .right-bottom {
+	position:absolute;
+    right:200px;
+    top: 30%;
+    scale:1.5;
+    
+}
+.about-us-content .center-bottom {
+    position:absolute;
+    bottom:66px;
+    left:150px;
+    scale:1.4;
+    object-position:left bottom;
+}
+
+/*# sourceMappingURL=history.css.map */
+
+
+@media all and (max-width:768px) {
+    .about-us-content .left-top {
+        position:absolute;
+        left:-20px;
+        scale:1;
+        object-position:left;
+    }
+    .about-us-content .right-bottom {
+        position:absolute;
+        right:-20px;
+        top: 30%;
+        scale:1;
+
+    }
+    .about-us-content .center-bottom {
+        position:absolute;
+        bottom:0px;
+        left:150px;
+        scale:1;
+        object-position:left bottom;
+    }
+    
+    #about-us-main .about-us-content > article:nth-last-child {
+        position: relative;
+        height: 100%;
+        margin: 50px 0 0 0;
+    }
+    #about-us-main .about-us-content > article h1 {
+        font-size: 40px;
+    }
+    #about-us-main .about-us-content > article .contents-wrapper .year > h2 {
+        font-size: 28px;
+        font-family: "GmarketSans";
+        font-weight: 300;
+        margin-bottom: 10px;
+    }
+    #about-us-main .about-us-content > article .contents-wrapper .year > p {
+    	font-size: 14px;
+        font-weight: 300;
+        margin-bottom: 10px;
+    }
+    #about-us-main .about-us-content > article .contents-wrapper .left {
+		margin-right: 30px;
+    }
+    #about-us-main .about-us-content > article .contents-wrapper .right {
+		margin-left: 30px;
+    }
+    #about-us-main .about-us-content > article .background-line .back-circle {
+    	width: 35px;
+    	height: 35px !important;
+    }
+}

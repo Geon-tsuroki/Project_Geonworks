@@ -1,0 +1,441 @@
+/* ===========================
+   LAYOUT
+=========================== */
+
+#contents {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    height: fit-content;
+    margin: 0 100px !important;
+}
+
+/* ===========================
+   TITLE AREA (좌측)
+=========================== */
+
+#container #contents .titleArea {
+    border-bottom: 0px !important;
+    width: 100%;
+}
+
+.titleArea {
+    display: flex;
+    flex-flow: column nowrap;
+    flex-shrink: 0;
+}
+
+.titleArea .title {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-content: flex-start;
+    gap: 20px;
+    border-right: 1px solid #000;
+    padding-right: 60px;
+    position: relative;
+}
+
+.titleArea .title h2 {
+    margin: 0;
+    line-height: 1.0;
+    font-family: "GMarketSans", sans-serif;
+    color: #222 !important;
+}
+
+.titleArea .title h2 > font {
+    line-height: 1.0;
+}
+
+.titleArea .title p {
+    max-width: fit-content !important;
+    margin: 0 0 20px 0;
+    font-family: "GMarketSans", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    color: #222;
+    text-align: left;
+}
+
+.titleArea .explain {
+    width: 100%;
+    text-align: left;
+    font-family: "GMarketSans", sans-serif;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.titleArea .another_page {
+    width: 100%;
+    text-align: left;
+    font-family: "GMarketSans", sans-serif;
+    margin-bottom: 50px;
+}
+
+.titleArea .another_page > a {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+    font-size: 18px;
+    font-weight: 300;
+}
+
+/* ===========================
+   PAGINATION (좌측)
+=========================== */
+
+.titleArea .pagination-wrapper {
+    width: fit-content;
+    height: fit-content;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-content: flex-start;
+    gap: 20px;
+    border-right: 1px solid #000;
+    padding-right: 60px;
+    position: relative;
+    margin-top: 50px;
+}
+
+.faq-pagination {
+    position: absolute;
+    left: 0px;
+    top: -30px !important;
+    display: flex;
+    flex-flow: column nowrap;
+    width: 200px;
+    height: fit-content;
+}
+
+.faq-pagination .swiper-pagination-bullet {
+    height: 40px;
+    width: fit-content;
+    min-width: 80px;
+    background: #000;
+    color: #fff;
+    font-family: "GMarketSans", sans-serif;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 40px;
+    white-space: nowrap;
+    text-align: center;
+    border-radius: 20px;
+    padding: 0 14px;
+    opacity: 0.5;
+    margin-bottom: 10px !important;
+    transition: background-color 0.2s ease-in, color 0.2s ease-in,
+                opacity 0.2s ease-in, outline 0.2s ease-in;
+    cursor: pointer;
+}
+
+.faq-pagination .swiper-pagination-bullet-active {
+    color: #fff;
+    background-color: #000;
+    outline: 1px solid #000;
+    opacity: 1;
+}
+
+/* ===========================
+   SWIPER (우측)
+=========================== */
+
+#faq {
+    margin: 0;
+    overflow: hidden;
+    outline: solid 1px #000;
+
+    width: 100%;
+    height: 60vh;
+}
+
+#faq .swiper-slide {
+    outline: solid 1px #000;
+    height: 100%;
+    overflow-y: auto;
+}
+
+/* ===========================
+   BOARD (게시판 직접 렌더링)
+=========================== */
+
+.board-container {
+    padding: 0;
+    height: 100%;
+    overflow-y: auto;
+    font-family: "GMarketSans", sans-serif;
+}
+
+.board-loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    font-size: 14px;
+    color: #999;
+    font-family: "GMarketSans", sans-serif;
+}
+
+.board-error {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    font-size: 14px;
+    color: #c00;
+    font-family: "GMarketSans", sans-serif;
+}
+
+/* 게시글 목록 테이블 */
+.board-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+}
+
+.board-table thead tr {
+    border-bottom: 2px solid #000;
+}
+
+.board-table thead th {
+    padding: 12px 16px;
+    text-align: left;
+    font-family: "GMarketSans", sans-serif;
+    font-weight: 500;
+    font-size: 13px;
+    color: #555;
+    white-space: nowrap;
+}
+
+.board-table tbody tr {
+    border-bottom: 1px solid #e8e8e8;
+    cursor: pointer;
+    transition: background-color 0.15s ease;
+}
+
+.board-table tbody tr:hover {
+    background-color: #f9f9f9;
+}
+
+.board-table tbody td {
+    padding: 14px 16px;
+    font-family: "GMarketSans", sans-serif;
+    font-size: 14px;
+    color: #222;
+    vertical-align: middle;
+}
+
+/* 제목 열 */
+.board-table .col-title {
+    width: 100%;
+}
+
+.board-table .col-title .article-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* 체크 아이콘 */
+.board-table .check-icon {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.board-table .check-icon svg {
+    width: 18px;
+    height: 18px;
+    stroke: #aaa;
+    fill: none;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.board-table .col-category {
+    white-space: nowrap;
+    font-size: 13px;
+    color: #777;
+    min-width: 60px;
+}
+
+.board-table .col-date {
+    white-space: nowrap;
+    font-size: 13px;
+    color: #999;
+    min-width: 100px;
+}
+
+.board-table .col-views {
+    white-space: nowrap;
+    font-size: 13px;
+    color: #999;
+    min-width: 60px;
+    text-align: right;
+}
+
+/* 빈 목록 */
+.board-empty {
+    text-align: center;
+    padding: 60px 0;
+    color: #aaa;
+    font-size: 14px;
+}
+
+/* ===========================
+   BOARD DETAIL (상세보기 인라인 렌더링)
+=========================== */
+
+.board-back-btn {
+    display: inline-flex;
+    align-items: center;
+    margin: 16px 16px 0;
+    padding: 8px 14px;
+    border: 1px solid #000;
+    background: #fff;
+    border-radius: 20px;
+    font-family: "GMarketSans", sans-serif;
+    font-size: 13px;
+    color: #222;
+    cursor: pointer;
+    transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.board-back-btn:hover {
+    background-color: #000;
+    color: #fff;
+}
+
+.board-detail {
+    padding: 24px 16px 40px;
+    font-family: "GMarketSans", sans-serif;
+}
+
+.board-detail-title {
+    margin: 0 0 8px;
+    font-size: 18px;
+    font-weight: 500;
+    color: #222;
+}
+
+.board-detail-date {
+    font-size: 13px;
+    color: #999;
+    margin-bottom: 20px;
+}
+
+.board-detail-content {
+    font-size: 14px;
+    line-height: 1.7;
+    color: #333;
+}
+
+.board-detail-content img {
+    max-width: 100%;
+}
+
+.board-detail-attach {
+    margin-top: 24px;
+    padding-top: 16px;
+    border-top: 1px solid #e8e8e8;
+    font-size: 13px;
+    color: #555;
+}
+
+/* ===========================
+   MOBILE ( ~ 1023px )
+=========================== */
+
+@media all and (max-width: 1024px) {
+
+    #contents {
+        flex-flow: column nowrap;
+        margin: 0 20px !important;
+    }
+
+    .titleArea .title {
+        border-right: 0;
+        border-bottom: 1px solid #000;
+        padding-right: 0;
+        padding-bottom: 20px;
+    }
+
+    .titleArea .title h2 {
+        font-size: 24px;
+        margin-bottom: 0;
+        width: 100%;
+    }
+    
+    .titleArea .title p {
+    margin: 0 0 0 0;
+}
+
+    #faq {
+        margin: 0 0 50px 0;
+        width: 100%;
+        height: 50vh;
+    }
+
+    .titleArea .pagination-wrapper {
+        display: flex;
+        flex-flow: column nowrap;
+        border-right: 0;
+        padding-right: 0;
+        position: relative;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        width: 100%;
+    }
+
+    .faq-pagination {
+        position: relative !important;
+        left: 0;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        height: fit-content;
+        gap: 6px;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        padding-bottom: 4px;
+        top: 0px !important;
+    }
+
+    .faq-pagination::-webkit-scrollbar {
+        display: none;
+    }
+
+    .faq-pagination .swiper-pagination-bullet {
+        height: 34px;
+        line-height: 34px;
+        font-size: 12px;
+        padding: 0 15px;
+        border-radius: 20px;
+        margin-bottom: 0 !important;
+        flex-shrink: 0;
+        min-width: unset;
+    }
+
+    .faq-pagination .swiper-pagination-bullet-active {
+        font-size: 12px;
+        color: #fff;
+        background-color: #000;
+        outline: 1px solid #000;
+        opacity: 1;
+    }
+
+    /* 모바일: 날짜/조회수 열 숨김 */
+    .board-table .col-date,
+    .board-table .col-views {
+        display: none;
+    }
+}

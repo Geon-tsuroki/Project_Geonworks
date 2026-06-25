@@ -1,0 +1,258 @@
+<!--@layout(/layout/basic/layout.html)-->
+<div class="section" module="Board_ListPackage_2" data-ez="contents-1n3bxcq-1">
+    
+    <!--@css(/css/custom/reset.css)-->
+    <!--@css(/css/module/board/listPackage.css)-->
+    <!--@css(/css/custom/qcstandard.css)-->
+    <!--@css(/css/custom/qcstandard-cate.css)-->
+    <div module="board_title_2">
+        <div class="titleArea">
+            <div class="title">
+                <h2>{$board_title} {$board_adult_icon}</h2>
+
+                <p>{$board_info}</p>
+                <div id="manual_category">
+                    <ul class="manual_category_list menu">
+                        <li module="board_category_2" class="active"><a href="https://geonworks.cafe24.com/skin-skin3/customhtml/qc/caseqc.html"><span>케이스</span></a></li>
+                        <li module="board_category_2"><a href="https://geonworks.cafe24.com/skin-skin3/customhtml/qc/pcbqc.html"><span>PCB</span></a></li>
+                        <li module="board_category_2"><a href="https://geonworks.cafe24.com/skin-skin3/customhtml/qc/venomqc.html"><span>VENOM</span></a></li>
+                        <li module="board_category_2"><a href="https://geonworks.cafe24.com/skin-skin3/customhtml/qc/keycapqc.html"><span>키캡</span></a></li>
+                        <li module="board_category_2"><a href="https://geonworks.cafe24.com/skin-skin3/customhtml/qc/weightqc.html"><span>무게추</span></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <section class="qc-swiper swiper">
+        <div class="guide-pagination swiper-pagination">
+        </div>
+        <div class="swiper-wrapper">
+            <!--testing1-->
+    
+            <form class="swiper-slide" id="BoardDelForm" name="" action="/skin-skin3/exec/front/Board/del/2" method="post" target="_self"
+                enctype="multipart/form-data">
+                <input id="no" name="no" value="1728" type="hidden">
+                <input id="bulletin_no" name="bulletin_no" value="1995" type="hidden">
+                <input id="board_no" name="board_no" value="2" type="hidden">
+                <input id="list_url" name="list_url" value="/skin-skin3/board/free/list.html?board_no=2" type="hidden">
+                <input id="bdf_modify_url" name="bdf_modify_url"
+                    value="/skin-skin3/board/free/modify.html?board_act=edit&amp;no=1728&amp;board_no=2" type="hidden">
+                <input id="bdf_del_url" name="bdf_del_url" value="/skin-skin3/exec/front/Board/del/2" type="hidden">
+                <input id="bdf_action_type" name="bdf_action_type" value="" type="hidden">
+                <div class="xans-element- xans-board xans-board-read-1002 xans-board-read xans-board-1002 ">
+                    <!--
+                    $login_page_url = /member/login.html
+                    $deny_access_url = /board/free/list.html
+                -->
+                    <div class="ec-base-table typeWrite ">
+                        <div class=" displaynone"><input id="password" name="password" fw-filter="" fw-label="비밀번호" fw-msg=""
+                                onkeydown="if (event.keyCode == 13 || event.which == 13) { return false; }"
+                                autocomplete="new-password" value="" type="password"> <span class="ec-base-help txtInfo">삭제하려면
+                                비밀번호를 입력하세요.</span>
+                        </div>
+                        <div class="attach displaynone"></div>
+                        <div class="detail ">
+                            <button type="button" class="click-qclist">교환 및 반품 안내</button>
+                            <div class="fr-view fr-view-article">
+                                <div class="refund">
+                                    <ul class="left">
+                                        <li class="left1">
+                                            <h2 class="low-title">교환 및 반품 가능 기간</h2>
+                                            <p>제품 수령 후 7일 이내, 구매 확정 전에 가능</p>
+                                        </li>
+                                        <li class="left2">
+                                            <h2 class="low-title">교환 및 반품 불가 사유</h2>
+                                            <p>1. 제품 수령 후 7일 초과 및 구매 확정 시</p>
+                                            <p>2. 키보드 스위치 : 전자 부품 특성 상 입력불가를 제외한 사유로는 교환 및 반품이 불가합니다.</p>
+                                            <p>3. 키보드 내부 부품 및 공구류 : 보강판 등 내부 조립 부품 및 공구류는 별도의 외관 검수를 진행하지 않으므로,<br>
+                                                이와 관련된 사유로는 교환 및 반품이 불가합니다.</p>
+                                            <p>4. 중고 거래 제품의 경우 교환 및 반품이 불가합니다.</p>
+                                            <p>5. 제품을 사용 및 조립 한 경우 교환 및 반품이 불가합니다.</p>
+                                            <p>6. 제품의 가치가 하락하여 판매가 불가한 경우 교환 및 반품이 불가합니다.</p>
+                                        </li>
+                                    </ul>
+                                    <ul class="right">
+                                        <li class="right1">
+                                            <h2 class="low-title">단수 변심의 경우</h2>
+                                            <p>왕복 택배비가 부과됩니다. 이 점 참고하여 진행하여 주십시오.</p>
+                                        </li>
+                                        <li class="right2">
+                                            <h2 class="low-title">포장 및 제품 손상</h2>
+                                            <p>제품 포장이 훼손되었거나 부실포장으로 제품손상 된 경우, 교환 및 반품이 제한될 수 있습니다.</p>
+                                        </li>
+                                        <li class="right3">
+                                            <h2 class="low-title">제품 이상 발생 시</h2>
+                                            <p>제품 누락 및 이상이 있을 경우, 사진 및 증상을 첨부하여 네이버 톡톡으로 문의 주십시오. 신속하게 처리 도와드리겠습니다.</p>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ec-base-button gBottom gBreak ">
+                        <span class="gLeft">
+
+                            <a href="#none" onclick="BOARD_READ.article_delete('BoardDelForm','2');"
+                                class="btnNormalFix sizeM ">삭제</a>
+                            <a href="/skin-skin3/board/product/modify.html?board_act=edit&amp;no=1728&amp;board_no=2"
+                                class="btnNormalFix sizeM ">수정</a>
+                        </span>
+                    </div>
+                </div>
+            </form>
+
+            <!--testing-->
+
+
+            <!--testing2-->
+
+            <form class="swiper-slide" id="BoardDelForm" name="" action="/skin-skin3/exec/front/Board/del/2" method="post" target="_self" enctype="multipart/form-data">
+                <input id="no" name="no" value="1729" type="hidden">
+                <input id="bulletin_no" name="bulletin_no" value="1996" type="hidden">
+                <input id="board_no" name="board_no" value="2" type="hidden">
+                <input id="list_url" name="list_url" value="/skin-skin3/board/free/list.html?board_no=2" type="hidden">
+                <input id="bdf_modify_url" name="bdf_modify_url" value="/skin-skin3/board/free/modify.html?board_act=edit&amp;no=1729&amp;board_no=2" type="hidden">
+                <input id="bdf_del_url" name="bdf_del_url" value="/skin-skin3/exec/front/Board/del/2" type="hidden">
+                <input id="bdf_action_type" name="bdf_action_type" value="" type="hidden"><div class="xans-element- xans-board xans-board-read-1002 xans-board-read xans-board-1002 ">
+                <!--
+                            $login_page_url = /member/login.html
+                            $deny_access_url = /board/free/list.html
+                        -->
+                <div class="ec-base-table typeWrite ">
+                    <div class=" displaynone"><input id="password" name="password" fw-filter="" fw-label="비밀번호" fw-msg="" onkeydown="if (event.keyCode == 13 || event.which == 13) { return false; }" autocomplete="new-password" value="" type="password">                <span class="ec-base-help txtInfo">삭제하려면 비밀번호를 입력하세요.</span>
+                    </div>
+                    <div class="attach displaynone"></div>
+                    <div class="detail ">
+                        <button type="button" class="click-qclist">케이스 검수 규정</button>
+                        <div class="fr-view fr-view-article"><div class="refund"><ul class="left"><li class="left1"><h2 class="low-title">주의 사항</h2><p>BAREBONE KIT는 자가조립 및 튜닝하여 사용하는 제품으로<br>조립 이후 발생한 문제에 대해서는 교환 및 반품이 불가합니다.<br>하우징 부분의 외관 상 하자는 조립 전에 확인하여 주십시오.</p></li><li class="left2"><h2 class="low-title">상 · 하판의 두께, 현상에 따른 이색 현상</h2><img src="#" alt="#" class="fr-fic fr-dii"><p>아노다이징 제품의 경우, 공정 상 이색, 번짐 (얼룩),<br>띠 현상, 내부 고리자국 등이 발생 할 수 있습니다.</p></li></ul><ul class="right"><li class="right1"><h2 class="low-title">아노다이징 검수기준</h2><img src="#" alt="" class="fr-fic fr-dii"><p>아노다이징 공정 특성 상, 매 번 같은 색상이 나오기 어렵습니다.<br>제품 생산 전 색상 샘플 4가지 정도를 지정하여 검수 시 샘플의 색상 범위를 지정하여<br>해당 샘플 범위 이내일 경우 정상으로 판단하고 있습니다.</p></li></ul></div></div></div>
+                    <div class="ec-base-button report-button">
+                        <span class="gRight">
+                            <a href="#none" class="btnNormalFix sizeS displaynone" onclick="BOARD_READ.board_report_display('2','1729');">신고</a>
+                        </span>
+                    </div>
+                </div>
+                <div class="ec-base-button gBottom gBreak ">
+                            <span class="gLeft">
+
+                                <a href="#none" onclick="BOARD_READ.article_delete('BoardDelForm','2');" class="btnNormalFix sizeM ">삭제</a>
+                                <a href="/skin-skin3/board/product/modify.html?board_act=edit&amp;no=1729&amp;board_no=2" class="btnNormalFix sizeM ">수정</a>
+                            </span>
+                        </div>
+                </div>
+                </form>
+
+            <!--testing2-->
+
+            <!-- testing3 -->
+
+            <form class="swiper-slide" id="BoardDelForm" name="" action="/skin-skin3/exec/front/Board/del/2" method="post" target="_self" enctype="multipart/form-data">
+                <input id="no" name="no" value="1730" type="hidden">
+                <input id="bulletin_no" name="bulletin_no" value="1997" type="hidden">
+                <input id="board_no" name="board_no" value="2" type="hidden">
+                <input id="list_url" name="list_url" value="/skin-skin3/board/free/list.html?board_no=2" type="hidden">
+                <input id="bdf_modify_url" name="bdf_modify_url" value="/skin-skin3/board/free/modify.html?board_act=edit&amp;no=1730&amp;board_no=2" type="hidden">
+                <input id="bdf_del_url" name="bdf_del_url" value="/skin-skin3/exec/front/Board/del/2" type="hidden">
+                <input id="bdf_action_type" name="bdf_action_type" value="" type="hidden"><div class="xans-element- xans-board xans-board-read-1002 xans-board-read xans-board-1002 ">
+                <!--
+                            $login_page_url = /member/login.html
+                            $deny_access_url = /board/free/list.html
+                        -->
+                <div class="ec-base-table typeWrite ">
+                            <div class=" displaynone"><input id="password" name="password" fw-filter="" fw-label="비밀번호" fw-msg="" onkeydown="if (event.keyCode == 13 || event.which == 13) { return false; }" autocomplete="new-password" value="" type="password">                <span class="ec-base-help txtInfo">삭제하려면 비밀번호를 입력하세요.</span>
+                            </div>
+                            <div class="attach displaynone"></div>
+                            <div class="detail ">
+                                <button type="button" class="click-qclist">케이스 등급 분류 기준</button>
+                                <div class="fr-view fr-view-article"><div class="case-grade"><ul class="left"><li><h1>등급 분류 기준</h1><img src="#" alt="#" class="fr-fic fr-dii"></li><li class="left1"><h2 class="low-title">A GRADE 기준</h2><p>찍힘 1mm 미만, 스크래치 3mm 미만, 상면 제외 부분 도료 뭉침 2mm 이내의 크기 3개 미만</p></li><li class="left2"><h2 class="low-title">B GRADE 기준</h2><p>찍힘 1mm 초과, 스크래치 3mm 초과, 상면 제외 부분 도료 뭉침 2mm 이내의 크기 3개 초과</p></li></ul><ul class="right"><li class="right1"><h2 class="low-title">교환 및 반품 미포함 사유</h2><p>제품 조립 후 보이지 않는 부분(무게추, 보강판 등)의 가공자국, 사출자국, 스크래치, 변색 등이 발생할 수 있습니다. 이는 교환 및 반품 사유에 해당하지 않습니다.</p><img src="#" alt="#" class="fr-fic fr-dii"><p>피트, 스크류 등 체결부에 코팅을 실시 하여도 깊은 홀 부분은 크기가 작기 때문에 코팅이 완전히 덮히기 어려워 황동 부분이 비춰질 수 있습니다.</p></li></ul></div></div></div>
+                            <div class="ec-base-button report-button">
+                                <span class="gRight">
+                                    <a href="#none" class="btnNormalFix sizeS displaynone" onclick="BOARD_READ.board_report_display('2','1730');">신고</a>
+
+
+                                </span>
+                            </div>
+                        </div>
+                <div class="ec-base-button gBottom gBreak ">
+                            <span class="gLeft">
+
+                                <a href="#none" onclick="BOARD_READ.article_delete('BoardDelForm','2');" class="btnNormalFix sizeM ">삭제</a>
+                                <a href="/skin-skin3/board/product/modify.html?board_act=edit&amp;no=1730&amp;board_no=2" class="btnNormalFix sizeM ">수정</a>
+                            </span>
+                        </div>
+                </div>
+        </form>
+
+            <!-- testing3-->
+
+            <!-- testing4 -->
+
+            <form class="swiper-slide" id="BoardDelForm" name="" action="/skin-skin3/exec/front/Board/del/2" method="post" target="_self" enctype="multipart/form-data">
+        <input id="no" name="no" value="1731" type="hidden">
+        <input id="bulletin_no" name="bulletin_no" value="1998" type="hidden">
+        <input id="board_no" name="board_no" value="2" type="hidden">
+        <input id="list_url" name="list_url" value="/skin-skin3/board/free/list.html?board_no=2" type="hidden">
+        <input id="bdf_modify_url" name="bdf_modify_url" value="/skin-skin3/board/free/modify.html?board_act=edit&amp;no=1731&amp;board_no=2" type="hidden">
+        <input id="bdf_del_url" name="bdf_del_url" value="/skin-skin3/exec/front/Board/del/2" type="hidden">
+        <input id="bdf_action_type" name="bdf_action_type" value="" type="hidden"><div class="xans-element- xans-board xans-board-read-1002 xans-board-read xans-board-1002 ">
+        <!--
+                    $login_page_url = /member/login.html
+                    $deny_access_url = /board/free/list.html
+                -->
+        <div class="ec-base-table typeWrite ">
+            <div class=" displaynone"><input id="password" name="password" fw-filter="" fw-label="비밀번호" fw-msg="" onkeydown="if (event.keyCode == 13 || event.which == 13) { return false; }" autocomplete="new-password" value="" type="password">                <span class="ec-base-help txtInfo">삭제하려면 비밀번호를 입력하세요.</span>
+            </div>
+            <div class="attach displaynone"></div>
+            <div class="detail ">
+                <button type="button" class="click-qclist">기타 내용</button>
+                <div class="fr-view fr-view-article"><div class="etc"><h1><br></h1><img src="#" alt="#" class="fr-fic fr-dii"><ul class="left"><li class="left1"><h2 class="low-title">재질 관련</h2><p>1. 구리와 황동의 경우 재질의 특성 상 부식이 발생할 수 있습니다.<br>2. 폴리싱 작업 제품의 경우 수작업으로 생산되는 제품으로 불규칙한 형상, 줄무늬 등이 발생할 수 있습니다.</p></li></ul></div></div></div>
+            <div class="ec-base-button report-button">
+                <span class="gRight">
+                    <a href="#none" class="btnNormalFix sizeS displaynone" onclick="BOARD_READ.board_report_display('2','1731');">신고</a>
+
+
+                </span>
+            </div>
+        </div>
+        <div class="ec-base-button gBottom gBreak ">
+            <span class="gLeft">
+
+                <a href="#none" onclick="BOARD_READ.article_delete('BoardDelForm','2');" class="btnNormalFix sizeM ">삭제</a>
+                <a href="/skin-skin3/board/product/modify.html?board_act=edit&amp;no=1731&amp;board_no=2" class="btnNormalFix sizeM ">수정</a>
+            </span>
+        </div>
+        </form>
+    
+    <!-- testing4 -->
+        </div>
+    </section>
+<!--#ez="1/1"-->
+<script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+<script src="main.js"></script>
+<script>
+    const qcswiper = new Swiper(`.swiper`, {
+      slidesPerView: 1,
+      spaceBetween: 0,
+      pagination: {
+      	el: `.guide-pagination`,
+        clickable: true,
+      }
+    });
+    
+    const swiperlist = document.querySelectorAll(`.manual_category_list > li`)
+    
+    console.log(swiperlist)
+    
+    swiperlist.forEach((item) => {
+      item.addEventListener('click', (e) => {
+
+        // 1. 모든 요소의 'active' 클래스 제거
+        items.forEach((el) => {
+          el.classList.remove('active');
+        });
+
+        // 2. 현재 클릭한 타겟 요소에 'active' 클래스 추가
+        e.currentTarget.classList.add('active');
+      });
+    });
+</script>

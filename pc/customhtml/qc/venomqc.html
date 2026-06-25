@@ -1,0 +1,272 @@
+
+<!--@layout(/layout/basic/layout.html)-->
+<div class="section" module="Board_ListPackage_2" data-ez="contents-1n3bxcq-1">
+    <!--@css(/css/custom/reset.css)-->
+    <!--@css(/css/module/board/listPackage.css)-->
+    <!--@css(/css/custom/qcstandard.css)-->
+    <!--@css(/css/custom/qcstandard-cate.css)-->
+    <div module="board_title_2">
+        <div class="titleArea">
+            <div class="title">
+                <h2>{$board_title} {$board_adult_icon}</h2>
+
+                <p>{$board_info}</p>
+                <div id="manual_category">
+                    <ul class="manual_category_list menu">
+                        <li module="board_category_2"><a href="https://geonworks.cafe24.com/skin-skin3/customhtml/qc/caseqc.html"><span>케이스</span></a></li>
+                        <li module="board_category_2"><a href="https://geonworks.cafe24.com/skin-skin3/customhtml/qc/pcbqc.html"><span>PCB</span></a></li>
+                        <li module="board_category_2"><a href="https://geonworks.cafe24.com/skin-skin3/customhtml/qc/venomqc.html"><span>VENOM</span></a></li>
+                        <li module="board_category_2"><a href="https://geonworks.cafe24.com/skin-skin3/customhtml/qc/keycapqc.html"><span>키캡</span></a></li>
+                        <li module="board_category_2"><a href="https://geonworks.cafe24.com/skin-skin3/customhtml/qc/weightqc.html"><span>무게추</span></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section class="qc-swiper swiper">
+        <div class="guide-pagination swiper-pagination">
+        </div>
+        <div class="swiper-wrapper">
+    
+    <!--testing1-->
+    
+	<form class="swiper-slide" id="BoardDelForm" name="" action="/skin-skin3/exec/front/Board/del/2" method="post" target="_self"
+        enctype="multipart/form-data">
+        <input id="no" name="no" value="1728" type="hidden">
+        <input id="bulletin_no" name="bulletin_no" value="1995" type="hidden">
+        <input id="board_no" name="board_no" value="2" type="hidden">
+        <input id="list_url" name="list_url" value="/skin-skin3/board/free/list.html?board_no=2" type="hidden">
+        <input id="bdf_modify_url" name="bdf_modify_url"
+            value="/skin-skin3/board/free/modify.html?board_act=edit&amp;no=1728&amp;board_no=2" type="hidden">
+        <input id="bdf_del_url" name="bdf_del_url" value="/skin-skin3/exec/front/Board/del/2" type="hidden">
+        <input id="bdf_action_type" name="bdf_action_type" value="" type="hidden">
+        <div class="xans-element- xans-board xans-board-read-1002 xans-board-read xans-board-1002 ">
+            <!--
+            $login_page_url = /member/login.html
+            $deny_access_url = /board/free/list.html
+        -->
+            <div class="ec-base-table typeWrite ">
+                <div class=" displaynone"><input id="password" name="password" fw-filter="" fw-label="비밀번호" fw-msg=""
+                        onkeydown="if (event.keyCode == 13 || event.which == 13) { return false; }"
+                        autocomplete="new-password" value="" type="password"> <span class="ec-base-help txtInfo">삭제하려면
+                        비밀번호를 입력하세요.</span>
+                </div>
+                <div class="attach displaynone"></div>
+                <div class="detail ">
+                    <button type="button" class="click-qclist">교환 및 반품 안내</button>
+                    <div class="fr-view fr-view-article">
+                        <div class="refund">
+                            <ul class="left">
+                                <li class="left1">
+                                    <h2 class="low-title">교환 및 반품 가능 기간</h2>
+                                    <p>제품 수령 후 7일 이내, 구매 확정 전에 가능</p>
+                                </li>
+                                <li class="left2">
+                                    <h2 class="low-title">교환 및 반품 불가 사유</h2>
+                                    <p>1. 제품 수령 후 7일 초과 및 구매 확정 시</p>
+                                    <p>2. 키보드 스위치 : 전자 부품 특성 상 입력불가를 제외한 사유로는 교환 및 반품이 불가합니다.</p>
+                                    <p>3. 키보드 내부 부품 및 공구류 : 보강판 등 내부 조립 부품 및 공구류는 별도의 외관 검수를 진행하지 않으므로, 이와 관련된 사유로는 교환 및
+                                        반품이 불가합니다.</p>
+                                    <p>4. 중고 거래 제품의 경우 교환 및 반품이 불가합니다.</p>
+                                    <p>5. 제품을 사용 및 조립 한 경우 교환 및 반품이 불가합니다.</p>
+                                    <p>6. 제품의 가치가 하락하여 판매가 불가한 경우 교환 및 반품이 불가합니다.</p>
+                                </li>
+                            </ul>
+                            <ul class="right">
+                                <li class="right1">
+                                    <h2 class="low-title">단수 변심의 경우</h2>
+                                    <p>왕복 택배비가 부과됩니다. 이 점 참고하여 진행하여 주십시오.</p>
+                                </li>
+                                <li class="right2">
+                                    <h2 class="low-title">포장 및 제품 손상</h2>
+                                    <p>제품 포장이 훼손되었거나 부실포장으로 제품손상 된 경우, 교환 및 반품이 제한될 수 있습니다.</p>
+                                </li>
+                                <li class="right3">
+                                    <h2 class="low-title">제품 이상 발생 시</h2>
+                                    <p>제품 누락 및 이상이 있을 경우, 사진 및 증상을 첨부하여 네이버 톡톡으로 문의 주십시오. 신속하게 처리 도와드리겠습니다.</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="ec-base-button gBottom gBreak ">
+                <span class="gLeft">
+
+                    <a href="#none" onclick="BOARD_READ.article_delete('BoardDelForm','2');"
+                        class="btnNormalFix sizeM ">삭제</a>
+                    <a href="/skin-skin3/board/product/modify.html?board_act=edit&amp;no=1728&amp;board_no=2"
+                        class="btnNormalFix sizeM ">수정</a>
+                </span>
+            </div>
+        </div>
+    </form>
+    
+    <!--testing-->
+    
+    
+    <!--testing2-->
+    
+    <form class="swiper-slide" id="BoardDelForm" name="" action="/skin-skin3/exec/front/Board/del/2" method="post" target="_self" enctype="multipart/form-data">
+        <input id="no" name="no" value="1737" type="hidden">
+        <input id="bulletin_no" name="bulletin_no" value="2004" type="hidden">
+        <input id="board_no" name="board_no" value="2" type="hidden">
+        <input id="list_url" name="list_url" value="/skin-skin3/board/free/list.html?board_no=2" type="hidden">
+        <input id="bdf_modify_url" name="bdf_modify_url" value="/skin-skin3/board/free/modify.html?board_act=edit&amp;no=1737&amp;board_no=2" type="hidden">
+        <input id="bdf_del_url" name="bdf_del_url" value="/skin-skin3/exec/front/Board/del/2" type="hidden">
+        <input id="bdf_action_type" name="bdf_action_type" value="" type="hidden"><div class="xans-element- xans-board xans-board-read-1002 xans-board-read xans-board-1002 ">
+        <!--
+                    $login_page_url = /member/login.html
+                    $deny_access_url = /board/free/list.html
+                -->
+        <div class="ec-base-table typeWrite ">
+                    <div class=" displaynone"><input id="password" name="password" fw-filter="" fw-label="비밀번호" fw-msg="" onkeydown="if (event.keyCode == 13 || event.which == 13) { return false; }" autocomplete="new-password" value="" type="password">                <span class="ec-base-help txtInfo">삭제하려면 비밀번호를 입력하세요.</span>
+                    </div>
+                    <div class="attach displaynone"></div>
+                    <div class="detail ">
+                        <button type="button" class="click-qclist">VENOM PCB 자가검진</button>
+                        <div class="fr-view fr-view-article"><div class="pcb-disclaimer"><ul class="left"><li><h1>PCB 사후 처리 규정</h1><p>교환 신청 제품이 파손 의심이 될 정도의 부실한 포장 상태로 도착한 경우 별도의 안내 없이 반송될 수 있습니다.</p></li><li class="left1"><img src="#" alt="#" class="fr-fic fr-dii"><div class="left-row row1"><h2>무상 A/S</h2><p>제품 구입일 기준 구매 확정 기간 내 혹은 제품 도착 후 7일 내 (구매확정 전) 발생한 초기 제품 문제일 경우.</p></div><div class="left-row row2"><h2>유상 A/S</h2><p>제품 구입 일 기준 1년 내 발생한 초기 품질 문제/</p></div><div class="left-row row3"><h2>유상 사후처리 가능유형</h2><p>PCB 상의 동박(PAD)가 손상되지 않은 경우 수리가 가능합니다.</p></div></li><li><p>JST 커넥터 교체.</p><p>핫스왑 소켓 교체.</p><p>USB-C 타입 커넥터 교체.</p><p>RGB 소자 교체.</p><p>다이오드 교체 (일부 소자는 수리불가할 수 있습니다.).</p></li><li class="left2"><div class="row-left"><h2>베놈 HE PCB의 스탠드오프 파손 수리</h2><p>스탠드 오프 탈거 동박(패드) 유무 관계없이 수리가능.</p></div><div class="row-right"><h2>베놈 HE PCB의 자성센서, 저항, 캐퍼시터 교체</h2><p>HE32 자성소자 및 C63, C50 캐퍼시터 파손,<br>동박(패드) 손상 없어 수리가능.</p></div></li><li class="left3"><h2>유상 사후 처리 불가능 유형</h2><p>PCB 상의 동박(패드)의 손상</p><p>정전기 등으로 인해 수리가 불가능한 소자가 파손</p><p>밀맥스 사용, 개별 튜닝, 펌웨어 수정 등 임의 개조의 경우</p><p>PCB에서 부식 흔적이 발견 되는 경우</p><p>그 외 입고 검사 후 수리가 불가능하다고 판단되는 경우</p><p>GEONWORKS의 제품이 아닌 타사제품(PCB, JST 케이블 등)과 혼용하여 문제가 발생한 경우</p></li></ul></div></div></div>
+                    <div class="ec-base-button report-button">
+                        <span class="gRight">
+                            <a href="#none" class="btnNormalFix sizeS displaynone" onclick="BOARD_READ.board_report_display('2','1737');">신고</a>
+
+
+                        </span>
+                    </div>
+                </div>
+            <div class="ec-base-button gBottom gBreak ">
+                        <span class="gLeft">
+
+                            <a href="#none" onclick="BOARD_READ.article_delete('BoardDelForm','2');" class="btnNormalFix sizeM ">삭제</a>
+                            <a href="/skin-skin3/board/product/modify.html?board_act=edit&amp;no=1737&amp;board_no=2" class="btnNormalFix sizeM ">수정</a>
+                        </span>
+                    </div>
+            </div>
+        </form>
+    
+    <!--testing2-->
+    
+    <!-- testing3 -->
+    
+    <form class="swiper-slide" id="BoardDelForm" name="" action="/skin-skin3/exec/front/Board/del/2" method="post" target="_self" enctype="multipart/form-data">
+        <input id="no" name="no" value="1736" type="hidden">
+        <input id="bulletin_no" name="bulletin_no" value="2003" type="hidden">
+        <input id="board_no" name="board_no" value="2" type="hidden">
+        <input id="list_url" name="list_url" value="/skin-skin3/board/free/list.html?board_no=2" type="hidden">
+        <input id="bdf_modify_url" name="bdf_modify_url" value="/skin-skin3/board/free/modify.html?board_act=edit&amp;no=1736&amp;board_no=2" type="hidden">
+        <input id="bdf_del_url" name="bdf_del_url" value="/skin-skin3/exec/front/Board/del/2" type="hidden">
+        <input id="bdf_action_type" name="bdf_action_type" value="" type="hidden"><div class="xans-element- xans-board xans-board-read-1002 xans-board-read xans-board-1002 ">
+        <!--
+                    $login_page_url = /member/login.html
+                    $deny_access_url = /board/free/list.html
+                -->
+        <div class="ec-base-table typeWrite ">
+                    <div class=" displaynone"><input id="password" name="password" fw-filter="" fw-label="비밀번호" fw-msg="" onkeydown="if (event.keyCode == 13 || event.which == 13) { return false; }" autocomplete="new-password" value="" type="password">                <span class="ec-base-help txtInfo">삭제하려면 비밀번호를 입력하세요.</span>
+                    </div>
+                    <div class="attach displaynone"></div>
+                    <div class="detail ">
+                        <button type="button" class="click-qclist">PCB 사후 처리 규정 및 확인 사항</button>
+                        <div class="fr-view fr-view-article"><div class="chattering"><ul class="left"><li><h1>입력이 불가능한 경우</h1></li><li class="content"><div class="left"><h2>1-1 스위치 체결상태 확인.</h2><p>스위치 접점부의 핀이 접혔는지 확인.</p><p>스위치 핀이 PCB 접점부와 제대로 접촉하고 있는지 확인.</p><div class="img-group"><img src="#" alt="#" class="fr-fic fr-dii"> <img src="#" alt="#" class="fr-fic fr-dii"></div><p>상세페이지를 참조하여 접점부 핀을 펴고 다시 체결합니다.</p></div><div class="right"><h2>1-2 접점부 핀이 PCB를 밀어내고 있는지 확인.</h2><p>키보드를 분해하고 PCB를 바닥에 대서 스위치를 교체합니다.<br>(오체결 및 소켓 파손 방지)</p><div class="img-group"><img src="#" alt="#" class="fr-fic fr-dii"> <img src="#" alt="#" class="fr-fic fr-dii"></div><div class="img-group"><img src="#" alt="#" class="fr-fic fr-dii"> <img src="#" alt="#" class="fr-fic fr-dii"></div><p>상세페이지를 참조하여 접점부 핀을 펴고 다시 체결합니다.</p></div></li><li class="content"><div class="left"><h2>2. 입력이 불가능한 경우</h2><p>사용하는 키보드에서 일반적인 입력이 아는 특수모드(ex. 저지연 모드) 비활성화 후 확인.</p><p>- 정상 작동하는 자리의 스위치와 문제가 있는 자리의 스위치는 교체 후 확인.</p><p>A. 입력문제가 스위치를 따라가는 경우 → 다른 키보드에 체결 후 확인 할 것.</p><p>B. 입력 문제가 지속 되는 경우 → PCB를 뒤집어서 소켓 파손 여부 확인.</p></div></li></ul></div></div></div>
+                    <div class="ec-base-button report-button">
+                        <span class="gRight">
+                            <a href="#none" class="btnNormalFix sizeS displaynone" onclick="BOARD_READ.board_report_display('2','1736');">신고</a>
+                        </span>
+                    </div>
+                </div>
+        <div class="ec-base-button gBottom gBreak ">
+                    <span class="gLeft">
+
+                        <a href="#none" onclick="BOARD_READ.article_delete('BoardDelForm','2');" class="btnNormalFix sizeM ">삭제</a>
+                        <a href="/skin-skin3/board/product/modify.html?board_act=edit&amp;no=1736&amp;board_no=2" class="btnNormalFix sizeM ">수정</a>
+                    </span>
+                </div>
+        </div>
+    </form>
+    
+    <!-- testing3-->
+    
+    <!-- testing4 -->
+    
+    <form class="swiper-slide" id="BoardDelForm" name="" action="/skin-skin3/exec/front/Board/del/2" method="post" target="_self" enctype="multipart/form-data">
+        <input id="no" name="no" value="1736" type="hidden">
+        <input id="bulletin_no" name="bulletin_no" value="2003" type="hidden">
+        <input id="board_no" name="board_no" value="2" type="hidden">
+        <input id="list_url" name="list_url" value="/skin-skin3/board/free/list.html?board_no=2" type="hidden">
+        <input id="bdf_modify_url" name="bdf_modify_url" value="/skin-skin3/board/free/modify.html?board_act=edit&amp;no=1736&amp;board_no=2" type="hidden">
+        <input id="bdf_del_url" name="bdf_del_url" value="/skin-skin3/exec/front/Board/del/2" type="hidden">
+        <input id="bdf_action_type" name="bdf_action_type" value="" type="hidden"><div class="xans-element- xans-board xans-board-read-1002 xans-board-read xans-board-1002 ">
+        <!--
+                    $login_page_url = /member/login.html
+                    $deny_access_url = /board/free/list.html
+                -->
+        <div class="ec-base-table typeWrite ">
+                    <div class=" displaynone"><input id="password" name="password" fw-filter="" fw-label="비밀번호" fw-msg="" onkeydown="if (event.keyCode == 13 || event.which == 13) { return false; }" autocomplete="new-password" value="" type="password">                <span class="ec-base-help txtInfo">삭제하려면 비밀번호를 입력하세요.</span>
+                    </div>
+                    <div class="attach displaynone"></div>
+                    <div class="detail ">
+                        <button type="button" class="click-qclist">채터링 발생 시 확인 사항</button>
+                        <div class="fr-view fr-view-article"><div class="chattering"><ul class="left">
+<li><h1>입력이 불가능한 경우</h1></li>
+<li class="content">
+<div class="left">
+<h2>1-1 스위치 체결상태 확인.</h2>
+<p>스위치 접점부의 핀이 접혔는지 확인.</p>
+<p>스위치 핀이 PCB 접점부와 제대로 접촉하고 있는지 확인.</p>
+<div class="img-group">
+<img src="#" alt="#" class="fr-fic fr-dii"> &nbsp;<img src="#" alt="#" class="fr-fic fr-dii"></div>
+<p>상세페이지를 참조하여 접점부 핀을 펴고 다시 체결합니다.</p>
+</div>
+<div class="right">
+<h2>1-2 접점부 핀이 PCB를 밀어내고 있는지 확인.</h2>
+<p>키보드를 분해하고 PCB를 바닥에 대서 스위치를 교체합니다.<br>(오체결 및 소켓 파손 방지)</p>
+<div class="img-group">
+<img src="#" alt="#" class="fr-fic fr-dii"> &nbsp;<img src="#" alt="#" class="fr-fic fr-dii"></div>
+<div class="img-group">
+<img src="#" alt="#" class="fr-fic fr-dii"> &nbsp;<img src="#" alt="#" class="fr-fic fr-dii"></div>
+<p>상세페이지를 참조하여 접점부 핀을 펴고 다시 체결합니다.</p>
+</div>
+</li>
+<li class="content"><div class="left">
+<h2>2. 입력이 불가능한 경우</h2>
+<p>사용하는 키보드에서 일반적인 입력이 아는 특수모드(ex. 저지연 모드) 비활성화 후 확인.</p>
+<p>- 정상 작동하는 자리의 스위치와 문제가 있는 자리의 스위치는 교체 후 확인.</p>
+<p>A. 입력문제가 스위치를 따라가는 경우 → 다른 키보드에 체결 후 확인 할 것.</p>
+<p>B. 입력 문제가 지속 되는 경우 → PCB를 뒤집어서 소켓 파손 여부 확인.</p>
+</div></li>
+</ul></div></div>
+</div>
+                    <div class="ec-base-button report-button">
+                        <span class="gRight">
+                            <a href="#none" class="btnNormalFix sizeS displaynone" onclick="BOARD_READ.board_report_display('2','1736');">신고</a>
+                        </span>
+                    </div>
+                </div>
+        <div class="ec-base-button gBottom gBreak ">
+                    <span class="gLeft">
+
+                        <a href="#none" onclick="BOARD_READ.article_delete('BoardDelForm','2');" class="btnNormalFix sizeM ">삭제</a>
+                        <a href="/skin-skin3/board/product/modify.html?board_act=edit&amp;no=1736&amp;board_no=2" class="btnNormalFix sizeM ">수정</a>
+                    </span>
+                </div>
+        </div>
+    </form>
+            </div>
+        </section>
+    
+    <!-- testing4-->
+<!--#ez="1/1"-->
+    
+<script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+<script src="main.js"></script>
+<script>
+    const qcswiper = new Swiper(`.swiper`, {
+      slidesPerView: 1,
+      spaceBetween: 0,
+      pagination: {
+      	el: `.guide-pagination`,
+        clickable: true,
+      }
+    });
+    
+   
+</script>

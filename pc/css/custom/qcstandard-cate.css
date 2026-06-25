@@ -1,0 +1,84 @@
+:root{
+    @font-face {
+    font-family: 'GMarketSans';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansLight.woff') format('woff');
+    font-weight: 300;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'GMarketSans';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+    font-weight: 500;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'GMarketSans';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansBold.woff') format('woff');
+    font-weight: 700;
+    font-display: swap;
+}
+
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css");
+}
+
+
+
+#manual_category {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 20px;
+    height:fit-content;
+    position:relative;
+}
+
+#manual_category .manual_category_list{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-self: flex-start;
+    gap : 30px;
+    position:absolute;
+   list-style-type: none;
+}
+
+#manual_category .manual_category_list > li {
+    list-style-type: none;
+    text-align:left;
+}
+#manual_category .manual_category_list > li:hover{
+}
+#manual_category .manual_category_list > li:hover > a {
+    transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+#manual_category .manual_category_list > li > a {
+    height:fit-content;
+    display:inline-block;
+}
+#manual_category .manual_category_list > li:hover > a > span {
+    color: #fff;
+}
+
+#manual_category .manual_category_list > li > a > span {
+    font-family: "GMarketSans";
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 40px;
+    width : 150px;
+    height : 40px;
+    border: 1px solid #000;
+    transition: background-color 0.15s ease, color 0.15s ease;
+    height:fit-content;
+    display:inline-block;
+    text-align:center;
+    
+}
+#manual_category .manual_category_list > li > a > span:hover {
+    background-color: #000;
+}
+
+.xans-board-read .ec-base-button.gBottom {
+	margin-bottom : 50px !important;
+}

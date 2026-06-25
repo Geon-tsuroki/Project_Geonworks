@@ -1,0 +1,164 @@
+/* ════════════════════════════════════════════════════════════════
+   category-list.css  —  Swiper 적용 카테고리 리스트 스타일
+   Swiper CDN (layout.html <head>에 추가 필요):
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+════════════════════════════════════════════════════════════════ */
+
+/* ── 전체 래퍼 ── */
+
+#container #contents .titleArea {
+    border-bottom: 0px solid #000 !important;
+}
+
+#manual_category {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 20px;
+    height: fit-content;
+    margin-bottom: 20px;
+}
+
+/* ── Swiper 컨테이너 ── */
+#manual_category .categorySwiper {
+    width: 100%;
+    overflow: hidden;
+}
+
+/* ── swiper-wrapper (ul) ── */
+#manual_category .manual_category_list {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+}
+
+/* ── 각 슬라이드 (li) ── */
+#manual_category .manual_category_list .swiper-slide {
+    width: auto !important;
+    flex-shrink: 0;
+    list-style: none;
+}
+
+/* ── 링크 ── */
+#manual_category .manual_category_list .swiper-slide > a {
+    height: fit-content;
+    display: inline-block;
+    text-decoration: none;
+}
+
+/* ── 태그 span ── */
+#manual_category .manual_category_list .swiper-slide > a > span {
+    font-family: "GMarketSans";
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 18px;
+    padding: 10px 30px;
+    border-radius: 60px;
+    border: 1px solid #000;
+    color: #1a1a1a;
+    white-space: nowrap;
+    display: inline-block;
+    transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+/* ── hover ── */
+#manual_category .manual_category_list .swiper-slide > a > span:hover {
+    background-color: #000;
+    color: #fff;
+}
+
+/* ── active (현재 선택된 카테고리) ── */
+#manual_category .manual_category_list .swiper-slide.active > a > span {
+    background-color: #000;
+    color: #fff;
+}
+
+/* ---- TitleArea ----*/
+
+.titleArea {
+    display:flex;
+    flex-flow : column nowrap;
+    justify-content : flex-start;
+    align-content: flex-start;
+    gap: 20px !important;
+}
+.titleArea h2 {
+	margin:0 0 !important;
+	line-height: 1.0;
+    font-family: "GMarketSans";
+    color:#222 !important;
+    
+}
+.titleArea .title h2 > font {
+	line-height: 1.0;
+    color:#222;
+}
+
+.titleArea p {
+    max-width:fit-content !important;
+    margin: 0 0 50px;
+    font-size:24px;
+    font-family: "GMarketSans";
+    color:#222;
+}
+
+/* ════════════════════════════════════════════════════════════════
+   데스크탑  (min-width: 1025px)
+════════════════════════════════════════════════════════════════ */
+
+@media (min-width: 1025px) {
+    .titleArea {
+        margin: 50px 0 0px !important;
+        text-align: center;
+    }
+}
+
+/* ════════════════════════════════════════════════════════════════
+   모바일 / 태블릿  (max-width: 1024px)
+════════════════════════════════════════════════════════════════ */
+@media all and (max-width: 1024px) {
+    
+    #manual_category {
+        display: flex;
+        flex-flow: column nowrap;
+        gap: 20px;
+        height: fit-content;
+        margin-bottom: 20px;
+    }
+
+    #manual_category .manual_category_list .swiper-slide > a > span {
+        font-size: 13px;
+        line-height: 13px;
+        padding: 6px 10px;
+    }
+    
+    .titleArea {
+        display:flex;
+        flex-flow : column nowrap;
+        justify-content : flex-start;
+        align-content: flex-start;
+        gap: 20px !important;
+        margin: 0px 0 20px !important;
+        text-align: center;
+    }
+    .titleArea h2 {
+        margin:0 0 !important;
+        line-height: 1.0;
+        font-family: "GMarketSans";
+        color:#222 !important;
+
+    }
+    .titleArea .title h2 > font {
+        line-height: 1.0;
+        color:#222;
+    }
+
+    .titleArea p {
+        max-width:fit-content !important;
+        margin: 0 0;
+        font-size:16px !important;
+        font-family: "GMarketSans";
+        color:#222;
+		
+    }
+}

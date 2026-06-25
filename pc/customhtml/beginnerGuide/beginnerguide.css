@@ -1,0 +1,221 @@
+/* ===========================
+   LAYOUT
+=========================== */
+
+#contents {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    height: fit-content;
+    margin: 0 100px !important;
+}
+
+/* ===========================
+   TITLE AREA (좌측)
+=========================== */
+
+.titleArea {
+    border-bottom: 0px !important;
+    display: flex;
+    flex-flow: column nowrap;
+    flex-shrink: 0;
+}
+
+.titleArea .title {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-content: flex-start;
+    gap: 20px;
+    border-right: 1px solid #000;
+    padding-right: 100px;
+    position: relative;
+}
+
+.titleArea .title h2 {
+    margin: 0;
+    line-height: 1.0;
+    font-family: "GMarketSans", sans-serif;
+    color: #222 !important;
+}
+
+.titleArea .title p {
+    max-width: fit-content !important;
+    margin: 0 0 10px 0;
+    font-family: "GMarketSans", sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    color: #222;
+    text-align: left;
+}
+
+/* ===========================
+   PAGINATION (좌측 하단)
+=========================== */
+
+.titleArea .pagination-wrapper {
+    position: relative;
+    width: 200px;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-content: flex-start;
+    gap: 20px;
+    border-right: 1px solid #000;
+    padding-right: 60px;
+    margin-top: 50px;
+}
+
+.guide-pagination {
+    display: flex;
+    flex-flow: column nowrap;
+    width: 260px ;
+    gap: 0;
+    position:absolute !important;
+    top:0 !important;
+}
+
+.guide-pagination .swiper-pagination-bullet {
+    border-radius: 20px;
+    height: 40px;
+    width: 100%;
+    background: #000;
+    color: #fff;
+    font-family: "GMarketSans", sans-serif;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 40px;
+    text-align: center;
+    white-space: nowrap;
+    opacity: 0.45;
+    margin-bottom: 10px !important;
+    transition: background-color 0.2s ease-in, color 0.2s ease-in, opacity 0.2s ease-in, outline 0.2s ease-in;
+    cursor: pointer;
+}
+
+.guide-pagination .swiper-pagination-bullet-active {
+     background-color: #000;
+    color: #fff;
+    outline: 1px solid #000;
+    opacity: 1;
+    font-size: 14px;
+}
+
+/* ===========================
+   SWIPER (우측)
+=========================== */
+
+#beginner_guide {
+    margin: 0;
+    overflow: hidden;
+    outline: solid 1px #000;
+    width: 65%;
+    flex-shrink: 0;
+}
+
+#beginner_guide .swiper-slide {
+    outline: solid 1px #000;
+    height: fit-content;
+}
+
+#beginner_guide .swiper-slide img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+/* ===========================
+   MOBILE ( ~ 1023px )
+=========================== */
+
+@media all and (max-width: 1024px) {
+
+    #contents {
+        flex-flow: column nowrap;
+        margin: 0 20px !important;
+    }
+
+    /* 타이틀 */
+    .titleArea {
+        width: 100%;
+    }
+
+    .titleArea .title {
+        border-right: 0;
+        border-bottom: 1px solid #000;
+        padding-right: 0;
+        padding-bottom: 20px;
+        gap: 12px;
+    }
+
+    .titleArea .title h2 {
+        font-size: 24px;
+    }
+
+    .titleArea .title p {
+        font-size: 14px;
+        margin: 0;
+        white-space:nowrap;
+    }
+
+    /* Swiper */
+    #beginner_guide {
+        width: 100%;
+        margin-top: 16px;
+        margin-bottom: 16px;
+    }
+
+    /* Pagination: 가로 방향, 숫자 표시 */
+    .titleArea .pagination-wrapper {
+        width: 100%;
+        height:fit-content;
+        overflow:visible;
+        border-right: 0;
+        padding-right: 0;
+        margin-top: 20px;
+        margin-bottom: 0;
+        padding-bottom: 16px;
+        border-bottom: 1px solid #000;
+    }
+
+    .guide-pagination {
+        flex-flow: row nowrap;
+        width: 100%;
+        gap: 8px;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        position:relative !important;
+        justify-content:center;
+        overflow:visible;
+    }
+
+    .guide-pagination::-webkit-scrollbar {
+        display: none;
+    }
+
+    .guide-pagination .swiper-pagination-bullet {
+        /* 숫자만 표시 → 정사각형에 가깝게 */
+        height: 16px;
+        width: 16px !important;
+        flex-shrink: 0;
+        font-size: 12px;
+        font-weight: 300;
+        line-height: 16px;
+        margin-bottom: 0 !important;
+        padding: 0 0px;
+        margin: 0 0 !important;
+    }
+
+    .guide-pagination .swiper-pagination-bullet-active {
+        font-size: 12px;
+        font-weight: 300;
+        background-color: #000;
+        color: #fff;
+        outline: 0px solid #000;
+        opacity: 1;
+        padding: 0 0px;
+        line-height: 16px;
+    }
+}

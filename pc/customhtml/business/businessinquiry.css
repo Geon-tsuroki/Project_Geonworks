@@ -1,0 +1,273 @@
+:root{
+    @font-face {
+    font-family: 'GMarketSans';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansLight.woff') format('woff');
+    font-weight: 300;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'GMarketSans';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+    font-weight: 500;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'GMarketSans';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansBold.woff') format('woff');
+    font-weight: 700;
+    font-display: swap;
+}
+
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css");
+}
+
+.titleArea {
+    border-bottom: 1px solid #000 !important;
+    margin: 45px 100px 0px !important;
+    padding-bottom: 40px;
+}
+
+.titleArea .title {
+    display:flex;
+    flex-flow : column nowrap;
+    justify-content : flex-start;
+    align-content: flex-start;
+}
+.titleArea .title h2 {
+	margin:0 0;
+	line-height: 1.0;
+    font-family: "GMarketSans";
+    color:#222 !important;
+    margin-bottom: 20px;
+}
+.titleArea .title h2 > font {
+	line-height: 1.0;
+}
+.titleArea .title p {
+    max-width:fit-content !important;
+    margin: 0 0;
+    font-family: "GMarketSans";
+    font-size : 16px;
+    color:#222;
+    margin-bottom: 10px;
+}
+
+.titleArea .explain {
+    width:100%;
+    text-align:left;
+    font-family:"GmarketSans";
+    font-size:24px;
+    margin-bottom:20px;
+}
+.titleArea .another_page {
+    width:100%;
+    text-align:left;
+    font-family:"GmarketSans";
+    margin-bottom:50px;
+}
+.titleArea .another_page > a {
+   	display:flex;
+   	flex-flow:row nowrap;
+    justify-content:flex-start;
+    align-items:center;
+    gap:10px;
+    font-size:18px;
+    font-weight:300;
+}
+
+#form-wrapper {
+    
+	padding : 50px 100px;
+    display :flex;
+    flex-flow:row nowrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.form-grid {
+    
+}
+
+.form-group {
+	margin-bottom: 30px;
+}
+
+.form-group > label {
+    width : 200px;
+    display:inline-block;
+    font-size : 16px;
+    font-family:"GMarketSans";
+    font-weight:500;
+    white-space : nowrap;
+    margin-bottom: 15px;
+}
+
+.form-group > input {
+    width : 700px;
+    display:inline-block;
+    padding : 20px 20px !important;
+    font-size : 16px;
+    font-family:"GMarketSans";
+    font-weight:300;
+    border-radius: 5px;
+    height:40px;
+    border:1px solid #000 !important;
+}
+
+.form-group #inquirerMessage {
+    width : 700px;
+    display:inline-block;
+    font-size : 16px;
+    font-family:"GMarketSans";
+    font-weight:300;
+    border-radius:5px;
+    
+    border:1px solid #000 !important;
+}
+
+.form-group > label > span {
+	margin-right: 30px;
+    width : 150px;
+}
+
+.right {
+	width :100%;
+    height :100%;
+    display :flex;
+    flex-flow : column nowrap;
+    justify-content : center;
+    align-items:center;
+}
+
+.right > img {
+	width : 300px;
+    height : 300px;
+    margin-bottom:20px;
+}
+
+.right > p {
+	font-size : 16px;
+    font-family : "GMarketSans";
+    font-weight: 300;
+	margin-bottom:20px;
+}
+
+.submit-btn {
+	padding: 10px 20px;
+    border:1px solid #aaa;
+    transition:background 0.1s ease-in;
+    font-family: "GMarketSans" !important;
+    font-weight:300;
+    font-size:16px;
+}
+
+.submit-btn:hover {
+	padding: 10px 20px;
+    border:1px solid #000;
+    background-color:#000;
+    color:#fff;
+}
+
+@media all and (max-width:1024px) {
+    .titleArea {
+        border-bottom: 1px solid #000 !important;
+        margin : 0px 0px 0px !important;
+        padding-bottom: 40px;
+    }
+    .titleArea .title h2 {
+        margin:0 0;
+        line-height: 1.0;
+        font-family: "GMarketSans";
+        color:#222 !important;
+        margin-bottom: 20px;
+        font-size:24px;
+    }
+    .titleArea .title p {
+        max-width:fit-content !important;
+        margin: 0 0;
+        font-family: "GMarketSans";
+        font-size : 14px;
+        color:#222;
+        margin-bottom: 10px;
+    }
+    #form-wrapper {
+        padding: 20px 0px;
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .form-group > label {
+        width: 200px;
+        display: inline-block;
+        font-size: 14px;
+        font-family: "GMarketSans";
+        font-weight: 500;
+        white-space: nowrap;
+        margin-bottom: 15px;
+    }
+    .form-group > input {
+        width: 100%;
+        display: inline-block;
+        padding: 20px 20px !important;
+        font-size: 14px;
+        font-family: "GMarketSans";
+        font-weight: 300;
+        border-radius: 5px;
+        height: 30px !important;
+        border: 1px solid #000 !important;
+    }
+    .form-group {
+        margin-bottom: 10px;
+    }
+    .submit-btn {
+        padding: 10px 20px;
+        border: 1px solid #aaa;
+        transition: background 0.1s ease-in;
+        font-family: "GMarketSans" !important;
+        font-weight: 300;
+        font-size: 14px;
+    }
+    .form-group #inquirerMessage {
+        width: 100%;
+        display: inline-block;
+        font-size: 14px;
+        font-family: "GMarketSans";
+        font-weight: 300;
+        border-radius: 5px;
+        border: 1px solid #000 !important;
+    }
+    
+    .right {
+        width :100%;
+        height :100%;
+        display :flex;
+        flex-flow : column nowrap;
+        justify-content : center;
+        align-items:center;
+        margin-top :20px;
+    }
+
+    
+    .right > p {
+    	text-align:center;
+        font-size:12px;
+    }
+    .right > img {
+        width: 150px;
+        height: 150px;
+        margin-bottom: 20px;
+	}
+    
+    .submit-btn {
+        padding: 10px 15px;
+        border:1px solid #aaa;
+        transition:background 0.1s ease-in;
+        font-family: "GMarketSans" !important;
+        font-weight:300;
+        font-size:12px;
+    }
+    
+}

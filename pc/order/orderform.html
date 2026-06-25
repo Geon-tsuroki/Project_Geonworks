@@ -1,0 +1,337 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=yes">
+    <title>주문서 작성</title>
+	<!--@css(/layout/basic/css/form_onetouch.css)-->
+    <!--@css(/css/module/order/ec_orderform/form_onetouch.css)-->
+    <!-- 사용자 스타일 수정이 필요한 경우, 신규 CSS 파일을 추가하여 #userStyle #mCafe24Order { } 셀렉터로 처리 가능합니다. -->
+
+    <!-- 스마트디자인에서는 JQuery 1.4.4 버전이 내장되어있습니다. 추가로 호출하면 충돌이 생길 수 있습니다. -->
+    <!--@js(/layout/basic/js/common.js)-->
+    <!--@js(/js/module/order/ec_orderform/orders.js)-->
+</head>
+<body id="userStyle">
+    <!-- [상단영역] -->
+    <!--@import(/order/ec_orderform/header.html)-->
+
+    <div id="mCafe24Order" class="typeHeader" module="Order_form" unroll="1">
+        <!-- 이값은 지우면 안되는 값입니다. ($move_order_after 주문완료페이지 주소 / $move_basket 장바구니페이지 주소)
+            $move_order_after=/order/order_result.html
+            $move_basket=/order/basket.html
+            $paymethod_selector = textButton
+            $email_type=emailcompact
+            $product_weight_display=F
+        -->
+
+        <!-- [바로구매 주문상품] -->
+        <!--@import(/order/ec_orderform/product_detail.html)-->
+
+        <!-- [주문배송정보] 주문자정보, 배송지정보, 배송정보 -->
+        <!--@import(/order/ec_orderform/billingNshipping.html)-->
+
+        <!-- [추가정보입력] 추가입력, 기타문의사항 -->
+        <!--@import(/order/ec_orderform/additionalInput.html)-->
+
+        <!-- [주문상품] -->
+        <!--@import(/order/ec_orderform/orderProduct.html)-->
+
+        <!-- [사은품] -->
+        <div id="{$gift_orderform_id}">
+            <!--@import(/order/ec_orderform/gift.html)-->
+        </div>
+
+        <!-- [할인/부가결제] 할인/부가결제, 자동 할인내역 레이어 팝업 -->
+        <!--@import(/order/ec_orderform/discount.html)-->
+
+        <!-- [결제정보] -->
+        <!--@import(/order/ec_orderform/payment.html)-->
+
+        <!-- [결제수단] -->
+        <!--@import(/order/ec_orderform/paymethod.html)-->
+
+        <!-- [적립 혜택] -->
+        <!--@import(/order/ec_orderform/benefit.html)-->
+
+        <!-- [약관동의] -->
+        <!--@import(/order/ec_orderform/agreement.html)-->
+
+        <div class="ec-base-button gFull" id="orderFixItem">
+            <button type="button" class="btnSubmit" id="{$btn_payment_id}">
+                {$total_order_price_front_head}<span id="{$total_order_price_front_id}">{$total_order_price_front}</span>{$total_order_price_front_tail} <span class="{$subscription_hide_display|display}">결제하기</span><span class="{$subscription_show_display|display}">정기배송 신청하기</span>
+            </button>
+        </div>
+
+        <div class="helpArea">
+            <ul class="ec-base-help typeDash">
+                <li class="{$subscription_show_display|display}"><span class="txtEm">상기 금액은 결제 시점의 금액과 다를 수 있습니다.</span></li>
+                <li>무이자할부가 적용되지 않은 상품과 무이자할부가 가능한 상품을 동시에 구매할 경우 전체 주문 상품 금액에 대해 무이자할부가 적용되지 않습니다. 무이자할부를 원하시는 경우 장바구니에서 무이자할부 상품만 선택하여 주문하여 주시기 바랍니다.</li>
+                <li>최소 결제 가능 금액은 결제금액에서 배송비를 제외한 금액입니다.</li>
+            </ul>
+        </div>
+
+        <!-- [주문 정보 확인 레이어팝업] -->
+        <!--@import(/order/ec_orderform/confirm.html)-->
+
+        <iframe id="{$payment_proc_id}" name="h_payment" width="0" height="0" src="" title="" style="border:none;"></iframe>
+        <input type="hidden" id="sPrdName" name="sPrdName" value="{$sPrdName}">
+    </div>
+    <div id="progressPaybar" style="display:none;">
+        <div id="progressPaybarBackground" class="layerProgress"></div>
+        <div id="progressPaybarView">
+            <p class="graph">현재 결제가 진행중입니다.</p>
+            <p class="txt">
+                본 결제 창은 결제완료 후 자동으로 닫히며, <br />
+                결제 진행 중에 본 결제 창을 닫으시면<br />
+                주문이 되지 않으니 <br />
+                결제 완료 될 때 까지 닫지 마시기 바랍니다.
+            </p>
+        </div>
+    </div>
+</body>
+</html>
+<!-- 퀵계좌오공 뒷단: 혜택 뱃지 + 포기방지 레이어 (예금주명 퍼널 재노출 보완) -->
+<script>
+  let discountRate = 0.3; // ✅ 할인율 입력
+  let promoStart = new Date('2025-11-06'); // ✅ 시작일
+  let promoEnd = new Date('2026-05-05');   // ✅ 종료일
+  let cancelLayerShown = false; // ✅ 포기방지 레이어 1회만
+  document.addEventListener('DOMContentLoaded', function () {
+    fillAccountHolderName();
+    checkQuickTransfer();
+    toggleOffRecentPayMethod();
+    createCancelLayer(); // ✅ 포기방지 레이어 생성
+    const payMethodRadios = document.querySelectorAll('input[name="addr_paymethod"]');
+    let previousPayMethod = "tcash";
+    payMethodRadios.forEach(radio => {
+      radio.addEventListener('change', function () {
+      const currentSelected = document.querySelector('input[name="addr_paymethod"]:checked')?.value;
+      if (
+        previousPayMethod === "tcash" &&
+          currentSelected !== "tcash" &&
+          currentSelected !== "toss" && // ✅ toss일 경우 무시
+        !cancelLayerShown
+        ){
+      showCancelLayer();
+      cancelLayerShown = true;
+    }
+    
+    previousPayMethod = currentSelected;
+  });
+});
+    addQuickTransferBenefitBadge(promoStart, promoEnd, discountRate);// ✅ 퀵계좌 뱃지
+    //addCardBadge(); // ✅ 카드결제 뱃지
+    //addTossBenefitBadge(); // ✅ 토스페이 뱃지
+  });
+  function isInPromotionPeriod() {
+    const now = new Date();
+    return now >= promoStart && now <= promoEnd;
+  }
+  function addQuickTransferBenefitBadge(start, end, rate) {
+    const today = new Date();
+    const isInPromotion = today >= start && today <= end;
+    const tcashInputElements = document.querySelectorAll('input[value="tcash"]');
+    tcashInputElements.forEach(input => {
+      const label = document.querySelector(`label[for="${input.id}"]`);
+      if (label && !label.querySelector('span')) {
+        const badge = document.createElement('span');
+        badge.textContent = isInPromotion && rate
+          ? `✔ ${rate}% 즉시할인`
+          : '✔ 30% 소득공제';
+          Object.assign(badge.style, {
+            backgroundColor: "#eaf2ff",
+            color: "#007bff",
+            borderRadius: "5px",
+            padding: "3px 3px",              // ✅ 상하 여백 제거, 좌우만
+            marginLeft: "6px",
+            fontWeight: "bold",
+            display: "inline-flex",
+            alignItems: "center",
+            fontSize: "14px",
+            lineHeight: "1.5"              // ✅ 텍스트 위아래 균형
+          });
+        label.appendChild(badge);
+      }
+    });
+  }
+  function addCardBadge() {
+    const cardInputs = document.querySelectorAll('input[value="card"]');
+    cardInputs.forEach(input => {
+      const label = document.querySelector(`label[for="${input.id}"]`);
+      if (label && !label.querySelector('span')) {
+        const badge = document.createElement('span');
+        badge.textContent = '✔ 12개월 무이자 이벤트';
+        Object.assign(badge.style, {
+          backgroundColor: "#FDEDEA",
+          color: "#C6362E",
+          borderRadius: "5px",
+          padding: "2px 2px",
+          marginLeft: "6px",
+          fontWeight: "bold",
+          display: "inline-flex",
+          alignItems: "center",
+          fontSize: "12px",
+          lineHeight: "1.4"
+        });
+        label.appendChild(badge);
+      }
+    });
+  }
+  function addTossBenefitBadge() {
+      const tossInputElements = document.querySelectorAll('input[value="toss"]');
+      tossInputElements.forEach(input => {
+        const label = document.querySelector(`label[for="${input.id}"]`);
+        if (label && !label.querySelector('.badge-toss')) {
+          const badge = document.createElement('span');
+          badge.className = 'badge-toss';
+          badge.textContent = '✔ 5만원 이상 결제 시 3천원 적립';
+          Object.assign(badge.style, {
+            backgroundColor: "#f2f0fc",
+            color: "#5c40c9",
+            borderRadius: "5px",
+            padding: "2px 2px",
+            marginLeft: "6px",
+            fontWeight: "bold",
+            display: "inline-flex",
+            alignItems: "center",
+            fontSize: "14px",
+            lineHeight: "1.5"
+          });
+          label.appendChild(badge);
+        }
+      });
+    }
+    
+  function createCancelLayer() {
+    if (document.getElementById('quick-cancel-layer')) return;
+    const layer = document.createElement('div');
+    layer.id = 'quick-cancel-layer';
+    const benefitText = isInPromotionPeriod() && discountRate
+      ? `<strong>${discountRate}% 즉시할인</strong>과 <strong>소득공제</strong>`
+      : `<strong>소득공제</strong>`;
+    layer.innerHTML = `
+      <div class="quick-cancel-backdrop"></div>
+      <div class="quick-cancel-modal">
+        <p><strong style="font-size: 16px;">초간편 퀵계좌이체 혜택</strong></p>
+        <p style="margin: 10px 0; font-size: 14px; color: #555;">
+          퀵계좌이체로 결제하고<br>${benefitText}<br>혜택을 경험해보세요.
+        </p>
+        <div class="quick-cancel-btns">
+          <button id="cancel-proceed">다른 결제수단</button>
+          <button id="cancel-stay">계속 혜택받기</button>
+        </div>
+      </div>
+    `;
+    document.body.appendChild(layer);
+    document.getElementById('cancel-stay').onclick = function () {
+      const tcashRadio = document.querySelector('input[value="tcash"]');
+      if (tcashRadio) {
+        tcashRadio.checked = false; // reset
+        tcashRadio.click(); // trigger 다시
+      }
+      hideCancelLayer();
+    };
+    document.getElementById('cancel-proceed').onclick = function () {
+      hideCancelLayer();
+    };
+  }
+  function showCancelLayer() {
+    document.getElementById('quick-cancel-layer').style.display = 'block';
+  }
+  function hideCancelLayer() {
+    document.getElementById('quick-cancel-layer').style.display = 'none';
+  }
+  function fillAccountHolderName() {
+    const rname = document.getElementById('rname');
+    const allat = document.getElementById('allat_account_nm');
+    const deliveryName = document.getElementById('ec-shop-deliveryInfoName');
+    if (rname && allat) {
+      allat.value = rname.value;
+    } else if (deliveryName && allat) {
+      allat.value = deliveryName.textContent;
+    }
+  }
+  function checkQuickTransfer() {
+    const tcashRadio = document.querySelector('input[value="tcash"]');
+    if (tcashRadio && !tcashRadio.checked) {
+      tcashRadio.checked = true;
+      document.querySelectorAll('input[name="addr_paymethod"]').forEach(radio => {
+        if (radio.value !== 'tcash') {
+          radio.checked = false;
+        }
+      });
+    }
+  }
+  function toggleOffRecentPayMethod() {
+    const newPay = document.getElementById('paymethod-new');
+    const recent = document.querySelector('.ec-paymethod-recentArea');
+    const newArea = document.querySelector('.ec-paymethod-newArea');
+    if (recent && newPay && newArea) {
+      recent.style.display = "none";
+      newPay.checked = true;
+      newArea.classList.add('selected');
+    }
+  }
+</script>
+<style>
+#quick-cancel-layer {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+}
+.quick-cancel-backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+}
+.quick-cancel-modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  padding: 24px 20px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  max-width: 320px;
+  word-break: keep-all;
+}
+.quick-cancel-modal p:first-child strong {
+  font-size: 16px;
+}
+.quick-cancel-btns {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 16px;
+  gap: 8px;
+}
+.quick-cancel-btns button {
+  flex: 1;
+  padding: 10px;
+  min-width: 0;
+  white-space: nowrap;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+}
+#cancel-stay {
+  background-color: #007bff;
+  color: #fff;
+}
+#cancel-proceed {
+  background-color: #eee;
+  color: #333;
+}
+</style>
+

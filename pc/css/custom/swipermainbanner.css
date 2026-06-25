@@ -1,0 +1,113 @@
+#main-banner .morenvy-banner-area {width:100vw; height:84vh;}
+#main-banner .morenvy-banner-area .morenvy-banner {
+	position:relative;
+}
+#main-banner .morenvy-banner-area .morenvy-banner .banner-content {
+	position:absolute;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+}
+#main-banner .morenvy-banner-area .morenvy-banner > img {
+	object-fit: cover;
+  	object-position: center;
+    transform-origin: center center;
+    width: 100%;
+    height: 100%;
+}
+
+
+#main-banner .morenvy-banner-area .morenvy-banner .banner-content .buynow_btn {
+    font-size: 16px;
+    font-family:"GmarketSans" !important;
+    font-weight:300;
+    position:absolute;
+    right: 100px;
+    bottom:190px;
+}
+#main-banner .morenvy-banner-area .morenvy-banner .banner-content .buynow_btn > a {
+    
+    white-space:nowrap;
+	color :#fff;
+    transition: color, background-color 0.15s ease-in-out;
+    border : 1px solid #fff;
+	padding:15px 20px;
+    right: 0;
+    bottom:0;
+}
+
+#main-banner .morenvy-banner-area .morenvy-banner .banner-content .buynow_btn > a:hover {
+	background-color: #fff;
+    color: #000;
+}
+
+#main-banner .morenvy-banner-area .morenvy-banner .banner-content .Information {
+	display:flex;
+    flex-flow :column nowrap;
+    justify-content:flex-end;
+    align-items:flex-end;
+    position:absolute;
+    width:fit-content;
+    right:100px;
+    bottom:50px;
+}
+
+#main-banner .morenvy-banner-area .morenvy-banner .banner-content .Information > h1 {
+	color: #fff;
+    white-space:nowrap;
+    padding-bottom: 10px;
+    font-size:40px;
+    font-family:"GmarketSans" !important;
+    font-weight:300;
+}
+#main-banner .morenvy-banner-area .morenvy-banner .banner-content .Information .banner-time {
+	white-space:nowrap;
+    padding-top: 10px;
+    border-top:1px solid #fff;
+}
+#main-banner .morenvy-banner-area .morenvy-banner .banner-content .Information .banner-time > span {
+	color: #fff;
+    white-space:nowrap;
+    font-size:24px;
+    font-family:"GmarketSans" !important;
+    font-weight:300;
+}
+
+/* Swiper(배너)관련 css custom 0428 추가 */
+#main-banner .swiper-pagination {bottom:50px; display:flex; flex-flow: row nowrap; left:50%;  transform:translateX(-50%); width:fit-content !important; overflow:hidden;}
+#main-banner .swiper-nav {width:350px; position:relative; left:50%; transform:translateX(-50%);bottom:50px;height:fit-content;}
+#main-banner .swiper-nav .banner-next {}
+#main-banner .swiper-nav .banner-prev {}
+#main-banner .swiper-pagination .swiper-pagination-bullet {width :50px; height :2px; border-radius:0px;background-color: #fff;}
+#main-banner .swiper-pagination .swiper-pagination-bullet-active-main {width :50px; height :2px; border-radius:0px;background-color: #fff; opacity:100%;}
+.swiper-pagination-bullets-dynamic .swiper-pagination-bullet {
+	transform: scale(1);
+    opacity:50%;
+}
+    
+
+.swiper-container-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet {
+    margin: 0 0px !important;
+}
+
+@media all and (max-width:768px) {
+    #main-banner .morenvy-banner-area {width:100vw; height:75vh;}
+	#main-banner .morenvy-banner-area .morenvy-banner .banner-content .buynow_btn {
+    	right:20px;
+        bottom: 220px;
+    }
+    
+    #main-banner .morenvy-banner-area .morenvy-banner .banner-content .Information {
+        right: 20px;
+        bottom: 100px;
+    }
+    
+    #main-banner .morenvy-banner-area .morenvy-banner .banner-content .Information > h1 {
+    	font-size: 24px;
+    }
+    
+    #main-banner .morenvy-banner-area .morenvy-banner .banner-content .Information .banner-time > span {
+    	font-size: 16px;
+    }
+}

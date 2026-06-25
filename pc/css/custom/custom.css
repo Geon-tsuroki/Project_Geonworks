@@ -1,0 +1,226 @@
+/* font */
+@font-face {
+    font-family: 'GMarketSans';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansLight.woff') format('woff');
+    font-weight: 300;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'GMarketSans';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+    font-weight: 500;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'GMarketSans';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansBold.woff') format('woff');
+    font-weight: 700;
+    font-display: swap;
+}
+
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css");
+
+/* 260417 container Custom Css */
+/* [병합/삭제] 내용이 없던 #container, #container #contents, body 선택자 제거 */
+#container #contents .titleArea { border-bottom: 1px solid #000; }
+
+/* body_footer */
+#footer {
+    border-top: 1px solid #000;
+    font-family: 'Pretendard', sans-serif;
+}
+
+#footer .inner {
+    padding: 50px 0;
+    height: fit-content;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    display: flex;
+}
+
+#footer .inner .footer_wrapper .footer_gnb {
+    list-style: none;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    font-size: 14px;
+    gap: 30px;
+    padding: 0 0 10px 0;
+    border-bottom: #000 solid 1px;
+}
+
+#footer .inner .footer_wrapper .footer_gnb > li > a {
+    font-size: 12px;
+}
+
+/* logo */
+#footer .inner .footer_wrapper .bt_logo {
+    padding: 15px 0;
+    margin-bottom: 20px !important;
+    border-bottom: 1px solid #222;
+}
+
+#footer .inner .footer_wrapper.bt_logo > a {
+    width: 100%;
+    height: 100%;
+}
+
+#footer .inner .footer_wrapper .bt_logo > a > img {
+    width: 260px;
+    height: 50px;
+    object-fit: contain;
+}
+
+/* company_info */
+#footer .inner .footer_wrapper .bt_info {
+    display: flex;
+    flex-flow: column nowrap;
+    margin: 0;
+    gap: 20px;
+}
+
+/* [병합] .bt_info h2와 .social_networking h2의 공통 폰트 스타일 통합 */
+#footer .inner .footer_wrapper .bt_info h2,
+#footer .inner .footer_company_info .right_wrapper .social_networking > h2 {
+    font-size: 12px;
+    font-weight: 600;
+    margin-block: 0 0;
+}
+
+#footer .inner .footer_wrapper .bt_info .timeAndInfo {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 10px; /* [오타 수정] gap: 10px;a -> 10px; */
+}
+
+/* right-side */
+#footer .inner .footer_company_info .right_wrapper {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: flex-end;
+    gap: 10px;
+}
+
+/* Social Networking Service */
+#footer .inner .footer_company_info .right_wrapper .social_networking {
+    border-bottom: 1px solid #222;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: flex-end;
+    gap: 10px;
+    padding-bottom: 10px;
+}
+
+#footer .inner .footer_company_info .right_wrapper .social_networking .snsicon {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 10px;
+}
+
+#footer .inner .footer_company_info .right_wrapper .social_networking .snsicon > li > a {
+    display: inline-block;
+    width: 34px;
+    height: 34px;
+}
+
+/* [병합] 분리되어 있던 .company_president_information 선택자 하나로 통합 */
+#footer .inner .footer_company_info .right_wrapper .company_president_information {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 30px;
+    font-size: 12px;
+}
+
+/* bt_cscenter */
+#footer .inner .bt_cscenter .cscenter_info {
+    margin-top: 20px;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: flex-end;
+    gap: 10px;
+    font-size: 12px;
+}
+
+
+/* ==============================================================================
+   [병합] 공통 텍스트 스타일 그룹화 (코드 최적화)
+   - 각 요소와 그 하위 span의 폰트 사이즈(13px) 및 기본 굵기(400)
+============================================================================== */
+#footer .inner .footer_wrapper .bt_info .bt_txt02,
+#footer .inner .footer_wrapper .bt_info .bt_txt02 > span,
+#footer .inner .footer_wrapper .bt_info .timeAndInfo > div > span,
+#footer .inner .footer_company_info .right_wrapper .company_president_information .company_name,
+#footer .inner .footer_company_info .right_wrapper .company_president_information .company_name > span,
+#footer .inner .footer_company_info .right_wrapper .company_president_information .president_name > span,
+#footer .inner .footer_company_info .right_wrapper > div,
+#footer .inner .footer_company_info .right_wrapper > div > span,
+#footer .inner .bt_cscenter .cscenter_info > div > span {
+    font-size: 12px;
+    font-weight: 400;
+    margin-block: 0 0;
+}
+
+/* ==============================================================================
+   [병합] 공통 하이라이트 텍스트 스타일 그룹화
+   - strong 태그를 사용하는 요소들의 굵기(600)
+============================================================================== */
+#footer .inner .footer_wrapper .bt_info .bt_txt02 > strong,
+#footer .inner .footer_wrapper .bt_info .timeAndInfo > div > span > strong,
+#footer .inner .footer_company_info .right_wrapper .company_president_information .company_name > span > strong,
+#footer .inner .footer_company_info .right_wrapper .company_president_information .president_name > span > strong,
+#footer .inner .footer_company_info .right_wrapper > div > span > strong,
+#footer .inner .bt_cscenter .cscenter_info > div > span > strong {
+    font-weight: 600;
+}
+
+
+/* -----------------------------------모바일 환경 구축-------------------------------------------*/
+@media all and (max-width:1024px) {
+    #footer .inner {
+        flex-flow: column nowrap;
+        justify-content: flex-start;
+    }
+    
+    #footer .inner .footer_wrapper .bt_info {
+        display: flex;
+        flex-flow: column nowrap;
+        margin: 0;
+        gap: 10px;
+    }
+
+    /* [병합] 모바일에서 좌측 정렬(flex-start)이 필요한 요소들 통합 */
+    #footer .inner .bt_cscenter .cscenter_info,
+    #footer .inner .footer_company_info .right_wrapper,
+    #footer .inner .footer_company_info .right_wrapper .social_networking {
+        align-items: flex-start;
+    }
+
+    #footer .inner .footer_wrapper .footer_gnb {
+        justify-content: space-between;
+        padding: 0 0;
+    }
+
+    #footer .inner .footer_wrapper .bt_logo {
+        width: 100%;
+        height: 100%;
+        display: block;
+    }
+
+    #footer .inner .footer_company_info .right_wrapper .social_networking .snsicon > li > a {
+        width: 30px;
+        height: 30px;
+    }
+}

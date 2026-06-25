@@ -1,0 +1,210 @@
+<!--@layout(/layout/basic/layout.html)-->
+<!--@css(/customhtml/firmware/firmware.css)-->
+<!--@js(/customhtml/firmware/firmware.js)-->
+
+
+<div class="firmware-wrapper">
+
+    <!-- ========================
+         좌측 / 상단 : 영상 영역
+    ========================= -->
+    <section class="video-section">
+
+        <!-- 데스크톱: 스크롤해도 고정되는 sticky 컨테이너 -->
+        <div class="video-sticky">
+
+            <!-- 타이틀 -->
+            <div class="video-title">
+                <h2>펌웨어 자료실</h2>
+                <p>PCB 별 펌웨어 자료실입니다.</p>
+            </div>
+
+            <!-- 데스크톱: 영상 2개 나란히 -->
+            <div class="video-list desktop-only morenvy-banner-area" area_id="21b3">
+                <div class="video-item morenvy-banner">
+                    <div class="video-label">{#title}</div>
+                    <div class="video-frame">
+                        <!-- 실제 영상 URL로 교체하세요 -->
+                        <iframe src="{#html}" title="펌웨어 영상 1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 모바일: Swiper 슬라이드 -->
+            <div class="video-swiper-wrapper mobile-only">
+                <div id="video-swiper" class="swiper">
+                    <div class="swiper-wrapper morenvy-banner-area" area_id="21b3">
+                        <div class="swiper-slide morenvy-banner">
+                            <div class="video-label">{#title}</div>
+                            <div class="video-frame">
+                                <iframe
+                                    src="{#html}"
+                                    title="펌웨어 영상 1"
+                                    frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen>
+                                </iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 네비게이션 버튼 -->
+                    <div class="swiper-btn">
+                        <div class="swiper-button-next">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <mask id="mask0_836_154" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
+                                    <rect width="24" height="24" fill="#D9D9D9"/>
+                                </mask>
+                                <g mask="url(#mask0_836_154)">
+                                    <path d="M8.00491 21.3079L6.94141 20.2444L15.1857 12.0001L6.94141 3.75588L8.00491 2.69238L17.3127 12.0001L8.00491 21.3079Z" fill="#1C1B1F"/>
+                                </g>
+                            </svg>
+                        </div>
+                        <div class="swiper-button-prev">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <mask id="mask0_836_148" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
+                                    <rect width="24" height="24" fill="#D9D9D9"/>
+                                </mask>
+                                <g mask="url(#mask0_836_148)">
+                                    <path d="M15.9992 21.3079L6.69141 12.0001L15.9992 2.69238L17.0627 3.75588L8.81841 12.0001L17.0627 20.2444L15.9992 21.3079Z" fill="#1C1B1F"/>
+                                </g>
+                            </svg>
+                        </div>
+                    </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ========================
+         우측 / 하단 : 게시판 영역
+         카페24 module 그대로 사용
+    ========================= -->
+    <section class="board-section">
+
+        <div class="section" module="Board_ListPackage_1002">
+
+            <div class="ec-base-table typeList">
+                <table border="1">
+                    <div class="btn-wrapper">
+                        <div class="btn-group">
+                            <div class="btn-geonworks btn-contents active">
+                                <a href="https://geonworks.cafe24.com/skin-skin4/customhtml/firmware/firmware.html?board_no=7&cate_no=2&category_no=1">
+                                    Geonworks
+                                </a>
+                            </div>
+                            <div class="btn-others btn-contents">
+                                <a href="https://geonworks.cafe24.com/skin-skin4/customhtml/firmware/firmware.html?board_no=7&category_no=2">
+                                   Collaboration
+                                </a>
+                            </div>
+                        </div>
+                        <div module="board_ButtonList_7" class="ec-base-button gBottom {$write_display|display}">
+                            <span class="gRight">
+                                <a href="/board/free/write.html{$param_write}" class="btnSubmitFix sizeM {$write_display|display}">글쓰기</a>
+                            </span>
+                    	</div>
+                    </div>
+                    <colgroup module="board_listheader_7">
+                        <col style="width:80px;">
+                        <col style="width:auto;">
+                        <col style="width:100px;" class="{$config.is_category|display}">
+                        <col style="width:90px;">
+                        <col style="width:120px;" class="{$config.use_date|display}">
+                        <col style="width:74px;" class="{$config.use_cnt|display}">
+                        <col style="width:94px;" class="{$config.is_use_point|display}">
+                    </colgroup>
+                    
+                    <tbody module="board_notice_1002" class="center">
+                        <!--
+                            $count = 10
+                            $login_page_url = /member/login.html
+                            $deny_access_url = /index.html
+                        -->
+                        <tr style="{$list_bg_color} {$list_char_color}" class="{$block_target_class}" {$block_data_attr}>
+                            <td class="chk">{$checkbox}<span class="RW">{$notice_icon}</span></td>
+                            <td class="subject left txtBreak">
+                               <strong>{$icon_re}{$icon_lock}<a href="{$link_board_detail}" style="{$link_color}" class="{$block_content_class}">{$subject}</a>{$icon_file}<span class="comment">{$comment_count}</span>{$icon_mobile}{$icon_new}{$icon_hit}</strong>
+                            </td>
+                            <td class="{$category_display|display}">{$category_name}</td>
+                            <td>{$member_icon}{$writer}</td>
+                            <td class="{$date_display|display}">{$write_date}</td>
+                            <td class="{$hit_display|display}"><span class="RTMI">조회</span> {$hit_count}</td>
+                            <td class="{$point_display|display}"><img src="//img.echosting.cafe24.com/skin/skin/board/icon-star-rating{$point_count}.svg" alt="{$point_count}점" loading="lazy" ez-prevent="img"></td>
+                        </tr>
+                        <tr style="{$list_bg_color} {$list_char_color}" class="{$block_target_class}" {$block_data_attr}>
+                            <td class="chk">{$checkbox}<span class="RW">{$notice_icon}</span></td>
+                            <td class="subject left txtBreak">
+                                <strong>{$icon_re}{$icon_lock}<a href="{$link_board_detail}" style="{$link_color}" class="{$block_content_class}">{$subject}</a>{$icon_file}<span class="comment">{$comment_count}</span>{$icon_mobile}{$icon_new}{$icon_hit}</strong>
+                            </td>
+                            <td class="{$category_display|display}">{$category_name}</td>
+                            <td>{$member_icon}{$writer}</td>
+                            <td class="{$date_display|display}">{$write_date}</td>
+                            <td class="{$hit_display|display}"><span class="RTMI">조회</span> {$hit_count}</td>
+                            <td class="{$point_display|display}"><img src="//img.echosting.cafe24.com/skin/skin/board/icon-star-rating{$point_count}.svg" alt="{$point_count}점" loading="lazy" ez-prevent="img"></td>
+                        </tr>
+                    </tbody>
+                    <tbody module="board_fixed_7" class="center">
+                        <tr style="{$list_bg_color} {$list_char_color}" class="{$block_target_class}" {$block_data_attr}>
+                            <td class="chk">{$checkbox}<span class="RW">{$fixed_icon}</span></td>
+                            <td class="subject left txtBreak">
+                                <strong>{$icon_re}{$icon_lock}<a href="{$link_board_detail}" style="{$link_color}" class="{$block_content_class}">{$subject}</a>{$icon_file}<span class="comment">{$comment_count}</span>{$icon_new}{$icon_hit}</strong>
+                            </td>
+                            <td class="{$category_display|display}">{$category_name}</td>
+                            <td>{$member_icon}{$writer}</td>
+                            <td class="{$date_display|display}">{$write_date}</td>
+                            <td class="{$hit_display|display}"><span class="RTMI">조회</span> {$hit_count}</td>
+                            <td class="{$point_display|display}"><img src="//img.echosting.cafe24.com/skin/skin/board/icon-star-rating{$point_count}.svg" alt="{$point_count}점" loading="lazy" ez-prevent="img"></td>
+                        </tr>
+                    </tbody>
+                    <tbody module="board_list_7" class="center">
+                        <tr style="{$list_bg_color} {$list_char_color}" class="{$block_target_class}" {$block_data_attr}>
+                            <td class="chk no">{$checkbox}<span class="RW">{$no}</span></td>
+                            <td class="subject left txtBreak">
+                                {$icon_re}{$icon_lock}<a href="{$link_board_detail}" style="{$link_color}" class="{$block_content_class}">{$subject}</a>{$icon_file}<span class="comment">{$comment_count}</span>{$icon_mobile}{$icon_new}{$icon_hit}
+                            </td>
+                            <td class="{$category_display|display}">{$category_name}</td>
+                            <td>{$member_icon}{$writer}</td>
+                            <td class="{$date_display|display}">{$write_date}</td>
+                            <td class="{$hit_display|display}"><span class="RTMI">조회</span> {$hit_count}</td>
+                            <td class="{$point_display|display}"><img src="//img.echosting.cafe24.com/skin/skin/board/icon-star-rating{$point_count}.svg" alt="{$point_count}점" loading="lazy" ez-prevent="img"></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p class="message {$empty_display|display}" module="board_empty_1002">{$empty_message}</p>
+            </div>
+
+        </div>
+
+        <!-- 페이지네이션 -->
+        <div module="board_paging_7" class="section ec-base-paginate typeList">
+            <a href="{$param_prev}">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <mask id="mask0_836_148" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="16" height="16">
+                    	<rect width="24" height="24" fill="#D9D9D9"/>
+                    </mask>
+                    <g mask="url(#mask0_836_148)">
+                    	<path d="M15.9992 21.3079L6.69141 12.0001L15.9992 2.69238L17.0627 3.75588L8.81841 12.0001L17.0627 20.2444L15.9992 21.3079Z" fill="#1C1B1F"/>
+                    </g>
+                </svg>
+            </a>
+            <ol>
+                <li><a href="{$param_num}" class="{$param_class}">{$page_num}</a></li>
+                <li><a href="{$param_num}" class="{$param_class}">{$page_num}</a></li>
+            </ol>
+            <a href="{$param_next}">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <mask id="mask0_836_154" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="16" height="16">
+                    	<rect width="24" height="24" fill="#D9D9D9"/>
+                    </mask>
+                    <g mask="url(#mask0_836_154)">
+                    	<path d="M8.00491 21.3079L6.94141 20.2444L15.1857 12.0001L6.94141 3.75588L8.00491 2.69238L17.3127 12.0001L8.00491 21.3079Z" fill="#1C1B1F"/>
+                    </g>
+                </svg>
+            </a>
+        </div>
+
+    </section>
+
+</div>

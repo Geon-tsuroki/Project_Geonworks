@@ -1,0 +1,145 @@
+#contents {
+    display:flex;
+    flex-flow:row nowrap;
+    justify-content : space-between;
+    align-items:flex-start;
+    height:fit-content;
+    margin: 0 100px !important;
+}
+
+#faq {
+	margin: 0 0;
+    overflow:hidden;
+    outline: solid 1px #000;
+    width: 65%;
+}
+
+#faq .swiper-wrapper {
+}
+
+#faq .swiper-wrapper .swiper-slide {
+    outline: solid 1px #000;
+    height:fit-content;
+}
+
+#faq .swiper-wrapper .swiper-slide > img {
+   
+}
+
+#container #contents .titleArea {
+    border-bottom: 0px !important;
+}
+
+.xans-element-.xans-board.xans-board-title-5.xans-board-title.xans-board-5 {
+
+}
+
+.titleArea .title {
+    display:flex;
+    flex-flow : column nowrap;
+    justify-content : flex-start;
+    align-content: flex-start;
+    gap: 20px;
+    border-right:1px solid #000;
+    padding-right: 100px;
+    position:relative;
+}
+
+.titleArea .title h2 {
+	margin:0 0;
+	line-height: 1.0;
+    font-family: "GMarketSans";
+    color:#222 !important;
+}
+
+.titleArea .title h2 > font {
+	line-height: 1.0;
+}
+
+.titleArea .title p {
+    max-width:fit-content !important;
+    margin: 0 0 50px 0;
+    font-family: "GMarketSans";
+    font-size: 18px;
+  	font-weight: 400;
+    margin-bottom:10px !important;
+    color:#222;
+    text-align:left;
+}
+
+.titleArea .explain {
+    width:100%;
+    text-align:left;
+    font-family:"GmarketSans";
+    font-size:24px;
+    margin-bottom:20px;
+}
+
+.titleArea .another_page {
+    width:100%;
+    text-align:left;
+    font-family:"GmarketSans";
+    margin-bottom:50px;
+}
+
+.titleArea .another_page > a {
+   	display:flex;
+   	flex-flow:row nowrap;
+    justify-content:flex-start;
+    align-items:center;
+    gap:10px;
+    font-size:18px;
+    font-weight:300;
+}
+
+/* Pagination */
+
+.titleArea .pagination-wrapper {
+    width : fit-content;
+    height : fit-content;
+    display:flex;
+    flex-flow : column nowrap;
+    justify-content : flex-start;
+    align-content: flex-start;
+    gap: 20px;
+    border-right:1px solid #000;
+    padding-right: 100px;
+    position:relative;
+    margin-top:50px;
+    
+}
+
+.faq-pagination {
+	position:absolute;
+    left: 0px;
+    display:flex;
+    flex-flow:column nowrap;
+    width:200px;
+    height:fit-content;
+}
+
+.faq-pagination .swiper-pagination-bullet {
+	border-radius : 0px;
+    height : 40px;
+    width:100%;
+    background : #000;
+    transition:background-color 0.2s ease-in, border 0.3s ease-in;
+    margin-bottom:10px;
+    white-space:nowrap;
+    font-family:"GMarketSans";
+    font-weight:300;
+    font-size : 16px;
+    color:#fff;
+    border-radius:0px;
+    line-height:40px;
+    opacity: 0.5;
+}
+
+.faq-pagination .swiper-pagination-bullet-active {
+    transition:background-color 0.2s ease-in, border 0.3s ease-in;
+    font-size : 16px;
+    color:#000;
+    background-color:#fff;
+    outline :1px solid #000;
+    opacity:1;
+}
