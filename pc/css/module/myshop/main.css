@@ -21,9 +21,9 @@
 /********************* PC *********************/
 @media all and (min-width:1025px) {
     /* myshop layout */
-    .myshopArea { position:relative; margin:39px 0 0; padding:0 0 210px;}
+    .myshopArea { position:relative; margin:39px 0 0; padding:0 210px; }
     /* .xans-myshop-main { position:absolute; left:0; top:0; width:200px; } */ /********************* 원본 *********************/
-    .xans-myshop-main { position:absolute; left:0; top:0; width:200px; } 
+    .xans-myshop-main { position:absolute; left:0; top:0px; width:200px; } 
 
     .xans-myshop-main .title {  font-size:30px; }
     .xans-myshop-main .subTitle { margin:50px 0 0; }

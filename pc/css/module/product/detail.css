@@ -47,7 +47,7 @@
 
 /* 0422 custom    0609 custom  */
 .xans-product-detail .infoArea  #totalProducts { border-top: 1px solid #000; }
-.xans-product-detail .infoArea  #totalProducts .option_products .option_product .right { font-size:24px; }
+.xans-product-detail .infoArea  #totalProducts .option_products .option_product .right { font-size:12px; white-space: nowrap;}
 
 /* option */
 .xans-product-detail .xans-product-option { display:block; }
@@ -173,7 +173,7 @@
 #totalProducts .quantity a { width:30px; height:30px; border:1px solid #e5e5e5; box-sizing:border-box; overflow: hidden; white-space: nowrap; text-indent: 150%; color: transparent; font-size: 1px; line-height:1px; }
 #totalProducts .quantity a:before { content: ''; position: absolute;left:10px; top: 50%; width: 9px; height: 1px; background: #000; }
 #totalProducts .quantity .up:after {content: ''; position: absolute;left: 50%; top: 50%;width: 1px;height: 9px; margin: -4px 0 0 0; background: #000;}
-#totalProducts .delete { display:inline-block; width:12px; height:12px; margin:10px 0 0 5px; vertical-align: middle; background: url(//img.echosting.cafe24.com/skin/skin/product/ico_product_delete.svg) no-repeat 0 0; }
+#totalProducts .delete { display: inline-block; width:12px; height:12px; margin:10px 0 0 10px; background: url(//img.echosting.cafe24.com/skin/skin/product/ico_product_delete.svg) no-repeat 0 0;  transform: translateY(70%);}
 #totalProducts .delete img { opacity: .00001; }
 #totalProducts tbody td .mileage { display:block; white-space:nowrap; }
 
@@ -299,7 +299,10 @@
 }
 /********************* Mobile / Tablet *********************/
 @media all and (max-width:1024px) {
-    .xans-product-detail .imgArea { margin:0 0 28px; }
+
+    .xans-product-detail .headingArea {border-bottom: 1px solid #000;}
+
+    .xans-product-detail .imgArea { padding:0 0 28px; border-bottom:1px solid #000;}
     .xans-product-detail .imgArea .prdImg img {
         width:100%;
         object-fit:fill;
@@ -316,6 +319,8 @@
     .xans-product-detail .discountMember > li { position:static; }
     .xans-product-detail .btnTooltip { position:static; }
     .differentialShipping { left:0; right:0; width:88%; margin:10px auto 0; }
+    #totalProducts > table > tbody > tr:first-child > td { width: 100%; font-size: 12px;} /* 0422 수정 */
+    #totalProducts > table > tbody > tr:first-child > td > p { font-size: 12px;} /* 0422 수정 */
 }
 
 /********************* PC *********************/
@@ -325,8 +330,8 @@
     .xans-product-detail .imgArea { display:inline-block; width:calc(100% - 620px); }
     .xans-product-detail .imgArea .prdImg { width:100%; margin:0 auto; }
     .xans-product-detail .imgArea .prdImg img { width:100%; }
-    .xans-product-detail .imgArea .listImg { position:relative; overflow:hidden; width:100%; height:94px; margin:24px 0 0; padding:0 40px; box-sizing:border-box; }
-    .xans-product-detail .imgArea .listImg .inner { position:relative; overflow:hidden; width:100%; height:94px; }
+    .xans-product-detail .imgArea .listImg { position:relative; overflow:hidden; width:100%; height:94px; margin:24px 0 ; padding:0 40px; box-sizing:border-box; }
+    .xans-product-detail .imgArea .listImg .inner { position:relative; overflow:hidden; width:calc(100% - 60px); height:94px; margin: 0 30px;}
     .xans-product-detail .imgArea .listImg ul { margin:0 -6px; }
     .xans-product-detail .imgArea .listImg li { display:inline-block; width:80px; margin:0 6px; font-size:12px; line-height:14px; vertical-align:top; }
     .xans-product-detail .imgArea .listImg li img { max-width:100%; cursor:pointer; border-radius:10px; }
@@ -537,7 +542,7 @@
 @media all and (max-width:1024px) {
     
     /* 0609 CSS 수정 */
-    .xans-product-detail .headingArea h1 { display:inline; font-size:24px !important; line-height:30px; vertical-align:middle; font-family: "GmarketSans"; font-weight:300 !important;}
+    .xans-product-detail .headingArea h1 { display:inline; font-size:20px !important; line-height:30px; vertical-align:middle; font-family: "GmarketSans"; font-weight:300 !important;letter-spacing: -0.04rem;}
     
 	/* 상세페이지 */
 	.xans-product-detail {margin-bottom:0px;}

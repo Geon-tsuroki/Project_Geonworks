@@ -2,7 +2,7 @@
 const SHEET_URL =
   'https://script.google.com/macros/s/AKfycbzo6YSBwxkgyK-SM8hAZk9Eogy5kfHOhrmbYLKS3cUxzhXzHQ3TGykhBXO40i0xNjGGBA/exec';
 
-const REFRESH_INTERVAL_MS = 60_000; // 30초마다 자동 갱신
+const REFRESH_INTERVAL_MS = 60_000; // 60초마다 자동 갱신
 
 /* ─── STATE ──────────────────────────────────────────────────────────────── */
 let allRows      = [];

@@ -127,7 +127,7 @@ body { background:none !important; }
 #totalProducts .quantity a { width:30px; height:30px; border:1px solid #e5e5e5; box-sizing:border-box; overflow: hidden; white-space: nowrap; text-indent: 150%; color: transparent; font-size: 1px; line-height:1px; }
 #totalProducts .quantity a:before { content: ''; position: absolute;left:10px; top: 50%; width: 9px; height: 1px; background: #000; }
 #totalProducts .quantity .up:after {content: ''; position: absolute;left: 50%; top: 50%;width: 1px;height: 9px; margin: -4px 0 0 0; background: #000;}
-#totalProducts .delete { display:inline-block; width:12px; height:12px; margin:10px 0 0 5px; vertical-align: middle; background: url(//img.echosting.cafe24.com/skin/skin/product/ico_product_delete.svg) no-repeat 0 0; }
+#totalProducts .delete { display:inline-block; width:12px; height:12px; margin:10px 0 0 5px; background: url(//img.echosting.cafe24.com/skin/skin/product/ico_product_delete.svg) no-repeat 0 0;}
 #totalProducts .delete img { opacity: .00001; }
 #totalProducts tbody td .mileage { display:block; white-space:nowrap; }
 #totalProducts .xans-product-fileoption {border-top:1px solid #e5e5e5;}

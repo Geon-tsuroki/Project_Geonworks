@@ -1,4 +1,6 @@
-#main-banner .morenvy-banner-area {width:100vw; height:84vh;}
+#main-banner .morenvy-banner-area {
+    width:100vw; height:88vh;
+}
 #main-banner .morenvy-banner-area .morenvy-banner {
 	position:relative;
 }

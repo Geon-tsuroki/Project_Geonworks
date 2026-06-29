@@ -37,7 +37,7 @@ body.expand #aside { left:0; }
     #aside .btnClose { top:25px; right:25px; width:18px; height:18px; }
     
     /* #aside .btnClose .icon { width:23px; height:23px; margin: -2px 0 0 -2px; } */ /* 원본 0612 CSS */
-    #aside .btnClose .icon { width:23px; height:23px; padding: 4px 0 0 4px;  }
+    #aside .btnClose .icon { width:23px; height:23px; transform: translate(-8px, -8px); rotate:45deg;}
     
     #aside .btnClose .icon:before { right:11px; height:23px; }
     #aside .btnClose .icon:after {top:11px; width:23px; }
@@ -122,14 +122,14 @@ body.expand {left:0;}
     
     display:flex;
     flex-flow:row nowrap;
-    justify-content:space-between;
+    justify-content:flex-start;
     align-items:center;
     width: 100%;
-    
+    gap:15px;
 }
 
 #aside .navigation_member .navigation_state a {
-    font-size:12px;line-height:1;color:#1a1a1a;display:flex;justify-content:;align-items:center;white-space:nowrap;
+    font-size:12px;line-height:1;color:#1a1a1a;display:flex;;align-items:center;white-space:nowrap;
 }
 
 /*========================================= #aside .navigation-menu =======================================*/
@@ -203,11 +203,11 @@ body.expand {left:0;}
 #aside .navigation-menu__category #slide_add_category ul { display:none; }
 #aside .navigation-menu__category #slide_add_category li {position:relative;margin:40px 0;}
 #aside .navigation-menu__category #slide_add_category li.selected > ul { display:block; }
-#aside .navigation-menu__category #slide_add_category li.selected .sub_cate01 { padding:0 0 0 10px; }
-#aside .navigation-menu__category #slide_add_category li.selected .sub_cate01 li {margin:20px 0;}
-#aside .navigation-menu__category #slide_add_category li.selected .sub_cate01 a.view {font-size:16px; color:#595959;}
-#aside .navigation-menu__category #slide_add_category li.selected .sub_cate01 ul { padding:0 0 0 20px; background-color:#fff;}
-#aside .navigation-menu__category #slide_add_category li.selected .sub_cate01 ul a.view {font-size:16px;color:#595959;}
+#aside .navigation-menu__category #slide_add_category .sub_cate01 { padding:0 0 0 10px; }
+#aside .navigation-menu__category #slide_add_category .sub_cate01 li {margin:20px 0;}
+#aside .navigation-menu__category #slide_add_category .sub_cate01 a.view {font-size:16px; color:#595959;} /* FIX: li.selected 의존 제거 - 닫는 애니메이션 중 폰트가 커지는 문제 방지 */
+#aside .navigation-menu__category #slide_add_category .sub_cate01 ul { padding:0 0 0 20px; background-color:#fff;}
+#aside .navigation-menu__category #slide_add_category .sub_cate01 ul a.view {font-size:16px;color:#595959;} /* FIX: li.selected 의존 제거 */
 
 /*========================================= #aside .xans-layout-multishoplist =======================================*/
 
@@ -234,19 +234,18 @@ body.expand {position:relative;height:100%; min-height:100%; overflow:hidden !im
 
 /* 0612 수정본 */
 #aside .navigation_member {
-    padding:30px 15px;
     display:flex;
     flex-flow:column nowrap;
     justify-content:flex-start;
     align-items: flex-start;
-    gap:20px;
 } 
 
 #aside .navigation_member .side_logo {display:flex;justify-content:center;align-items:center;}
 #aside .navigation_member .side_logo a {font-size:25px;}
-#aside .navigation_member .side_logo img {max-width:200px;max-height:40px;}
+#aside .navigation_member .side_logo img {margin: 15px 15px;max-width:200px;max-height:40px;transform: translateX(-5px); }
 #aside .navigation_member .navigation_state {
-    margin:10px 0;
+    padding: 15px 15px;
+    border-top: 1px solid #ebebeb;
 }
 
 /* #aside .navigation_member .navigation_state {margin:23px auto 0;} */ /* 0612 원본 */
@@ -288,9 +287,9 @@ body.expand {position:relative;height:100%; min-height:100%; overflow:hidden !im
 /* #aside .navigation-menu__category #slide_add_category li {position:relative;margin:10px 0;} 06 17 원본*/
 #aside .navigation-menu__category #slide_add_category li {position:relative;margin:20px 0; background-color:#fff;} /*0617 수정본 */
 
-#aside .navigation-menu__category #slide_add_category li.selected .sub_cate01 li {margin:5px 0;}
-#aside .navigation-menu__category #slide_add_category li.selected .sub_cate01 a.view {font-size:14px;}
-#aside .navigation-menu__category #slide_add_category li.selected .sub_cate01 ul a.view {font-size:14px;}
+#aside .navigation-menu__category #slide_add_category .sub_cate01 li {margin:5px 0;}
+#aside .navigation-menu__category #slide_add_category .sub_cate01 a.view {font-size:14px;} /* FIX: li.selected 의존 제거 */
+#aside .navigation-menu__category #slide_add_category .sub_cate01 ul a.view {font-size:14px;} /* FIX: li.selected 의존 제거 */
 
 /* 사이드 + 버튼 before,after */
 
@@ -318,7 +317,9 @@ body.expand {position:relative;height:100%; min-height:100%; overflow:hidden !im
 #aside .navigation-menu__category #slide_add_category ul {
     display: none; 
     max-height: none !important;
-    overflow: visible !important;
+    overflow: hidden !important;   /* FIX: visible -> hidden. jQuery slideUp/slideDown 애니메이션 중 적용되는
+                                       inline overflow:hidden 을 !important 가 무력화시켜, 닫히는 메뉴의
+                                       내용이 잘리지 않고 그대로 노출되며 다른 메뉴와 겹쳐 보이던 문제 수정 */
     transition: none !important;
 }
 
@@ -331,9 +332,6 @@ body.expand {position:relative;height:100%; min-height:100%; overflow:hidden !im
 #aside .navigation-menu__board .categoryList {
     display: none;
     max-height: none !important;
-    overflow: visible !important;
+    overflow: hidden !important;   /* FIX: visible -> hidden (위와 동일한 이유) */
     transition: none !important;
 }
-
-
-

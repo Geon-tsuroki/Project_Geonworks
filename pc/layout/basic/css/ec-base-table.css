@@ -34,7 +34,7 @@
   .ec-base-table td.gBorderClear { border-bottom:0; }
 
 /* Table - Empty */
-.ec-base-table .message { width : 92%; padding:56px 0; border-bottom:1px solid #e5e5e5; text-align:center; color:#6d6d6d; margin: 0 auto;}
+.ec-base-table .message { width : 100%; padding:56px 0; border-bottom:1px solid #e5e5e5; text-align:center; color:#6d6d6d; margin: 0 auto;}
 
 /* Table - typeWrite */
 .ec-base-table.typeWrite th,
@@ -183,7 +183,8 @@
     .ec-base-table.typeList {
         border-top:0;
         margin: 0 auto;
-        
+        max-width: 1760px;
+        width: 92%;
     }
     .ec-base-table.typeList th,
     .ec-base-table.typeList td { padding:15px 10px 16px; }

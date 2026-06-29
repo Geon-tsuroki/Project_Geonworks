@@ -23,7 +23,7 @@
 	/* 레이아웃 테마03 */
 	/* 상단 */
 	#header.layout3 .inner .top_nav_box {flex-wrap:nowrap; justify-content:space-between; align-items:center; width:100%; }
-	#header.layout3 .inner .top_nav_box .top_logo {flex-basis:auto;align-items:center;margin:0 60px 0 0;order:2;height:60px;justify-content:flex-start;}
+	#header.layout3 .inner .top_nav_box .top_logo {flex-basis:auto;align-items:center;margin:0 60px 0 0;order:2;height:70px;justify-content:flex-start;}
 	#header.layout3 .inner .top_nav_box .top_nav {
         top:0;
         flex-basis:auto;order:1;
@@ -96,7 +96,7 @@
 	/* 레이아웃 테마03 */
 	#header.layout3 .inner .top_nav_box .top_category > ul > li {height:80px;}
 	#header.layout3 .inner .top_nav_box .top_category > ul > li > a {line-height:78px;}
-	#header.layout3 .inner .top_nav_box .top_mypage {height:80px;}
+	#header.layout3 .inner .top_nav_box .top_mypage {height:70px;}
 	#header.layout3 .inner .top_nav_box .top_nav .eNavFold {height:80px;}
 	#header.layout3 .inner .top_nav_box .top_category .sub_cate01,
 	#header.layout3 .inner .top_nav_box .top_category .sub-category {top:80px;}
@@ -107,6 +107,6 @@
 }
 
 @media all and (max-width:1024px) {
-	#header.layout3 .inner .top_nav_box .top_mypage {height:65px;}
-	#header.layout3 .inner .top_nav_box .top_nav .eNavFold {height:65px;}
+	#header.layout3 .inner .top_nav_box .top_mypage {height:40px;}
+	#header.layout3 .inner .top_nav_box .top_nav .eNavFold {height:40px;}
 }

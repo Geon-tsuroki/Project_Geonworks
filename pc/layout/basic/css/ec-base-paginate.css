@@ -21,8 +21,28 @@
 /* typeSwipe */
 .ec-base-paginate.typeSwipe { text-align: center; }
 .ec-base-paginate.typeSwipe .prev, .ec-base-paginate.typeSwipe .next{ display: none; }
-.ec-base-paginate.typeSwipe [id*='swipe-button'] button { display: inline-block; margin: 0 7px; width: 8px; height: 8px; overflow: hidden; font-size: 1px; line-height: 0; text-indent: -9999px; border-radius: 100%; background: #000; opacity: .2; }
-.ec-base-paginate.typeSwipe [id*='swipe-button'] button.selected { opacity: 1; }
+.ec-base-paginate.typeSwipe [id*='swipe-button'] button {
+    display: inline-block;
+    margin: 0 0px;
+    width: 12px;
+    height: 1px;
+    overflow: hidden;
+    font-size: 1px;
+    line-height: 0;
+    text-indent: -9999px;
+    background: #000;
+    opacity: .2;
+
+    /* 애니메이션 추가 */
+    transition: background 0.3s ease, opacity 0.3s ease, background 0.3s ease;
+}
+
+.ec-base-paginate.typeSwipe [id*='swipe-button'] button.selected {
+    opacity: 1;
+    width: 12px; /* 선택된 버튼이 늘어나는 효과 */
+    background: #fff;
+    outline: 1px solid #000;
+}
 
 @media all and (max-width:1024px) {
     .ec-base-paginate.typeList li a {

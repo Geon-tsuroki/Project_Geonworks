@@ -45,6 +45,9 @@
 
 /********************* PC *********************/
 @media all and (min-width:1025px) {
+    #contents > .section {
+        margin: 50px auto !important;
+    }
     .cart-container { display:flex; }
     .cart-product { flex:1; }
     .cart-total { position:relative; width:300px; margin:0 0 0 47px; }

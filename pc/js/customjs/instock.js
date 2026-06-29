@@ -318,7 +318,7 @@
       .catch(function (err) {
         console.error("[GEONWORKS 재고] 데이터 로드 실패:", err);
         renderError(
-          "재고 정보를 불러오지 못했습니다. 잠시 후 다시 시도해 주세요."
+          "To be Continued... This service will open."
         );
         if (updatedEl) updatedEl.textContent = "업데이트 실패";
       })

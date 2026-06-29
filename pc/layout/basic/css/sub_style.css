@@ -413,11 +413,11 @@
 .xans-myshop-asyncbankbook .thumb {width:32px;height:32px;}
 
 /* 마이페이지 공통 */
-.myshopArea {width:calc(92% - 220px) !important;padding:0 0 0 220px !important;margin:0 auto !important;} /* 0608 CSS 수정 */
+.myshopArea {width:calc(92% - 220px) !important;padding:0 0 0 220px !important;margin:50px auto 0 !important; min-height:630px;} /* 0608 CSS 수정 */
 /* .myshopArea {width:calc(92% - 220px);max-width:calc(1230px - 220px) !important;padding:0 0 0 220px !important;margin:0 auto !important;min-height:630px;} */ /* 0608 CSS 원본 */
 .myshopArea.section_full {width:calc(100% - 220px) !important;}
 .myshopArea .titleArea--middle {margin:64px 0 16px 0;}
-.myshopArea .ec-base-prdEmpty {border-top:2px solid #1a1a1a;border-bottom:1px solid #e6e6e6;font-size:16px;color:#9a9a9a;padding:64px 0;display:flex;flex-direction:column;align-items:center;}
+.myshopArea .ec-base-prdEmpty {border-top:0px solid #1a1a1a;border-bottom:1px solid #e6e6e6;font-size:16px;color:#9a9a9a;padding:64px 0;display:flex;flex-direction:column;align-items:center;}
 .myshopArea .ec-base-prdEmpty svg {margin-bottom:16px;}
 
 /*.myshopArea .titleArea--myshop h2 {font-weight:700;}*/ /*원본*/
@@ -434,7 +434,9 @@ div.ec-base-help {margin: 20px 0 50px;;} /* ------------------------------------
 
 div.ec-base-help .inner, 
 .xans-myshop-couponserial .couponSerial,
-.xans-myshop-summary.ec-base-box.gHalf {border-top:1px solid #e5e5e5; margin : 50px 0 0;}
+.xans-myshop-summary.ec-base-box.gHalf {
+	border-top:1px solid #e5e5e5;
+	margin : 50px 0 50px;}
 div.ec-base-help ul {margin:0;}
 
 /* 마이페이지 좌측메뉴 */

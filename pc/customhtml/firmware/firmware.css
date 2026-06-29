@@ -77,7 +77,6 @@
     flex-flow: row nowrap;
     align-items: flex-start;
     width: 100%;
-    min-height: 100vh;
 }
 
 /* ===========================
@@ -90,8 +89,7 @@
     flex-shrink: 0;
     border-right: 1px solid #000;
     position: sticky;
-    top: 0;
-    height: 100vh;              /* sticky 고정 높이 */
+    top: 0;            /* sticky 고정 높이 */
     overflow-y: auto;
     scrollbar-width: none;
     -ms-overflow-style: none;
@@ -103,10 +101,11 @@
 
 /* sticky 내부 컨테이너 — 높이/스크롤 제거 (부모가 담당) */
 .video-sticky {
-    padding: 60px 40px;
+    padding: 50px 40px;
     display: flex;
     flex-flow: column nowrap;
-    gap: 40px;
+    gap: 30px;
+    overflow-y: auto;
 }
 
 /* 타이틀 */
@@ -173,8 +172,7 @@
 
 .board-section {
     width: 65%;
-    min-height: 100vh;
-    padding: 60px 50px;
+    padding: 50px 50px;
     flex-shrink: 0;
 }
 
