@@ -48,8 +48,9 @@ function checkCasePCB(c,p){
     }
   }else{r.push(chk('err','Connection',`연결 방식 정보 없음`));}
   return r;
-}
 
+}
+//return r;
 function checkCasePlate(c,pl){
   const r=[];
   c.size!==pl.size?r.push(chk('err','Size',`케이스 <b>${c.size}</b> ↔ 보강판 <b>${pl.size}</b> 불일치`)):r.push(chk('ok','Size',`<b>${c.size}</b> 일치`));

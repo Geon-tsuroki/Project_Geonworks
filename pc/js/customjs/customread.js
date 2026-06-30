@@ -115,27 +115,7 @@
             });
         });
 
-        /* ── 섹션 B 진입 버튼 추가 (섹션 A 마지막에) ── */
-        if (boardNo === '3001') {
-            var bLi = document.createElement('li');
-            bLi.classList.add('swiper-slide');
-            var bA = document.createElement('a');
-            var bUrl = '/skin-skin4/article/' + BOARD_FOLDER['3001'] + '/3001/' + SECTION_B_ARTICLES[0] + '/';
-            bA.href = bUrl;
-
-            var bSpan = document.createElement('span');
-            bSpan.textContent = SECTION_B_TITLE;
-            bA.appendChild(bSpan);
-            bLi.appendChild(bA);
-            list.appendChild(bLi);
-
-            bA.addEventListener('click', function (e) {
-                e.preventDefault();
-                if (bLi.classList.contains('active')) return;
-                /* ── 섹션 B로 전환 ── */
-                switchToSectionB(list, boardNo, SECTION_B_ARTICLES[0], bLi);
-            });
-        }
+        
 
         initSwiper();
     }

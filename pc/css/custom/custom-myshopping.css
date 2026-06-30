@@ -1,3 +1,16 @@
 .myshopArea .xans-myshop-main .consult {
     margin: 40px 0 50px;
 }
+
+#container #contents .titleArea {
+	border-bottom: 0px solid #000 !important;
+}
+
+.xans-myshop-orderstate .state {
+	border-top: 0px solid #1a1a1a !important;
+}
+
+.titleArea h3 {
+    padding-bottom:20px;
+    border-bottom: 1px solid #000 !important;
+}
