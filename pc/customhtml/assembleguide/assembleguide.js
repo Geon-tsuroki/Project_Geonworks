@@ -4,10 +4,8 @@
 =========================== */
  
 const DESKTOP_LABELS = [
-    'BUY KEYBOARD',
-    'PREPARING',
+    'COMPONENTS',
     'PCB TEST',
-    'GROUNDWORKS',
     'STABILIZER',
     'FOAM',
     'PLATE AND SWITCH',

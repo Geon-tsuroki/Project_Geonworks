@@ -151,8 +151,7 @@
 }
 
 .position-relative .button-link {
-    
-    display:none;
+    visibility: hidden;
     position: absolute;
     left : 0;
     top : 0;
@@ -166,7 +165,7 @@
 }
 
 .position-relative:hover .button-link {
-    
+    visibility: visible;
     opacity: 1;
 }
 
