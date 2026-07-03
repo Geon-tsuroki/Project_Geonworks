@@ -71,7 +71,7 @@ input[type="checkbox"]:checked::-ms-check {background:url('/SkinImg/img/checkbox
 	.xans-layout-mobileaction {top:21px;left:4%;z-index:20;}
 
 	/* Table */
-	.ec-base-table.typeList tr {padding:20px 0 19px;}
+	.ec-base-table.typeList tr {padding:10px 0 10px;}
 	.xans-board-search,
 	.xans-myshop-boardlistsearch {margin:10px 0 0px -10px;}
 	.xans-board-listpackage .ec-base-button.gBottom {margin:20px 0 0;}

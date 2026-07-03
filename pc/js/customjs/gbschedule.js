@@ -18,6 +18,7 @@ const COL = {
   gbClose:  ['G/B 마감일', 'GB 마감일', 'GB마감일'],
   saleDate: ['판매시작일', '판매 시작일'],
   shipDate: ['예상발송일', '예상 발송일'],
+  updateDate: ['갱신일자', '갱신 일자'],
   category: ['분류'],
   maker:    ['제조사'],
   status:   ['상태'],
@@ -33,11 +34,27 @@ function resolveCol(row, aliases) {
   return '';
 }
 
+/* ─── 링크 셀 헬퍼 ────────────────────────────────────────────────────────────
+   Apps Script에서 하이퍼링크가 걸린 셀은 문자열 대신
+   { text: "표시될 텍스트", url: "https://..." } 객체로 내려옴.
+   cellText  : 링크 객체든 순수 문자열이든 상관없이 "표시할 텍스트"만 추출
+   cellUrl   : 링크가 있으면 URL, 없으면 null
+──────────────────────────────────────────────────────────────────────────── */
+function cellText(val) {
+  if (val && typeof val === 'object' && 'text' in val) return val.text;
+  return val;
+}
+
+function cellUrl(val) {
+  if (val && typeof val === 'object' && 'url' in val) return val.url;
+  return null;
+}
+
 /* ─── 행 유효성 체크 ─────────────────────────────────────────────────────────
    제품명이 비어있으면 해당 행은 출력하지 않음
 ──────────────────────────────────────────────────────────────────────────── */
 function isValidRow(row) {
-  return String(resolveCol(row, COL.name)).trim() !== '';
+  return String(cellText(resolveCol(row, COL.name))).trim() !== '';
 }
 
 /* ─── FETCH (JSONP — Apps Script 리다이렉트/CORS 우회) ───────────────────── */
@@ -102,6 +119,26 @@ function startAutoRefresh() {
 }
 
 /* ─── RENDER ─────────────────────────────────────────────────────────────── */
+
+/**
+ * 셀 값(raw)을 렌더링용 HTML 문자열로 변환.
+ * - raw가 { text, url } 객체면 <a> 태그로 감싸서 반환
+ * - raw가 일반 문자열/숫자면 그대로 escape해서 반환
+ * - 값이 없으면 fallback 반환 (기본 '—')
+ */
+function renderCell(raw, cssClass = '', fallback = '—') {
+  const text = cellText(raw);
+  const url  = cellUrl(raw);
+  const escaped = esc(text);
+  const display = escaped || fallback;
+
+  if (url && escaped) {
+    const cls = cssClass ? `${cssClass} cell-link` : 'cell-link';
+    return `<a href="${esc(url)}" target="_blank" rel="noopener noreferrer" class="${cls}">${display}</a>`;
+  }
+  return display;
+}
+
 function renderTable(rows) {
   const tbody = document.getElementById('tableBody');
 
@@ -111,23 +148,25 @@ function renderTable(rows) {
   }
 
   tbody.innerHTML = rows.map((row, i) => {
-    const name     = resolveCol(row, COL.name);
-    const shipDate = resolveCol(row, COL.shipDate);
-    const saleDate = resolveCol(row, COL.saleDate);
-    const category = resolveCol(row, COL.category);
-    const maker    = resolveCol(row, COL.maker);
-    const status   = resolveCol(row, COL.status);
-    const note     = resolveCol(row, COL.note);
+    const nameRaw     = resolveCol(row, COL.name);
+    const shipDate    = cellText(resolveCol(row, COL.shipDate));
+    const saleDate    = cellText(resolveCol(row, COL.saleDate));
+    const categoryRaw = resolveCol(row, COL.category);
+    const makerRaw    = resolveCol(row, COL.maker);
+    const status      = cellText(resolveCol(row, COL.status));
+    const updateDate      = cellText(resolveCol(row, COL.updateDate));
+    const noteRaw     = resolveCol(row, COL.note);
 
     return `
       <tr style="animation-delay:${Math.min(i, 20) * 0.03}s">
-        <td><div class="product-name">${esc(name)}</div></td>
+        <td><div class="product-name">${renderCell(nameRaw)}</div></td>
         <td class="td-mono">${fmtDate(shipDate)}</td>
         <td class="td-mono">${fmtDate(saleDate)}</td>
-        <td class="td-muted">${esc(category) || '—'}</td>
-        <td class="td-muted">${esc(maker) || '—'}</td>
+        <td class="td-muted">${renderCell(categoryRaw, 'td-muted')}</td>
+        <td class="td-muted">${renderCell(makerRaw, 'td-muted')}</td>
         <td>${renderBadge(status)}</td>
-        <td class="td-note">${esc(note) || '—'}</td>
+        <td class="td-mono">${fmtDate(updateDate)}</td>
+        <td class="td-note">${renderCell(noteRaw, 'td-note')}</td>
       </tr>`;
   }).join('');
 }
@@ -135,7 +174,6 @@ function renderTable(rows) {
 function renderBadge(status) {
   if (!status) return '<span class="td-muted">—</span>';
   const s = String(status).trim();
-  if (s === 'DONE')              return `<span class="badge badge-done">DONE</span>`;
   if (s === 'In progress')       return `<span class="badge badge-progress">In progress</span>`;
   if (s === 'GB on sale')        return `<span class="badge badge-gb">GB on sale</span>`;
   if (s === 'Preparing to ship') return `<span class="badge badge-ship">Preparing to ship</span>`;
@@ -166,10 +204,9 @@ function esc(str) {
 function updateStats(rows) {
   const visible = getFilteredRows();
   document.getElementById('statShowing').textContent  = visible.length;
-  document.getElementById('statDone').textContent     = rows.filter(r => resolveCol(r, COL.status) === 'DONE').length;
-  document.getElementById('statProgress').textContent = rows.filter(r => resolveCol(r, COL.status) === 'In progress').length;
-  document.getElementById('statGB').textContent       = rows.filter(r => resolveCol(r, COL.status) === 'GB on sale').length;
-  document.getElementById('statShip').textContent     = rows.filter(r => resolveCol(r, COL.status) === 'Preparing to ship').length;
+  document.getElementById('statProgress').textContent = rows.filter(r => cellText(resolveCol(r, COL.status)) === 'In progress').length;
+  document.getElementById('statGB').textContent       = rows.filter(r => cellText(resolveCol(r, COL.status)) === 'GB on sale').length;
+  document.getElementById('statShip').textContent     = rows.filter(r => cellText(resolveCol(r, COL.status)) === 'Preparing to ship').length;
 }
 
 /* ─── FILTER ─────────────────────────────────────────────────────────────── */
@@ -179,10 +216,10 @@ function getFilteredRows() {
   const category = document.getElementById('categoryFilter')?.value ?? '';
 
   return allRows.filter(row => {
-    const name  = String(resolveCol(row, COL.name)).toLowerCase();
-    const maker = String(resolveCol(row, COL.maker)).toLowerCase();
-    const cat   = String(resolveCol(row, COL.category)).trim();
-    const st    = String(resolveCol(row, COL.status)).trim();
+    const name  = String(cellText(resolveCol(row, COL.name))).toLowerCase();
+    const maker = String(cellText(resolveCol(row, COL.maker))).toLowerCase();
+    const cat   = String(cellText(resolveCol(row, COL.category))).trim();
+    const st    = String(cellText(resolveCol(row, COL.status))).trim();
 
     const matchSearch   = !search   || name.includes(search) || maker.includes(search);
     const matchStatus   = !status   || st === status;

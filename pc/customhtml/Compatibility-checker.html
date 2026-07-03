@@ -1,107 +1,100 @@
 <!--@layout(/layout/basic/layout.html)-->
 <!--@css(/css/custom/Compatibility-checker.css)-->
 <!--@js(/customhtml/compatibility.js)-->
-<body>
+<section class="empty">
+    
+</section>
+<div class="main-wrapper">
+  
 
-<!-- PAGE TITLE -->
-<div class="page-title-wrap">
-  <div class="page-label">SERVICE</div>
-  <h1 class="page-title">호환성 체크</h1>
-  <p class="page-desc">하우징 · 보강판 · PCB를 선택하세요. 세 가지를 모두 선택하면 호환성 분석이 시작됩니다.</p>
-</div>
-
-<!-- MAIN -->
-<div class="main">
-
-  <!-- LEFT: CATEGORY PANEL -->
+  <!-- LEFT: CAT PANEL -->
   <div class="cat-panel">
-    <div class="cat-section" id="cat-section-case">
-      <div class="cat-header" id="cat-hdr-case" onclick="setPanel('case')">
-        <div class="cat-header-left">
+    <div class="cat-sec active" id="cat-sec-case">
+      <div class="cat-sec-header" onclick="setPanel('case')">
+        <div class="cat-sec-left">
           <div class="cat-num">01</div>
-          <div class="cat-info">
-            <div class="cat-label">CASE</div>
-            <div class="cat-name">하우징</div>
-            <div class="cat-sel-text empty" id="cat-sel-case">선택 안됨</div>
-          </div>
+          <div class="cat-label">CASE</div>
+          <div class="cat-name">하우징</div>
+          <div class="cat-sel-text empty" id="cat-sel-case">선택 안됨</div>
         </div>
         <div class="cat-check" id="cat-check-case"></div>
-        <div class="cat-arrow">▾</div>
       </div>
     </div>
-
-    <div class="cat-section" id="cat-section-plate">
-      <div class="cat-header" id="cat-hdr-plate" onclick="setPanel('plate')">
-        <div class="cat-header-left">
+    <div class="cat-sec" id="cat-sec-plate">
+      <div class="cat-sec-header" onclick="setPanel('plate')">
+        <div class="cat-sec-left">
           <div class="cat-num">02</div>
-          <div class="cat-info">
-            <div class="cat-label">PLATE</div>
-            <div class="cat-name">보강판</div>
-            <div class="cat-sel-text empty" id="cat-sel-plate">선택 안됨</div>
-          </div>
+          <div class="cat-label">PLATE</div>
+          <div class="cat-name">보강판</div>
+          <div class="cat-sel-text empty" id="cat-sel-plate">선택 안됨</div>
         </div>
         <div class="cat-check" id="cat-check-plate"></div>
-        <div class="cat-arrow">▾</div>
       </div>
     </div>
-
-    <div class="cat-section" id="cat-section-pcb">
-      <div class="cat-header" id="cat-hdr-pcb" onclick="setPanel('pcb')">
-        <div class="cat-header-left">
+    <div class="cat-sec" id="cat-sec-pcb">
+      <div class="cat-sec-header" onclick="setPanel('pcb')">
+        <div class="cat-sec-left">
           <div class="cat-num">03</div>
-          <div class="cat-info">
-            <div class="cat-label">PCB</div>
-            <div class="cat-name">PCB</div>
-            <div class="cat-sel-text empty" id="cat-sel-pcb">선택 안됨</div>
-          </div>
+          <div class="cat-label">PCB</div>
+          <div class="cat-name">PCB</div>
+          <div class="cat-sel-text empty" id="cat-sel-pcb">선택 안됨</div>
         </div>
         <div class="cat-check" id="cat-check-pcb"></div>
-        <div class="cat-arrow">▾</div>
       </div>
     </div>
   </div>
 
-  <!-- MIDDLE: PRODUCT GRID -->
+  <!-- FILTER PANEL -->
+  <div class="filter-panel">
+    <div class="filter-panel-header" id="filter-panel-title">FILTER</div>
+    <div class="filter-panel-body" id="filter-panel-body"></div>
+  </div>
+
+  <!-- MIDDLE: GRID -->
   <div class="grid-panel">
     <div class="grid-header">
-      <div class="grid-title" id="grid-title">하우징을 선택하세요</div>
+      <div class="grid-title-wrap" onclick="toggleCatDropdown(event)">
+        <span class="grid-title" id="grid-title-text">하우징 선택</span>
+        <span class="grid-title-arrow">▾</span>
+        <div class="cat-dropdown" id="cat-dropdown">
+          <div class="cat-dropdown-item" id="dd-case" onclick="event.stopPropagation();setPanel('case');closeCatDropdown()"><div class="cat-dropdown-dot"></div>하우징</div>
+          <div class="cat-dropdown-item" id="dd-plate" onclick="event.stopPropagation();setPanel('plate');closeCatDropdown()"><div class="cat-dropdown-dot"></div>보강판</div>
+          <div class="cat-dropdown-item" id="dd-pcb" onclick="event.stopPropagation();setPanel('pcb');closeCatDropdown()"><div class="cat-dropdown-dot"></div>PCB</div>
+        </div>
+      </div>
       <div class="grid-count" id="grid-count"></div>
+      <button class="btn-check-header" id="btn-check-compat-sm" onclick="runCompatCheck()" disabled>호환성 체크</button>
       <button class="btn-reset-header" onclick="clearAll()">선택 초기화</button>
     </div>
-    <div class="search-wrap">
-      <input class="search-input" id="search-input" type="text" placeholder="제품명 검색..." oninput="searchQ=this.value;renderGrid()">
-    </div>
-    <div class="filter-wrap" id="filter-wrap"></div>
     <div class="products-wrap" id="products-wrap"></div>
   </div>
 
   <!-- RIGHT: RESULT PANEL -->
   <div class="result-panel">
-    <div class="result-title">선택 현황 · 호환성 분석</div>
-
-    <!-- selected summary -->
-    <div class="sel-summary">
-      <div class="sel-row" id="selrow-case">
-        <div class="sel-row-cat">CASE</div>
-        <div class="sel-row-info"><div class="sel-row-empty">선택 안됨</div></div>
+    <div class="search-wrap">
+      <input class="search-input" id="search-input" type="text" placeholder="제품명 검색..." oninput="searchQ=this.value;renderGrid()">
+    </div>
+    <div class="result-scroll">
+      <div class="result-title">선택 현황 · 호환성 분석</div>
+      <div class="sel-summary">
+        <div class="sel-row" id="selrow-case"><div class="sel-row-cat">CASE</div><div class="sel-row-info"><div class="sel-row-empty">선택 안됨</div></div></div>
+        <div class="sel-row" id="selrow-plate"><div class="sel-row-cat">PLATE</div><div class="sel-row-info"><div class="sel-row-empty">선택 안됨</div></div></div>
+        <div class="sel-row" id="selrow-pcb"><div class="sel-row-cat">PCB</div><div class="sel-row-info"><div class="sel-row-empty">선택 안됨</div></div></div>
       </div>
-      <div class="sel-row" id="selrow-plate">
-        <div class="sel-row-cat">PLATE</div>
-        <div class="sel-row-info"><div class="sel-row-empty">선택 안됨</div></div>
-      </div>
-      <div class="sel-row" id="selrow-pcb">
-        <div class="sel-row-cat">PCB</div>
-        <div class="sel-row-info"><div class="sel-row-empty">선택 안됨</div></div>
+      <div id="compat-result">
+        <div class="compat-pending">부품을 2개 이상 선택하고<br>호환성 체크 버튼을 눌러주세요.</div>
       </div>
     </div>
-
-    <!-- compat results -->
-    <div id="compat-result">
-      <div class="compat-pending">
-        세 가지 부품을 모두 선택하면<br>호환성 분석이 표시됩니다.
-      </div>
+    <div class="result-footer">
+      <button class="btn-check-compat" id="btn-check-compat" onclick="runCompatCheck()" disabled>호환성 체크</button>
+      <button class="btn-clear-all" onclick="clearAll()">선택 초기화</button>
+      <button class="btn-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑ 맨 위로</button>
     </div>
-
-    <button class="btn-clear-all" onclick="clearAll()">선택 초기화</button>
   </div>
+</div>
+
+<!-- 전역 이미지 프리뷰 팝업 -->
+<div id="img-preview-popup">
+  <div class="pcard-img-preview-name" id="preview-name"></div>
+  <img id="preview-img" src="" alt="">
 </div>

@@ -38,7 +38,7 @@
 }
 
 .btn-group {
-    gap: 10px;
+    gap: 5px;
     display: flex;
     flex-flow: row nowrap;
     justify-content: flex-start;
@@ -46,10 +46,10 @@
 }
 
 .btn-wrapper .btn-contents > a {
-    font-size: 12px;
+    font-size: 10px;
     font-weight: 300;
     font-family: "GMarketSans";
-    padding: 10px 15px;
+    padding: 5px 7px;
     border: 1px solid #000;
     border-radius: 25px;
     line-height: 50px;
@@ -105,6 +105,7 @@
     flex-flow: column nowrap;
     gap: 30px;
     overflow-y: auto;
+
 }
 
 .video-title {
@@ -223,7 +224,7 @@
     border-bottom: 1px solid var(--color-border);
     font-family: var(--font-main);
     font-weight: 300;
-    font-size: 14px;
+    font-size: 12px;
     color: var(--color-black);
 }
 
@@ -315,6 +316,7 @@
 
 .video-swiper-wrapper {
     width: 100%;
+    position: relative;
 }
 
 .video-pagination {
@@ -336,15 +338,19 @@
 }
 
 .swiper-btn {
-	position:relative;
+	position:absolute;
+    width:100%;
+    height: fit-content;
+    left:0%;
+    top:50%;
 }
 
 .swiper-btn .swiper-button-next,
 .swiper-btn .swiper-button-prev {
     position: absolute;
     top: 0;
-    width: 27px;
-    height: 44px;
+    width: 30px;
+    height: 30px;
     margin-top: 0px;
     z-index: 10;
     cursor: pointer;
@@ -352,6 +358,19 @@
     background-repeat: no-repeat;
     background-position: center center;
     background-image: none !important;
+    background-color:#fff;
+    border-radius: 15px;
+    box-shadow: -1px 8px 6px -6px #555555
+}
+
+.swiper-btn .swiper-button-next svg {
+    width: 18px;
+    height: 18px;
+}
+
+.swiper-btn .swiper-button-prev svg {
+    width: 18px;
+    height: 18px;
 }
 
 .ec-base-table.typeList td {
@@ -407,13 +426,13 @@
     }
 
     .video-sticky {
-        padding: 30px 0 50px;
-        gap: 20px;
+        padding: 20px 0 10px;
+        gap: 10px;
     }
 
     .video-title h2 {
         font-size: 24px;
-        margin-bottom: 8px;
+        margin-bottom: 0px;
     }
 
     .video-title p {
@@ -427,7 +446,7 @@
     /* 게시판 섹션: 전체 너비 */
     .board-section {
         width: 100%;
-        padding: 0 0 40px;
+        padding: 20px 0 40px;
         min-height: unset;
     }
 
@@ -444,8 +463,8 @@
         margin: 0 auto;
     }
 
-    .titleArea .title h2 { font-size: 24px; }
-    .titleArea .title p  { font-size: 16px; }
+    .titleArea .title h2 { font-size: 18px; }
+    .titleArea .title p  { font-size: 14px; }
 
     .video-label {
         margin-bottom: 10px;
@@ -454,10 +473,10 @@
     .ec-base-button.gBottom .gRight [class^='btn']:first-child {
         height: fit-content;
         line-height: 1;
-        font-size: 12px;
+        font-size: 10px;
         font-weight: 300;
         font-family: "GMarketSans";
-        padding: 10px 15px;
+        padding: 5px 7px;
         border: 1px solid #000;
         border-radius: 25px;
     }
@@ -468,7 +487,7 @@
         flex-flow: row nowrap;
         justify-content: space-between;
         align-items: center;
-        padding: 10px 0;
+        padding: 0px 0;
     }
 
     .firmware-wrapper .ec-base-paginate a {

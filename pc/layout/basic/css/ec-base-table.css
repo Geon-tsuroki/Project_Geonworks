@@ -131,7 +131,7 @@
   /* .ec-base-table.typeList td.chk .boardChk { margin:5px 8px 0 8px; } */ /*=================================================원본==================================================*/
     
   .ec-base-table.typeList td.chk .boardChk {
-      margin:0 20px 0 0;
+      margin:5px 8px 0px 8px;
     } /* ==============================수정본==================================*/
     
   .ec-base-table.typeList td.chk:not(.no) .boardChk { margin:5px 8px 0px 8px }
